@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var matrix3 = document.querySelectorAll("div#matrix-3 div");
     // var selection = document.querySelectorAll("select");
     console.log(matrix1);
-    document.querySelector("#operations").onchange = () => {
+    document.querySelector(".Button1").onclick = () => {
         var selection = document.querySelector("#operations");
         if (selection.options[selection.selectedIndex].value == "+") {
             const array1 = [];
@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         document.querySelector("#matrix-3").classList.add("shadow");
     }
-    document.querySelector("#operations-2").onchange = () => {
+    document.querySelector(".Button2").onclick = () => {
         var selection_2 = document.querySelector("#operations-2");
         var matrix4 = document.querySelectorAll("div#matrix-2x2-1 input");
         var matrix5 = document.querySelectorAll("div#matrix-2x2-2 input");
@@ -221,3 +221,23 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+const Slider = document.querySelector(".Slider");
+const Switch = document.querySelector(".Switch");
+const Head1 = document.querySelector(".heading-1");
+const Container1 = document.querySelector(".container-main");
+const Calculate1 = document.querySelector(".Button1");
+const Head2 = document.querySelector(".heading-2");
+const Container2 = document.querySelector(".container-main-2");
+const Calculate2 = document.querySelector(".Button2");
+
+document.querySelector(".Slider").onclick = () => {
+    Slider.classList.toggle("Slider_Toggle")
+    Switch.classList.toggle("Switch_Toggle")
+    Head1.classList.toggle("None")
+    Container1.classList.toggle("None")
+    Calculate1.classList.toggle("None")
+    Head2.classList.toggle("Block")
+    Container2.classList.toggle("Block")
+    Calculate2.classList.toggle("Block")
+}
