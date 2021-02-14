@@ -152,4 +152,72 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
     }
+
+    document.querySelectorAll("div#matrix-1 input").forEach(function (field, index) {
+        field.onkeyup = () => {
+            setTimeout(function () {
+                console.log(index);
+                if (index === 8) {
+                    return false
+                }
+                else if (field.value !== '') {
+                    console.log(field.nextElementSibling);
+                    field.nextElementSibling.focus();
+                }
+            }, 1500);
+            // console.log(index);
+            // if(index === 8){
+            //     return false
+            // }
+            // else if(field.value !== ''){
+            //     console.log(field.nextElementSibling);
+            //     field.nextElementSibling.focus();
+            // }
+        }
+    });
+
+    document.querySelectorAll("div#matrix-2 input").forEach(function (field, index) {
+        field.onkeyup = () => {
+            setTimeout(function () {
+                console.log(index);
+                if (index === 8) {
+                    return false
+                }
+                else if (field.value !== '') {
+                    console.log(field.nextElementSibling);
+                    field.nextElementSibling.focus();
+                }
+            }, 1500);
+        }
+    });
+
+    document.querySelectorAll("div#matrix-2x2-1 input").forEach(function (field, index) {
+        field.onkeyup = () => {
+            setTimeout(function () {
+                console.log(index);
+                if (index === 3) {
+                    return false
+                }
+                else if (field.value !== '') {
+                    console.log(field.nextElementSibling);
+                    field.nextElementSibling.focus();
+                }
+            }, 1500);
+        }
+    });
+
+    document.querySelectorAll("div#matrix-2x2-2 input").forEach(function (field, index) {
+        field.onkeyup = () => {
+            setTimeout(function () {
+                console.log(index);
+                if (index === 3) {
+                    return false
+                }
+                else if (field.value !== '') {
+                    console.log(field.nextElementSibling);
+                    field.nextElementSibling.focus();
+                }
+            }, 1500);
+        }
+    });
 });
