@@ -6,12 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matrices</title>
     <link rel="stylesheet" href="./css/style.css">
+
 </head>
 <body>
     <h1 class="heading">
         Matrix Operations
     </h1>
-    <h3 class="heading-2">
+    <hr>
+    <div class="Switch" class="Switch_Toggle">
+        <input type="checkbox" id="Check">
+        <span class="Slider" class="Slider_Toggle"></span>
+    </div>
+
+    <!-- 3X3 -->
+    <h3 class="heading-1">
         3 x 3 Matrix
     </h3>
     <div class="container-main">
@@ -30,12 +38,13 @@
                 <input class="grid-items" placeholder="a9">
             </div>
         </div>
-        <div id="container-2">
+        <div id="Box">
             <select name="operate" id="operations">
                 <option value="first" disabled="disabled" selected>Select an operator</option>
                 <option value="+">Add(+)</option>
                 <option value="-">Subtract(-)</option>
                 <option value="*">Multiply(x)</option>
+                <option value="none">None</option>
             </select>
         </div>
         <div id="container-3">
@@ -72,6 +81,8 @@
             </div>
         </div>
     </div>
+
+    <!-- 2X2 -->
     <h3 class="heading-2">
         2 x 2 Matrix
     </h3>
@@ -82,12 +93,13 @@
             <input class="grid-items" placeholder="a3">
             <input class="grid-items" placeholder="a4">
         </div>
-        <div id="container-2">
+        <div id="Box2">
             <select name="operate" id="operations-2">
                 <option value="first" disabled="disabled" selected>Select an operator</option>
                 <option value="+">Add(+)</option>
                 <option value="-">Subtract(-)</option>
                 <option value="*">Multiply(x)</option>
+                <option value="none">None</option>
             </select>
         </div>
         <div class="grid-container grid-container-2x2" id="matrix-2x2-2">
@@ -104,6 +116,15 @@
             <div class="grid-items center">c2</div>
             <div class="grid-items center">c3</div>
             <div class="grid-items center">c4</div>
+        </div>
+    </div>
+
+    <div class="Buttons">
+        <div class="Button1">
+            <button id="Calculate1">Solve 3x3</button>
+        </div>
+        <div class="Button2">
+            <button id="Calculate2">Solve 2x2</button>
         </div>
     </div>
     <script src="./js/app.js"></script>
