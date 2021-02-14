@@ -4,6 +4,7 @@
 }
 body{
     background-color: #fafaff;
+    overflow: hidden;
 }
 .heading{
     color: #273469;
@@ -12,9 +13,10 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 40px;
+    padding: 20px;
 }
-.heading-2{
+
+.heading-1{
     color: #33427e;
     font-family: 'Montserrat', sans-serif;
     font-size: 2rem;
@@ -23,12 +25,23 @@ body{
     align-items: center;
     padding: 30px;
 }
+
+.heading-2{
+    color: #33427e;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    display: none;
+}
 .container-main{
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
     align-items: center;
-    margin: 20px 50px; 
+    margin: 50px 50px; 
 }
 
 #container-1{
@@ -43,19 +56,54 @@ body{
 #container-3, #container-4, #container-5{
     align-self: center;
 }
+
+#container-3{
+    margin-left: 310px;
+}
+
 #container-4{
     font-size: 25px;
 }
-#operations, #operations-2{
-    border: 1px solid white;
-    font-family: 'Montserrat', sans-serif;
-    border-radius: 5px;
-    box-shadow: 0.2rem 0.2rem 10px 0rem #e1d5ff;
-    height: 50px;
-    width: 150px;
-    align-self: center;
-    outline: none;
+
+#Box{
+    position: absolute;
+    top: 40%;
+    left: 26%;
 }
+
+#Box2{
+    position: absolute;
+    top: 33%;
+    left: 26%;
+}
+
+#operations, #operations-2{
+    background: #583d72;
+    color: #fff;
+    padding: 10px;
+    width: 250px;
+    height: 50px;
+    border: none;
+    font-size: 20px;
+    box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.5);
+    -webkit-appearance: button;
+    outline: none;
+    cursor: pointer;
+}
+
+#Box::before, #Box2::before{
+    content: '';
+    position: absolute;
+    color: #fff;
+    top: 0;
+    right: -30px;
+    width: 50px;
+    height: 50px;
+    background: #cdb9ff;
+    cursor: pointer;
+    border-radius: 0px 30px 30px 0px;
+}
+
 input{
     background-color: #e4d9ff;
 }
@@ -67,7 +115,8 @@ input:focus{
     flex-flow: row wrap;
     justify-content: space-around;
     align-items: center;
-    margin: 50px 50px; 
+    margin: 20px 50px; 
+    display: none;
 }
 .grid-container{
     display: grid;
@@ -84,6 +133,11 @@ input:focus{
     grid-template-columns: 50px 50px;
     grid-template-rows: 50px 50px;
 }
+
+#matrix-2x2-2{
+    margin-left: 310px;
+}
+
 .grid-items{
     border: 1px solid #e4d9ff;
     font-family: 'Montserrat', sans-serif;
@@ -111,4 +165,192 @@ input::placeholder{
     grid-template-rows: 70px 70px 70px;
     box-shadow: 0.4rem 0rem 0.5rem 0rem #c3abff, -0.4rem 0rem 0.5rem 0rem #c3abff;
     transition: all 0.6s;
+}
+
+.Button1{
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+.Button1::before{
+        content: '';
+        position: absolute;
+        top: 50px;
+        left: 700px;
+        width: 70%;
+        height: 70%;
+        background: #ff3b8d;
+        box-shadow: -60px -55px 0 #07b2ff;
+        border-radius: 50%;
+        animation: animate 5s linear infinite;
+}
+.Button1::after{
+        content: '';
+        position: absolute;
+        bottom: -50px;
+        left: 650px;
+        width: 70%;
+        height: 70%;
+        background: #8dff08;
+        box-shadow: 60px 55px 0 #ffeb3b;
+        border-radius: 50%;
+        animation: animate 5s linear infinite;
+}
+ @keyframes animate {
+    0%{
+        filter: blur(50px) hue-rotate(0deg);
+    }
+    100%{
+        filter: blur(50px) hue-rotate(360deg);
+    }
+}
+#Calculate1{
+    position: absolute;
+    top: 40px;
+    left: 650px;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    border-radius: 50%;
+    border: none;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-weight: 500;
+    font-size: 15px;
+    color: rgba(0,0,0,1);
+    outline: none;
+    cursor: pointer;
+}
+#Calculate1::before{
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.08);
+}
+
+.Button2{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    display: none;
+}
+.Button2::before{
+        content: '';
+        position: absolute;
+        top: 110px;
+        left: 700px;
+        width: 70%;
+        height: 70%;
+        background: #ff3b8d;
+        box-shadow: -60px -55px 0 #07b2ff;
+        border-radius: 50%;
+        animation: animate 5s linear infinite;
+}
+.Button2::after{
+        content: '';
+        position: absolute;
+        bottom: -110px;
+        left: 650px;
+        width: 70%;
+        height: 70%;
+        background: #8dff08;
+        box-shadow: 60px 55px 0 #ffeb3b;
+        border-radius: 50%;
+        animation: animate 5s linear infinite;
+}
+ @keyframes animate {
+    0%{
+        filter: blur(50px) hue-rotate(0deg);
+    }
+    100%{
+        filter: blur(50px) hue-rotate(360deg);
+    }
+}
+#Calculate2{
+    position: absolute;
+    top: 100px;
+    left: 650px;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    border-radius: 50%;
+    border: none;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-weight: 500;
+    font-size: 15px;
+    color: rgba(0,0,0,1);
+    outline: none;
+    cursor: pointer;
+}
+#Calculate2::before{
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.08);
+}
+
+.Switch{
+    width: 80px;
+    height: 40px;
+    background: #583d72;
+    border-radius: 20px;
+    position: relative;
+    left: 80%;
+    top: 20px;
+}
+
+.Switch_Toggle{
+    background: #cdb9ff;
+}
+
+#Check{
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.Slider{
+    background: #cdb9ff;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 5px;
+    bottom: 0;
+    left: 5px;
+    right: 0;
+    cursor: pointer;   
+    transition: 0.5s;
+}
+
+.Slider_Toggle{
+    background: #583d72;
+    left: 45px;
+}
+
+.None{
+    display: none;
+}
+
+.Block{
+    display: flex;
 }
