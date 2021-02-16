@@ -2,7 +2,24 @@ document.addEventListener("DOMContentLoaded", function () {
     var matrix1 = document.querySelectorAll("div#matrix-1 input");
     var matrix2 = document.querySelectorAll("div#matrix-2 input");
     var matrix3 = document.querySelectorAll("div#matrix-3 div");
-    // var selection = document.querySelectorAll("select");
+    var selectmatrix = document.querySelector("#matrix-selection");
+    selectmatrix.onchange = () => {
+        if(selectmatrix.options[selectmatrix.selectedIndex].value == "2x2"){
+            document.querySelector(".container-main").classList.add("none");
+            document.querySelector(".container-main-2").classList.remove("none");
+            document.querySelector("#matrix-label").innerText = "2 x 2 Matrix";
+        }
+        // if(selectmatrix.options[selectmatrix.selectedIndex].value == "none"){
+        //     document.querySelector(".container-main").classList.add("none");
+        //     document.querySelector(".container-main-2").classList.remove("none");
+        //     document.querySelector("#matrix-label").innerText = "2 x 2 Matrix";
+        // }
+        if(selectmatrix.options[selectmatrix.selectedIndex].value == "3x3"){
+            document.querySelector(".container-main-2").classList.add("none");
+            document.querySelector(".container-main").classList.remove("none");
+            document.querySelector("#matrix-label").innerText = "3 x 3 Matrix";
+        }
+    }
     console.log(matrix1);
     document.querySelector("#operations").onchange = () => {
         var selection = document.querySelector("#operations");
@@ -78,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 matrix3[i].innerHTML = array3[i];
             }
         }
-        document.querySelector("#matrix-3").classList.add("shadow");
+        document.querySelector("#matrix-3").classList.add("change-3x3");
     }
     document.querySelector("#operations-2").onchange = () => {
         var selection_2 = document.querySelector("#operations-2");
@@ -151,6 +168,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 matrix6[i].innerHTML = array6[i];
             }
         }
+        document.querySelector("#matrix-2x2-3").classList.add("change-2x2");
     }
 
     document.querySelectorAll("div#matrix-1 input").forEach(function (field, index) {
