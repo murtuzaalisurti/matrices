@@ -8,26 +8,45 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <h1 class="heading">
+    <div class="heading-container">
+        <h1 class="heading">
+            Matrix Operations
+        </h1>
+    </div>
+
+    <div class="below-heading-container">
+        <div class="below-heading"></div>
+    </div>
+    <!-- <h1 class="heading">
         Matrix Operations
-    </h1>
-    <h3 class="heading-2">
-        3 x 3 Matrix
+    </h1> -->
+    <h3 class="heading-for-selection">
+        Select a matrix:
     </h3>
-    <div class="container-main">
+    <div class="container-main-select">
+        <select name="matrix-select" id="matrix-selection">
+            <option value="none" disabled="disabled" selected>Select a format</option>
+            <option value="2x2">2 x 2</option>
+            <option value="3x3">3 x 3</option>
+        </select>
+    </div>
+    <h3 class="heading-2" id="matrix-label">
+        2 x 2 Matrix
+    </h3>
+    <div class="container-main none">
         <div id="container-1">
             <div class="grid-container" id="matrix-1">
-                <input class="grid-items" placeholder="a1">
-                <input class="grid-items" placeholder="a2">
-                <input class="grid-items" placeholder="a3">
+                <input class="grid-items" placeholder="a1" type="number">
+                <input class="grid-items" placeholder="a2" type="number">
+                <input class="grid-items" placeholder="a3" type="number">
         
-                <input class="grid-items" placeholder="a4">
-                <input class="grid-items" placeholder="a5">
-                <input class="grid-items" placeholder="a6">
+                <input class="grid-items" placeholder="a4" type="number">
+                <input class="grid-items" placeholder="a5" type="number">
+                <input class="grid-items" placeholder="a6" type="number">
         
-                <input class="grid-items" placeholder="a7">
-                <input class="grid-items" placeholder="a8">
-                <input class="grid-items" placeholder="a9">
+                <input class="grid-items" placeholder="a7" type="number">
+                <input class="grid-items" placeholder="a8" type="number">
+                <input class="grid-items" placeholder="a9" type="number">
             </div>
         </div>
         <div id="container-2">
@@ -40,17 +59,17 @@
         </div>
         <div id="container-3">
             <div class="grid-container" id="matrix-2">
-                <input class="grid-items" placeholder="b1">
-                <input class="grid-items" placeholder="b2">
-                <input class="grid-items" placeholder="b3">
+                <input class="grid-items" placeholder="b1" type="number">
+                <input class="grid-items" placeholder="b2" type="number">
+                <input class="grid-items" placeholder="b3" type="number">
         
-                <input class="grid-items" placeholder="b4">
-                <input class="grid-items" placeholder="b5">
-                <input class="grid-items" placeholder="b6">
+                <input class="grid-items" placeholder="b4" type="number">
+                <input class="grid-items" placeholder="b5" type="number">
+                <input class="grid-items" placeholder="b6" type="number">
         
-                <input class="grid-items" placeholder="b7">
-                <input class="grid-items" placeholder="b8">
-                <input class="grid-items" placeholder="b9">
+                <input class="grid-items" placeholder="b7" type="number">
+                <input class="grid-items" placeholder="b8" type="number">
+                <input class="grid-items" placeholder="b9" type="number">
             </div>
         </div>
         <div id="container-4">
@@ -72,15 +91,15 @@
             </div>
         </div>
     </div>
-    <h3 class="heading-2">
+    <!-- <h3 class="heading-2">
         2 x 2 Matrix
-    </h3>
+    </h3> -->
     <div class="container-main-2">
         <div class="grid-container grid-container-2x2" id="matrix-2x2-1">
-            <input class="grid-items" placeholder="a1">
-            <input class="grid-items" placeholder="a2">
-            <input class="grid-items" placeholder="a3">
-            <input class="grid-items" placeholder="a4">
+            <input class="grid-items" placeholder="a1" type="number">
+            <input class="grid-items" placeholder="a2" type="number">
+            <input class="grid-items" placeholder="a3" type="number">
+            <input class="grid-items" placeholder="a4" type="number">
         </div>
         <div id="container-2">
             <select name="operate" id="operations-2">
@@ -91,10 +110,10 @@
             </select>
         </div>
         <div class="grid-container grid-container-2x2" id="matrix-2x2-2">
-            <input class="grid-items" placeholder="b1">
-            <input class="grid-items" placeholder="b2">
-            <input class="grid-items" placeholder="b3">
-            <input class="grid-items" placeholder="b4">
+            <input class="grid-items" placeholder="b1" type="number">
+            <input class="grid-items" placeholder="b2" type="number">
+            <input class="grid-items" placeholder="b3" type="number">
+            <input class="grid-items" placeholder="b4" type="number">
         </div>
         <div id="container-4">
             =
