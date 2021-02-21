@@ -125,6 +125,92 @@
             <div class="grid-items center">c4</div>
         </div>
     </div>
+
+
+    <div class="container-main-3">
+        <h2 class="heading-misc">Miscellaneous Operations</h2>
+    </div>
+    <h3 class="heading-for-selection">
+        Select a matrix:
+    </h3>
+    <div class="container-main-select">
+        <select name="matrix-select" id="matrix-selection-misc">
+            <option value="none" disabled="disabled" selected>Select a format</option>
+            <option value="2x2">2 x 2</option>
+            <option value="3x3">3 x 3</option>
+        </select>
+    </div>
+    <h3 class="heading-2" id="matrix-label-misc">
+        2 x 2 Matrix
+    </h3>
+    <div class="container-main-misc-2x2">
+        <div class="grid-container grid-container-2x2" id="matrix-2x2-misc">
+            <input class="grid-items" placeholder="a1" type="number">
+            <input class="grid-items" placeholder="a2" type="number">
+            <input class="grid-items" placeholder="a3" type="number">
+            <input class="grid-items" placeholder="a4" type="number">
+        </div>
+        <div id="container-2">
+            <select name="operate" id="misc-operations">
+                <option value="one" disabled="disabled" selected>Select an operator</option>
+                <option value="transpose">Transpose</option>
+                <option value="inverse">Inverse</option>
+                <option value="minor">Minor</option>
+                <option value="determinant">Determinant</option>
+                <option value="adjoint">Adjoint</option>
+                <option value="cofactor">Co-factor</option>
+            </select>
+        </div>
+        <div class="grid-container grid-container-2x2" id="matrix-2x2-misc-2">
+            <div class="grid-items center">c1</div>
+            <div class="grid-items center">c2</div>
+            <div class="grid-items center">c3</div>
+            <div class="grid-items center">c4</div>
+        </div>
+    </div>
+    <div class="container-main-misc-3x3 none">
+        <div id="container-1">
+            <div class="grid-container" id="matrix-3x3-misc">
+                <input class="grid-items" placeholder="a1" type="number">
+                <input class="grid-items" placeholder="a2" type="number">
+                <input class="grid-items" placeholder="a3" type="number">
+        
+                <input class="grid-items" placeholder="a4" type="number">
+                <input class="grid-items" placeholder="a5" type="number">
+                <input class="grid-items" placeholder="a6" type="number">
+        
+                <input class="grid-items" placeholder="a7" type="number">
+                <input class="grid-items" placeholder="a8" type="number">
+                <input class="grid-items" placeholder="a9" type="number">
+            </div>
+        </div>
+        <div id="container-2">
+            <select name="operate" id="misc-operations-2">
+                <option value="one" disabled="disabled" selected>Select an operator</option>
+                <option value="transpose">Transpose</option>
+                <option value="inverse">Inverse</option>
+                <option value="minor">Minor</option>
+                <option value="determinant">Determinant</option>
+                <option value="adjoint">Adjoint</option>
+                <option value="cofactor">Co-factor</option>
+            </select>
+        </div>
+        <div id="container-5">
+            <div class="grid-container" id="matrix-3x3-misc-2">
+                <div class="grid-items center">c1</div>
+                <div class="grid-items center">c2</div>
+                <div class="grid-items center">c3</div>
+        
+                <div class="grid-items center">c4</div>
+                <div class="grid-items center">c5</div>
+                <div class="grid-items center">c6</div>
+        
+                <div class="grid-items center">c7</div>
+                <div class="grid-items center">c8</div>
+                <div class="grid-items center">c9</div>
+            </div>
+        </div>
+    </div>
     <script src="./js/app.js"></script>
 </body>
 </html>
