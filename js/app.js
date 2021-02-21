@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // basic operation variables ---------------------------------
     var matrix1 = document.querySelectorAll("div#matrix-1 input");
     var matrix2 = document.querySelectorAll("div#matrix-2 input");
     var matrix3 = document.querySelectorAll("div#matrix-3 div");
@@ -11,6 +12,18 @@ document.addEventListener("DOMContentLoaded", function () {
     var matrix6_outer = document.querySelector("#matrix-2x2-3");
     var selectmatrix = document.querySelector("#matrix-selection");
 
+    // misc operation variables -----------------------------------------
+    var matrix1_misc = document.querySelectorAll("div#matrix-2x2-misc input");
+    var matrix2_misc = document.querySelectorAll("div#matrix-2x2-misc-2 div");
+    var matrix3_misc = document.querySelectorAll("div#matrix-3x3-misc input");
+    var matrix4_misc = document.querySelectorAll("div#matrix-3x3-misc-2 div");
+    var matrix2_misc_outer = document.querySelector("#matrix-2x2-misc-2");
+    var matrix4_misc_outer = document.querySelector("#matrix-3x3-misc-2");
+    var misc_selection = document.querySelector("#misc-operations");
+    var misc_selection_2 = document.querySelector("#misc-operations-2");
+    var selectmatrixmisc = document.querySelector("#matrix-selection-misc");
+
+    // basic operation functions -------------------------------------------
     function matrixoperation3x3() {
         if (selection.options[selection.selectedIndex].value == "+") {
             const array1 = [];
@@ -86,8 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         return null;
     }
-
-    function matrixoperation2x2(){
+    function matrixoperation2x2() {
         if (selection_2.options[selection_2.selectedIndex].value == "+") {
             const array4 = [];
             for (let i = 0; i < matrix4.length; i++) {
@@ -162,24 +174,20 @@ document.addEventListener("DOMContentLoaded", function () {
             document.querySelector(".container-main-2").classList.remove("none");
             document.querySelector("#matrix-label").innerText = "2 x 2 Matrix";
         }
-        if (selectmatrix.options[selectmatrix.selectedIndex].value == "3x3") {
+        else if (selectmatrix.options[selectmatrix.selectedIndex].value == "3x3") {
             document.querySelector(".container-main-2").classList.add("none");
             document.querySelector(".container-main").classList.remove("none");
             document.querySelector("#matrix-label").innerText = "3 x 3 Matrix";
         }
     }
-
-
     selection.onchange = () => {
         matrixoperation3x3();
         matrix3_outer.classList.add("change-3x3");
     }
-
     selection_2.onchange = () => {
         matrixoperation2x2();
         matrix6_outer.classList.add("change-2x2");
     }
-
     matrix1.forEach(function (field, index) {
         field.onkeyup = () => {
             setTimeout(function () {
@@ -254,6 +262,592 @@ document.addEventListener("DOMContentLoaded", function () {
             }, 1500);
 
             matrixoperation2x2();
+        }
+    });
+
+    // misc operations functions --------------------------------------
+    function miscoperation2x2() {
+        if (misc_selection.options[misc_selection.selectedIndex].value == "transpose") {
+            const misc_array_1 = [];
+            for (let k = 0; k < matrix1_misc.length; k++) {
+                misc_array_1.push(Number(matrix1_misc[k].value));
+            }
+
+            const misc_array_2 = [];
+            misc_array_2.push(Number(misc_array_1[0]));
+            misc_array_2.push(Number(misc_array_1[2]));
+            misc_array_2.push(Number(misc_array_1[1]));
+            misc_array_2.push(Number(misc_array_1[3]));
+
+            for (let k = 0; k < matrix2_misc.length; k++) {
+                matrix2_misc[k].innerHTML = misc_array_2[k];
+            }
+        }
+        else if (misc_selection.options[misc_selection.selectedIndex].value == "inverse") {
+            const misc_array_1 = [];
+            for (let k = 0; k < matrix1_misc.length; k++) {
+                misc_array_1.push(Number(matrix1_misc[k].value));
+            }
+
+            var det = (misc_array_1[0] * misc_array_1[3]) - (misc_array_1[2] * misc_array_1[1]);
+            console.log(det);
+
+            if (det == 0) {
+                console.log("Inverse doesn't exist.");
+                for (let k = 0; k < matrix2_misc.length; k++) {
+                    matrix2_misc[k].innerHTML = "NA";
+                }
+            }
+            else {
+                const minor_array = [];
+                minor_array.push(Number(misc_array_1[3]));
+                minor_array.push(Number(misc_array_1[2]));
+                minor_array.push(Number(misc_array_1[1]));
+                minor_array.push(Number(misc_array_1[0]));
+
+                const cofactor = [];
+                cofactor.push(Number(minor_array[0]));
+                cofactor.push(Number(((-1) * minor_array[1])));
+                cofactor.push(Number(((-1) * minor_array[2])));
+                cofactor.push(Number(minor_array[3]));
+
+                const adj = [];
+                adj.push(Number(cofactor[0]));
+                adj.push(Number(cofactor[2]));
+                adj.push(Number(cofactor[1]));
+                adj.push(Number(cofactor[3]));
+
+                const numerator1 = [];
+                const denominator1 = [];
+
+                for (let k = 0; k < matrix2_misc.length; k++) {
+                    // if ((adj[k] % det) == 0) {
+                    //     matrix2_misc[k].innerHTML = adj[k] / det;
+                    // }
+                    // else {
+                    //     matrix2_misc[k].innerHTML = `${adj[k]}/${det}`;
+                    // }
+                    if ((adj[k] % det) !== 0 && (det % adj[k]) !== 0) {
+                        // console.log(adj[k] / det);
+                        if (adj[k] < 0 && det < 0) {
+                            for (let y = 0; y <= ((-1) * adj[k]) && y <= ((-1) * det); y++) {
+                                if ((((-1) * adj[k]) % y) == 0 && (((-1) * det) % y) == 0) {
+                                    var hcf1 = y;
+                                    // console.log(hcf);
+
+                                }
+                            }
+                            numerator1[k] = (adj[k] / hcf1);
+                            denominator1[k] = det / hcf1;
+
+                            if (numerator1[k] < 0 && denominator1[k] < 0) {
+                                matrix2_misc[k].innerHTML = `${(-1) * numerator1[k]}/${(-1) * denominator1[k]}`;
+                            }
+                            else {
+                                matrix2_misc[k].innerHTML = `${numerator1[k]}/${denominator1[k]}`;
+                            }
+
+                            // matrix2_misc[k].innerHTML = `${numerator1[k]}/${denominator1[k]}`;
+                        }
+                        else if (adj[k] < 0 && det > 0) {
+                            for (let y = 0; y <= ((-1) * adj[k]) && y <= det; y++) {
+                                if ((((-1) * adj[k]) % y) == 0 && (det % y) == 0) {
+                                    var hcf1 = y;
+                                    // console.log(hcf);
+
+
+                                }
+                            }
+                            numerator1[k] = (adj[k] / hcf1);
+                            denominator1[k] = det / hcf1;
+
+                            matrix2_misc[k].innerHTML = `${numerator1[k]}/${denominator1[k]}`;
+                        }
+                        else if (adj[k] > 0 && det < 0) {
+                            for (let y = 0; y <= adj[k] && y <= ((-1) * det); y++) {
+                                if ((adj[k] % y) == 0 && (((-1) * det) % y) == 0) {
+                                    var hcf1 = y;
+                                    // console.log(hcf);
+
+                                }
+                            }
+                            numerator1[k] = (adj[k] / hcf1);
+                            // console.log(numerator);
+                            denominator1[k] = ((-1) * det) / hcf1;
+                            matrix2_misc[k].innerHTML = `-${numerator1[k]}/${denominator1[k]}`;
+                        }
+                        else if (adj[k] > 0 && det > 0) {
+                            for (let y = 0; y <= adj[k] && y <= det; y++) {
+                                if ((adj[k] % y) == 0 && (det % y) == 0) {
+                                    var hcf1 = y;
+                                    // console.log(hcf);
+
+                                }
+                            }
+                            numerator1[k] = (adj[k] / hcf1);
+                            denominator1[k] = det / hcf1;
+
+                            matrix2_misc[k].innerHTML = `${numerator1[k]}/${denominator1[k]}`;
+                        }
+
+                    }
+                    else if ((adj[k] % det) == 0) {
+                        matrix2_misc[k].innerHTML = adj[k] / det;
+                    }
+                    else if (det % adj[k] == 0) {
+                        if (adj[k] < 0 && det > 0) {
+                            matrix2_misc[k].innerHTML = `-1/${(-1) * (det / adj[k])}`;
+                        }
+                        else if (adj[k] > 0 && det < 0) {
+                            matrix2_misc[k].innerHTML = `-1/${(-1) * (det / adj[k])}`;
+                        }
+                        else {
+                            matrix2_misc[k].innerHTML = `1/${det / adj[k]}`;
+                        }
+                        // matrix4_misc[k].innerHTML = `1/${det / adj[k]}`;
+                    }
+                    else {
+                        if (adj[k] < 0 && det < 0) {
+                            matrix2_misc[k].innerHTML = `${(-1) * adj[k]}/${(-1) * det}`;
+                        }
+
+                        else {
+                            matrix2_misc[k].innerHTML = `${adj[k]}/${det}`;
+                        }
+                    }
+                }
+            }
+        }
+        else if (misc_selection.options[misc_selection.selectedIndex].value == "minor") {
+            const misc_array_1 = [];
+            for (let k = 0; k < matrix1_misc.length; k++) {
+                misc_array_1.push(Number(matrix1_misc[k].value));
+            }
+            const minor_array = [];
+            minor_array.push(Number(misc_array_1[3]));
+            minor_array.push(Number(misc_array_1[2]));
+            minor_array.push(Number(misc_array_1[1]));
+            minor_array.push(Number(misc_array_1[0]));
+
+            for (let k = 0; k < matrix2_misc.length; k++) {
+                matrix2_misc[k].innerHTML = minor_array[k];
+            }
+
+        }
+        else if (misc_selection.options[misc_selection.selectedIndex].value == "determinant") {
+            const misc_array_1 = [];
+            for (let k = 0; k < matrix1_misc.length; k++) {
+                misc_array_1.push(Number(matrix1_misc[k].value));
+            }
+
+            var det = (misc_array_1[0] * misc_array_1[3]) - (misc_array_1[2] * misc_array_1[1]);
+            console.log(det);
+
+            for (let k = 0; k < matrix2_misc.length; k++) {
+                if (k == 0) {
+                    matrix2_misc[k].innerHTML = det;
+                }
+                else {
+                    matrix2_misc[k].innerHTML = '--';
+                }
+            }
+        }
+        else if (misc_selection.options[misc_selection.selectedIndex].value == "adjoint") {
+            const misc_array_1 = [];
+            for (let k = 0; k < matrix1_misc.length; k++) {
+                misc_array_1.push(Number(matrix1_misc[k].value));
+            }
+            const minor_array = [];
+            minor_array.push(Number(misc_array_1[3]));
+            minor_array.push(Number(misc_array_1[2]));
+            minor_array.push(Number(misc_array_1[1]));
+            minor_array.push(Number(misc_array_1[0]));
+
+            const cofactor = [];
+            cofactor.push(Number(minor_array[0]));
+            cofactor.push(Number(((-1) * minor_array[1])));
+            cofactor.push(Number(((-1) * minor_array[2])));
+            cofactor.push(Number(minor_array[3]));
+
+            const adj = [];
+            adj.push(Number(cofactor[0]));
+            adj.push(Number(cofactor[2]));
+            adj.push(Number(cofactor[1]));
+            adj.push(Number(cofactor[3]));
+
+            for (let k = 0; k < matrix2_misc.length; k++) {
+                matrix2_misc[k].innerHTML = adj[k];
+            }
+        }
+        else if (misc_selection.options[misc_selection.selectedIndex].value == "cofactor") {
+            const misc_array_1 = [];
+            for (let k = 0; k < matrix1_misc.length; k++) {
+                misc_array_1.push(Number(matrix1_misc[k].value));
+            }
+            const minor_array = [];
+            minor_array.push(Number(misc_array_1[3]));
+            minor_array.push(Number(misc_array_1[2]));
+            minor_array.push(Number(misc_array_1[1]));
+            minor_array.push(Number(misc_array_1[0]));
+
+            const cofactor = [];
+            cofactor.push(Number(minor_array[0]));
+            cofactor.push(Number(((-1) * minor_array[1])));
+            cofactor.push(Number(((-1) * minor_array[2])));
+            cofactor.push(Number(minor_array[3]));
+
+            for (let k = 0; k < matrix2_misc.length; k++) {
+                matrix2_misc[k].innerHTML = cofactor[k];
+            }
+        }
+        return null;
+    }
+    function miscoperation3x3() {
+        if (misc_selection_2.options[misc_selection_2.selectedIndex].value == "transpose") {
+            const misc_array_3 = [];
+            for (let k = 0; k < matrix3_misc.length; k++) {
+                misc_array_3.push(Number(matrix3_misc[k].value));
+            }
+
+            const misc_array_4 = [];
+            misc_array_4.push(Number(misc_array_3[0]));
+            misc_array_4.push(Number(misc_array_3[3]));
+            misc_array_4.push(Number(misc_array_3[6]));
+            misc_array_4.push(Number(misc_array_3[1]));
+            misc_array_4.push(Number(misc_array_3[4]));
+            misc_array_4.push(Number(misc_array_3[7]));
+            misc_array_4.push(Number(misc_array_3[2]));
+            misc_array_4.push(Number(misc_array_3[5]));
+            misc_array_4.push(Number(misc_array_3[8]));
+
+            for (let k = 0; k < matrix4_misc.length; k++) {
+                matrix4_misc[k].innerHTML = misc_array_4[k];
+            }
+        }
+        else if (misc_selection_2.options[misc_selection_2.selectedIndex].value == "inverse") {
+            const misc_array_3 = [];
+            for (let k = 0; k < matrix3_misc.length; k++) {
+                misc_array_3.push(Number(matrix3_misc[k].value));
+            }
+
+            var det = (misc_array_3[0] * ((misc_array_3[4] * misc_array_3[8]) - (misc_array_3[5] * misc_array_3[7]))) - (misc_array_3[1] * ((misc_array_3[3] * misc_array_3[8]) - (misc_array_3[6] * misc_array_3[5]))) + (misc_array_3[2] * ((misc_array_3[3] * misc_array_3[7]) - (misc_array_3[6] * misc_array_3[4])));
+            console.log(det);
+
+            if (det == 0) {
+                console.log("Inverse doesn't exist.");
+                for (let k = 0; k < matrix4_misc.length; k++) {
+                    matrix4_misc[k].innerHTML = "NA";
+                }
+            }
+            else {
+                const minor_array = [];
+                minor_array.push(Number((misc_array_3[4] * misc_array_3[8]) - (misc_array_3[5] * misc_array_3[7])));
+                minor_array.push(Number((misc_array_3[3] * misc_array_3[8]) - (misc_array_3[6] * misc_array_3[5])));
+                minor_array.push(Number((misc_array_3[3] * misc_array_3[7]) - (misc_array_3[6] * misc_array_3[4])));
+                minor_array.push(Number((misc_array_3[1] * misc_array_3[8]) - (misc_array_3[7] * misc_array_3[2])));
+                minor_array.push(Number((misc_array_3[0] * misc_array_3[8]) - (misc_array_3[6] * misc_array_3[2])));
+                minor_array.push(Number((misc_array_3[0] * misc_array_3[7]) - (misc_array_3[6] * misc_array_3[1])));
+                minor_array.push(Number((misc_array_3[1] * misc_array_3[5]) - (misc_array_3[4] * misc_array_3[2])));
+                minor_array.push(Number((misc_array_3[0] * misc_array_3[5]) - (misc_array_3[3] * misc_array_3[2])));
+                minor_array.push(Number((misc_array_3[0] * misc_array_3[4]) - (misc_array_3[3] * misc_array_3[1])));
+
+
+                const cofactor = [];
+                cofactor.push(Number(minor_array[0]));
+                cofactor.push(Number(((-1) * minor_array[1])));
+                cofactor.push(Number((minor_array[2])));
+                cofactor.push(Number(((-1) * minor_array[3])));
+                cofactor.push(Number((minor_array[4])));
+                cofactor.push(Number(((-1) * minor_array[5])));
+                cofactor.push(Number((minor_array[6])));
+                cofactor.push(Number(((-1) * minor_array[7])));
+                cofactor.push(Number((minor_array[8])));
+
+                const adj = [];
+                adj.push(Number(cofactor[0]));
+                adj.push(Number(cofactor[3]));
+                adj.push(Number(cofactor[6]));
+                adj.push(Number(cofactor[1]));
+                adj.push(Number(cofactor[4]));
+                adj.push(Number(cofactor[7]));
+                adj.push(Number(cofactor[2]));
+                adj.push(Number(cofactor[5]));
+                adj.push(Number(cofactor[8]));
+
+                const numerator = [];
+                const denominator = [];
+                for (let k = 0; k < matrix4_misc.length; k++) {
+                    // if ((adj[k] % det) == 0) {
+                    //     matrix4_misc[k].innerHTML = adj[k] / det;
+                    // }
+                    // else if (det % adj[k] == 0) {
+                    //     matrix4_misc[k].innerHTML = `1/${det / adj[k]}`;
+                    // }
+                    if ((adj[k] % det) !== 0 && (det % adj[k]) !== 0) {
+                        // console.log(adj[k] / det);
+                        if (adj[k] < 0 && det < 0) {
+                            for (let y = 0; y <= ((-1) * adj[k]) && y <= ((-1) * det); y++) {
+                                if ((((-1) * adj[k]) % y) == 0 && (((-1) * det) % y) == 0) {
+                                    var hcf = y;
+                                    // console.log(hcf);
+
+                                }
+                            }
+                            numerator[k] = (adj[k] / hcf);
+                            denominator[k] = det / hcf;
+
+                            if (numerator[k] < 0 && denominator[k] < 0) {
+                                matrix4_misc[k].innerHTML = `${(-1) * numerator[k]}/${(-1) * denominator[k]}`;
+                            }
+                            else {
+                                matrix4_misc[k].innerHTML = `${numerator[k]}/${denominator[k]}`;
+                            }
+
+                            // matrix4_misc[k].innerHTML = `${numerator[k]}/${denominator[k]}`;
+                        }
+                        else if (adj[k] < 0 && det > 0) {
+                            for (let y = 0; y <= ((-1) * adj[k]) && y <= det; y++) {
+                                if ((((-1) * adj[k]) % y) == 0 && (det % y) == 0) {
+                                    var hcf = y;
+                                    // console.log(hcf);
+
+
+                                }
+                            }
+                            numerator[k] = (adj[k] / hcf);
+                            denominator[k] = det / hcf;
+
+                            matrix4_misc[k].innerHTML = `${numerator[k]}/${denominator[k]}`;
+                        }
+                        else if (adj[k] > 0 && det < 0) {
+                            for (let y = 0; y <= adj[k] && y <= ((-1) * det); y++) {
+                                if ((adj[k] % y) == 0 && (((-1) * det) % y) == 0) {
+                                    var hcf = y;
+                                    // console.log(hcf);
+
+                                }
+                            }
+                            numerator[k] = (adj[k] / hcf);
+                            // console.log(numerator);
+                            denominator[k] = ((-1) * det) / hcf;
+                            matrix4_misc[k].innerHTML = `-${numerator[k]}/${denominator[k]}`;
+                        }
+                        else if (adj[k] > 0 && det > 0) {
+                            for (let y = 0; y <= adj[k] && y <= det; y++) {
+                                if ((adj[k] % y) == 0 && (det % y) == 0) {
+                                    var hcf = y;
+                                    // console.log(hcf);
+
+                                }
+                            }
+                            numerator[k] = (adj[k] / hcf);
+                            denominator[k] = det / hcf;
+
+                            matrix4_misc[k].innerHTML = `${numerator[k]}/${denominator[k]}`;
+                        }
+                        // console.log(adj[k]);
+                        // const numerator = [];
+
+                        // numerator[k] = (adj[k] / hcf);
+                        // denominator[k] = det / hcf;
+
+                        // matrix4_misc[k].innerHTML = `${numerator[k]}/${denominator[k]}`;
+                    }
+                    else if ((adj[k] % det) == 0) {
+                        matrix4_misc[k].innerHTML = adj[k] / det;
+                    }
+                    else if (det % adj[k] == 0) {
+                        if (adj[k] < 0 && det > 0) {
+                            matrix4_misc[k].innerHTML = `-1/${(-1) * (det / adj[k])}`;
+                        }
+                        else if (adj[k] > 0 && det < 0) {
+                            matrix4_misc[k].innerHTML = `-1/${(-1) * (det / adj[k])}`;
+                        }
+                        else {
+                            matrix4_misc[k].innerHTML = `1/${det / adj[k]}`;
+                        }
+                        // matrix4_misc[k].innerHTML = `1/${det / adj[k]}`;
+                    }
+                    else {
+                        if (adj[k] < 0 && det < 0) {
+                            matrix4_misc[k].innerHTML = `${(-1) * adj[k]}/${(-1) * det}`;
+                        }
+
+                        else {
+                            matrix4_misc[k].innerHTML = `${adj[k]}/${det}`;
+                        }
+                        // matrix4_misc[k].innerHTML = `${adj[k]}/${det}`;
+                    }
+                    // console.log(adj[k]);
+                    // matrix4_misc[k].innerHTML = `${adj[k]}/${det}`;
+                }
+            }
+        }
+        else if (misc_selection_2.options[misc_selection_2.selectedIndex].value == "minor") {
+            const misc_array_3 = [];
+            for (let k = 0; k < matrix3_misc.length; k++) {
+                misc_array_3.push(Number(matrix3_misc[k].value));
+            }
+            const minor_array = [];
+            minor_array.push(Number((misc_array_3[4] * misc_array_3[8]) - (misc_array_3[5] * misc_array_3[7])));
+            minor_array.push(Number((misc_array_3[3] * misc_array_3[8]) - (misc_array_3[6] * misc_array_3[5])));
+            minor_array.push(Number((misc_array_3[3] * misc_array_3[7]) - (misc_array_3[6] * misc_array_3[4])));
+            minor_array.push(Number((misc_array_3[1] * misc_array_3[8]) - (misc_array_3[7] * misc_array_3[2])));
+            minor_array.push(Number((misc_array_3[0] * misc_array_3[8]) - (misc_array_3[6] * misc_array_3[2])));
+            minor_array.push(Number((misc_array_3[0] * misc_array_3[7]) - (misc_array_3[6] * misc_array_3[1])));
+            minor_array.push(Number((misc_array_3[1] * misc_array_3[5]) - (misc_array_3[4] * misc_array_3[2])));
+            minor_array.push(Number((misc_array_3[0] * misc_array_3[5]) - (misc_array_3[3] * misc_array_3[2])));
+            minor_array.push(Number((misc_array_3[0] * misc_array_3[4]) - (misc_array_3[3] * misc_array_3[1])));
+
+            for (let k = 0; k < matrix4_misc.length; k++) {
+                matrix4_misc[k].innerHTML = minor_array[k];
+            }
+        }
+        else if (misc_selection_2.options[misc_selection_2.selectedIndex].value == "determinant") {
+            const misc_array_3 = [];
+            for (let k = 0; k < matrix3_misc.length; k++) {
+                misc_array_3.push(Number(matrix3_misc[k].value));
+            }
+
+            var det = (misc_array_3[0] * ((misc_array_3[4] * misc_array_3[8]) - (misc_array_3[5] * misc_array_3[7]))) - (misc_array_3[1] * ((misc_array_3[3] * misc_array_3[8]) - (misc_array_3[6] * misc_array_3[5]))) + (misc_array_3[2] * ((misc_array_3[3] * misc_array_3[7]) - (misc_array_3[6] * misc_array_3[4])));
+            console.log(det);
+            matrix4_misc[4].innerHTML = det;
+
+            for (let k = 0; k < matrix4_misc.length; k++) {
+                if (k == 4) {
+                    matrix4_misc[k].innerHTML = det;
+                }
+                else {
+                    matrix4_misc[k].innerHTML = '--';
+                }
+                // matrix4_misc[k].innerHTML = det;
+            }
+        }
+        else if (misc_selection_2.options[misc_selection_2.selectedIndex].value == "adjoint") {
+            const misc_array_3 = [];
+            for (let k = 0; k < matrix3_misc.length; k++) {
+                misc_array_3.push(Number(matrix3_misc[k].value));
+            }
+
+            const minor_array = [];
+            minor_array.push(Number((misc_array_3[4] * misc_array_3[8]) - (misc_array_3[5] * misc_array_3[7])));
+            minor_array.push(Number((misc_array_3[3] * misc_array_3[8]) - (misc_array_3[6] * misc_array_3[5])));
+            minor_array.push(Number((misc_array_3[3] * misc_array_3[7]) - (misc_array_3[6] * misc_array_3[4])));
+            minor_array.push(Number((misc_array_3[1] * misc_array_3[8]) - (misc_array_3[7] * misc_array_3[2])));
+            minor_array.push(Number((misc_array_3[0] * misc_array_3[8]) - (misc_array_3[6] * misc_array_3[2])));
+            minor_array.push(Number((misc_array_3[0] * misc_array_3[7]) - (misc_array_3[6] * misc_array_3[1])));
+            minor_array.push(Number((misc_array_3[1] * misc_array_3[5]) - (misc_array_3[4] * misc_array_3[2])));
+            minor_array.push(Number((misc_array_3[0] * misc_array_3[5]) - (misc_array_3[3] * misc_array_3[2])));
+            minor_array.push(Number((misc_array_3[0] * misc_array_3[4]) - (misc_array_3[3] * misc_array_3[1])));
+
+
+            const cofactor = [];
+            cofactor.push(Number(minor_array[0]));
+            cofactor.push(Number(((-1) * minor_array[1])));
+            cofactor.push(Number((minor_array[2])));
+            cofactor.push(Number(((-1) * minor_array[3])));
+            cofactor.push(Number((minor_array[4])));
+            cofactor.push(Number(((-1) * minor_array[5])));
+            cofactor.push(Number((minor_array[6])));
+            cofactor.push(Number(((-1) * minor_array[7])));
+            cofactor.push(Number((minor_array[8])));
+
+            const adj = [];
+            adj.push(Number(cofactor[0]));
+            adj.push(Number(cofactor[3]));
+            adj.push(Number(cofactor[6]));
+            adj.push(Number(cofactor[1]));
+            adj.push(Number(cofactor[4]));
+            adj.push(Number(cofactor[7]));
+            adj.push(Number(cofactor[2]));
+            adj.push(Number(cofactor[5]));
+            adj.push(Number(cofactor[8]));
+
+            for (let k = 0; k < matrix4_misc.length; k++) {
+                matrix4_misc[k].innerHTML = adj[k];
+            }
+        }
+        else if (misc_selection_2.options[misc_selection_2.selectedIndex].value == "cofactor") {
+            const misc_array_3 = [];
+            for (let k = 0; k < matrix3_misc.length; k++) {
+                misc_array_3.push(Number(matrix3_misc[k].value));
+            }
+
+            const minor_array = [];
+            minor_array.push(Number((misc_array_3[4] * misc_array_3[8]) - (misc_array_3[5] * misc_array_3[7])));
+            minor_array.push(Number((misc_array_3[3] * misc_array_3[8]) - (misc_array_3[6] * misc_array_3[5])));
+            minor_array.push(Number((misc_array_3[3] * misc_array_3[7]) - (misc_array_3[6] * misc_array_3[4])));
+            minor_array.push(Number((misc_array_3[1] * misc_array_3[8]) - (misc_array_3[7] * misc_array_3[2])));
+            minor_array.push(Number((misc_array_3[0] * misc_array_3[8]) - (misc_array_3[6] * misc_array_3[2])));
+            minor_array.push(Number((misc_array_3[0] * misc_array_3[7]) - (misc_array_3[6] * misc_array_3[1])));
+            minor_array.push(Number((misc_array_3[1] * misc_array_3[5]) - (misc_array_3[4] * misc_array_3[2])));
+            minor_array.push(Number((misc_array_3[0] * misc_array_3[5]) - (misc_array_3[3] * misc_array_3[2])));
+            minor_array.push(Number((misc_array_3[0] * misc_array_3[4]) - (misc_array_3[3] * misc_array_3[1])));
+
+
+            const cofactor = [];
+            cofactor.push(Number(minor_array[0]));
+            cofactor.push(Number(((-1) * minor_array[1])));
+            cofactor.push(Number((minor_array[2])));
+            cofactor.push(Number(((-1) * minor_array[3])));
+            cofactor.push(Number((minor_array[4])));
+            cofactor.push(Number(((-1) * minor_array[5])));
+            cofactor.push(Number((minor_array[6])));
+            cofactor.push(Number(((-1) * minor_array[7])));
+            cofactor.push(Number((minor_array[8])));
+
+            for (let k = 0; k < matrix4_misc.length; k++) {
+                matrix4_misc[k].innerHTML = cofactor[k];
+            }
+        }
+        return null;
+    }
+    selectmatrixmisc.onchange = () => {
+        if (selectmatrixmisc.options[selectmatrixmisc.selectedIndex].value == "2x2") {
+            document.querySelector(".container-main-misc-3x3").classList.add("none");
+            document.querySelector(".container-main-misc-2x2").classList.remove("none");
+            document.querySelector("#matrix-label-misc").innerText = "2 x 2 Matrix";
+        }
+        else if (selectmatrixmisc.options[selectmatrixmisc.selectedIndex].value == "3x3") {
+            document.querySelector(".container-main-misc-2x2").classList.add("none");
+            document.querySelector(".container-main-misc-3x3").classList.remove("none");
+            document.querySelector("#matrix-label-misc").innerText = "3 x 3 Matrix";
+        }
+    }
+    misc_selection.onchange = () => {
+        miscoperation2x2();
+        matrix2_misc_outer.classList.add("change-2x2");
+    }
+    misc_selection_2.onchange = () => {
+        miscoperation3x3();
+        matrix4_misc_outer.classList.add("change-3x3");
+    }
+    matrix1_misc.forEach(function (field, index) {
+        field.onkeyup = () => {
+            setTimeout(function () {
+                if (index === 3) {
+                    return false
+                }
+                else if (field.value !== '') {
+                    field.nextElementSibling.focus();
+                }
+            }, 1500);
+
+            miscoperation2x2();
+        }
+    });
+    matrix3_misc.forEach(function (field, index) {
+        field.onkeyup = () => {
+            setTimeout(function () {
+                if (index === 8) {
+                    return false
+                }
+                else if (field.value !== '') {
+                    field.nextElementSibling.focus();
+                }
+            }, 1500);
+
+            miscoperation3x3();
         }
     });
 });
