@@ -4,6 +4,7 @@
 }
 body{
     background-color: #fafaff;
+    /* background-image: url('D://matrix.jpg'); */
 }
 .heading-container{
     display: flex;
@@ -64,7 +65,7 @@ body{
     margin-top: 2.5rem;
     color: #351c74;
 }
-.container-main, .container-main-select{
+.container-main, .container-main-select, .container-main-misc-3x3{
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
@@ -73,6 +74,19 @@ body{
 }
 .container-main-select{
     margin: 5px;
+}
+.container-main-3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+.heading-misc{
+    color: #33427e;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
 }
 
 #container-1{
@@ -90,12 +104,12 @@ body{
 #container-4{
     font-size: 25px;
 }
-#matrix-selection{
+#matrix-selection, #matrix-selection-misc{
     display: flex;
     justify-content: center;
     align-self: center;
 }
-#operations, #operations-2, #matrix-selection{
+#operations, #operations-2, #matrix-selection, #misc-operations, #misc-operations-2, #matrix-selection-misc{
     border: 1px solid white;
     font-family: 'Montserrat', sans-serif;
     border-radius: 5px;
@@ -112,7 +126,7 @@ input{
 input:focus{
     outline: 2.5px solid #a481ff;
 }
-.container-main-2{
+.container-main-2, .container-main-misc-2x2{
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
