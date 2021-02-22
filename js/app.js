@@ -543,8 +543,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (det == 0) {
                 console.log("Inverse doesn't exist.");
+                // for (let k = 0; k < matrix4_misc.length; k++) {
+                //     matrix4_misc[k].innerHTML = "NA";
+                // }
                 for (let k = 0; k < matrix4_misc.length; k++) {
-                    matrix4_misc[k].innerHTML = "NA";
+                    if(k == 4){
+                        matrix4_misc[k].innerHTML = "Doesn't exist";
+                    }
+                    else{
+                        matrix4_misc[k].innerHTML = "--";
+                    }
                 }
             }
             else {
