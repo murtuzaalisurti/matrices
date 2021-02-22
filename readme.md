@@ -1,6 +1,6 @@
 # Matrix Operations
 
-## This is a webpage which performs matrix operations like:
+## This is a webpage which performs matrix (n x n) operations like:
 * Addition
 * Subtraction
 * Multiplication
