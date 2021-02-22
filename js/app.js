@@ -294,8 +294,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (det == 0) {
                 console.log("Inverse doesn't exist.");
+                // for (let k = 0; k < matrix2_misc.length; k++) {
+                //     matrix2_misc[k].innerHTML = "NA";
+                // }
                 for (let k = 0; k < matrix2_misc.length; k++) {
-                    matrix2_misc[k].innerHTML = "NA";
+                    if(k == 0){
+                        matrix2_misc[k].innerHTML = "Doesn't exist";
+                    }
+                    else{
+                        matrix2_misc[k].innerHTML = "--";
+                    }
                 }
             }
             else {
