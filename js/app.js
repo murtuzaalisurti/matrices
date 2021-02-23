@@ -202,15 +202,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }, 1500);
 
             matrixoperation3x3();
-            // document.querySelector("#matrix-3").classList.add("change-3x3");
-            // console.log(index);
-            // if(index === 8){
-            //     return false
-            // }
-            // else if(field.value !== ''){
-            //     console.log(field.nextElementSibling);
-            //     field.nextElementSibling.focus();
-            // }
         }
     });
 
@@ -294,9 +285,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (det == 0) {
                 console.log("Inverse doesn't exist.");
-                // for (let k = 0; k < matrix2_misc.length; k++) {
-                //     matrix2_misc[k].innerHTML = "NA";
-                // }
                 for (let k = 0; k < matrix2_misc.length; k++) {
                     if(k == 0){
                         matrix2_misc[k].innerHTML = "Doesn't exist";
@@ -329,20 +317,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 const denominator1 = [];
 
                 for (let k = 0; k < matrix2_misc.length; k++) {
-                    // if ((adj[k] % det) == 0) {
-                    //     matrix2_misc[k].innerHTML = adj[k] / det;
-                    // }
-                    // else {
-                    //     matrix2_misc[k].innerHTML = `${adj[k]}/${det}`;
-                    // }
                     if ((adj[k] % det) !== 0 && (det % adj[k]) !== 0) {
-                        // console.log(adj[k] / det);
                         if (adj[k] < 0 && det < 0) {
                             for (let y = 0; y <= ((-1) * adj[k]) && y <= ((-1) * det); y++) {
                                 if ((((-1) * adj[k]) % y) == 0 && (((-1) * det) % y) == 0) {
                                     var hcf1 = y;
-                                    // console.log(hcf);
-
                                 }
                             }
                             numerator1[k] = (adj[k] / hcf1);
@@ -354,16 +333,11 @@ document.addEventListener("DOMContentLoaded", function () {
                             else {
                                 matrix2_misc[k].innerHTML = `${numerator1[k]}/${denominator1[k]}`;
                             }
-
-                            // matrix2_misc[k].innerHTML = `${numerator1[k]}/${denominator1[k]}`;
                         }
                         else if (adj[k] < 0 && det > 0) {
                             for (let y = 0; y <= ((-1) * adj[k]) && y <= det; y++) {
                                 if ((((-1) * adj[k]) % y) == 0 && (det % y) == 0) {
                                     var hcf1 = y;
-                                    // console.log(hcf);
-
-
                                 }
                             }
                             numerator1[k] = (adj[k] / hcf1);
@@ -375,12 +349,9 @@ document.addEventListener("DOMContentLoaded", function () {
                             for (let y = 0; y <= adj[k] && y <= ((-1) * det); y++) {
                                 if ((adj[k] % y) == 0 && (((-1) * det) % y) == 0) {
                                     var hcf1 = y;
-                                    // console.log(hcf);
-
                                 }
                             }
                             numerator1[k] = (adj[k] / hcf1);
-                            // console.log(numerator);
                             denominator1[k] = ((-1) * det) / hcf1;
                             matrix2_misc[k].innerHTML = `-${numerator1[k]}/${denominator1[k]}`;
                         }
@@ -388,8 +359,6 @@ document.addEventListener("DOMContentLoaded", function () {
                             for (let y = 0; y <= adj[k] && y <= det; y++) {
                                 if ((adj[k] % y) == 0 && (det % y) == 0) {
                                     var hcf1 = y;
-                                    // console.log(hcf);
-
                                 }
                             }
                             numerator1[k] = (adj[k] / hcf1);
@@ -412,7 +381,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         else {
                             matrix2_misc[k].innerHTML = `1/${det / adj[k]}`;
                         }
-                        // matrix4_misc[k].innerHTML = `1/${det / adj[k]}`;
                     }
                     else {
                         if (adj[k] < 0 && det < 0) {
@@ -543,9 +511,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (det == 0) {
                 console.log("Inverse doesn't exist.");
-                // for (let k = 0; k < matrix4_misc.length; k++) {
-                //     matrix4_misc[k].innerHTML = "NA";
-                // }
                 for (let k = 0; k < matrix4_misc.length; k++) {
                     if(k == 4){
                         matrix4_misc[k].innerHTML = "Doesn't exist";
@@ -593,20 +558,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 const numerator = [];
                 const denominator = [];
                 for (let k = 0; k < matrix4_misc.length; k++) {
-                    // if ((adj[k] % det) == 0) {
-                    //     matrix4_misc[k].innerHTML = adj[k] / det;
-                    // }
-                    // else if (det % adj[k] == 0) {
-                    //     matrix4_misc[k].innerHTML = `1/${det / adj[k]}`;
-                    // }
                     if ((adj[k] % det) !== 0 && (det % adj[k]) !== 0) {
-                        // console.log(adj[k] / det);
                         if (adj[k] < 0 && det < 0) {
                             for (let y = 0; y <= ((-1) * adj[k]) && y <= ((-1) * det); y++) {
                                 if ((((-1) * adj[k]) % y) == 0 && (((-1) * det) % y) == 0) {
                                     var hcf = y;
-                                    // console.log(hcf);
-
                                 }
                             }
                             numerator[k] = (adj[k] / hcf);
@@ -618,16 +574,11 @@ document.addEventListener("DOMContentLoaded", function () {
                             else {
                                 matrix4_misc[k].innerHTML = `${numerator[k]}/${denominator[k]}`;
                             }
-
-                            // matrix4_misc[k].innerHTML = `${numerator[k]}/${denominator[k]}`;
                         }
                         else if (adj[k] < 0 && det > 0) {
                             for (let y = 0; y <= ((-1) * adj[k]) && y <= det; y++) {
                                 if ((((-1) * adj[k]) % y) == 0 && (det % y) == 0) {
                                     var hcf = y;
-                                    // console.log(hcf);
-
-
                                 }
                             }
                             numerator[k] = (adj[k] / hcf);
@@ -639,12 +590,9 @@ document.addEventListener("DOMContentLoaded", function () {
                             for (let y = 0; y <= adj[k] && y <= ((-1) * det); y++) {
                                 if ((adj[k] % y) == 0 && (((-1) * det) % y) == 0) {
                                     var hcf = y;
-                                    // console.log(hcf);
-
                                 }
                             }
                             numerator[k] = (adj[k] / hcf);
-                            // console.log(numerator);
                             denominator[k] = ((-1) * det) / hcf;
                             matrix4_misc[k].innerHTML = `-${numerator[k]}/${denominator[k]}`;
                         }
@@ -652,8 +600,6 @@ document.addEventListener("DOMContentLoaded", function () {
                             for (let y = 0; y <= adj[k] && y <= det; y++) {
                                 if ((adj[k] % y) == 0 && (det % y) == 0) {
                                     var hcf = y;
-                                    // console.log(hcf);
-
                                 }
                             }
                             numerator[k] = (adj[k] / hcf);
@@ -661,13 +607,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
                             matrix4_misc[k].innerHTML = `${numerator[k]}/${denominator[k]}`;
                         }
-                        // console.log(adj[k]);
-                        // const numerator = [];
-
-                        // numerator[k] = (adj[k] / hcf);
-                        // denominator[k] = det / hcf;
-
-                        // matrix4_misc[k].innerHTML = `${numerator[k]}/${denominator[k]}`;
                     }
                     else if ((adj[k] % det) == 0) {
                         matrix4_misc[k].innerHTML = adj[k] / det;
@@ -682,7 +621,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         else {
                             matrix4_misc[k].innerHTML = `1/${det / adj[k]}`;
                         }
-                        // matrix4_misc[k].innerHTML = `1/${det / adj[k]}`;
                     }
                     else {
                         if (adj[k] < 0 && det < 0) {
@@ -692,10 +630,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         else {
                             matrix4_misc[k].innerHTML = `${adj[k]}/${det}`;
                         }
-                        // matrix4_misc[k].innerHTML = `${adj[k]}/${det}`;
                     }
-                    // console.log(adj[k]);
-                    // matrix4_misc[k].innerHTML = `${adj[k]}/${det}`;
                 }
             }
         }
@@ -736,7 +671,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 else {
                     matrix4_misc[k].innerHTML = '--';
                 }
-                // matrix4_misc[k].innerHTML = det;
             }
         }
         else if (misc_selection_2.options[misc_selection_2.selectedIndex].value == "adjoint") {
