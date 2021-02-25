@@ -28,49 +28,64 @@ document.addEventListener("DOMContentLoaded", function () {
     const minor_array = [];
     const cofactor = [];
     const adj = [];
+    // const det;
 
     // functions for operations
     function minor2x2() {
-        // for (let k = 0; k < matrix1_misc.length; k++) {
-        //     misc_array_1.push(Number(matrix1_misc[k].value));
-        // }
+        for (let k = 0; k < matrix1_misc.length; k++) {
+            misc_array_1.push(Number(matrix1_misc[k].value));
+        }
         minor_array.push(Number(misc_array_1[3]));
         minor_array.push(Number(misc_array_1[2]));
         minor_array.push(Number(misc_array_1[1]));
         minor_array.push(Number(misc_array_1[0]));
 
-        // for (let k = 0; k < matrix2_misc.length; k++) {
-        //     matrix2_misc[k].innerHTML = minor_array[k];
-        // }
+        for (let k = 0; k < matrix2_misc.length; k++) {
+            matrix2_misc[k].innerHTML = minor_array[k];
+        }
     }
 
     function transpose2x2() {
-        // for (let k = 0; k < matrix1_misc.length; k++) {
-        //     misc_array_1.push(Number(matrix1_misc[k].value));
-        // }
+        for (let k = 0; k < matrix1_misc.length; k++) {
+            misc_array_1.push(Number(matrix1_misc[k].value));
+        }
         misc_array_2.push(Number(misc_array_1[0]));
         misc_array_2.push(Number(misc_array_1[2]));
         misc_array_2.push(Number(misc_array_1[1]));
         misc_array_2.push(Number(misc_array_1[3]));
 
-        // for (let k = 0; k < matrix2_misc.length; k++) {
-        //     matrix2_misc[k].innerHTML = misc_array_2[k];
-        // }
+        for (let k = 0; k < matrix2_misc.length; k++) {
+            matrix2_misc[k].innerHTML = misc_array_2[k];
+        }
     }
 
     function cofactor2x2() {
+        for (let k = 0; k < matrix1_misc.length; k++) {
+            misc_array_1.push(Number(matrix1_misc[k].value));
+        }
         cofactor.push(Number(minor_array[0]));
         cofactor.push(Number(((-1) * minor_array[1])));
         cofactor.push(Number(((-1) * minor_array[2])));
         cofactor.push(Number(minor_array[3]));
+        for (let k = 0; k < matrix2_misc.length; k++) {
+            matrix2_misc[k].innerHTML = cofactor[k];
+        }
     }
 
     function adjoint2x2() {
+        for (let k = 0; k < matrix1_misc.length; k++) {
+            misc_array_1.push(Number(matrix1_misc[k].value));
+        }
         adj.push(Number(cofactor[0]));
         adj.push(Number(cofactor[2]));
         adj.push(Number(cofactor[1]));
         adj.push(Number(cofactor[3]));
+        for (let k = 0; k < matrix2_misc.length; k++) {
+            matrix2_misc[k].innerHTML = adj[k];
+        }
     }
+
+    
 
     // basic operation functions -------------------------------------------
     function matrixoperation3x3() {
@@ -309,9 +324,9 @@ document.addEventListener("DOMContentLoaded", function () {
     function miscoperation2x2() {
         if (misc_selection.options[misc_selection.selectedIndex].value == "transpose") {
             // const misc_array_1 = [];
-            for (let k = 0; k < matrix1_misc.length; k++) {
-                misc_array_1.push(Number(matrix1_misc[k].value));
-            }
+            // for (let k = 0; k < matrix1_misc.length; k++) {
+            //     misc_array_1.push(Number(matrix1_misc[k].value));
+            // }
 
             // const misc_array_2 = [];
             // misc_array_2.push(Number(misc_array_1[0]));
@@ -320,13 +335,13 @@ document.addEventListener("DOMContentLoaded", function () {
             // misc_array_2.push(Number(misc_array_1[3]));
             transpose2x2();
 
-            for (let k = 0; k < matrix2_misc.length; k++) {
-                matrix2_misc[k].innerHTML = misc_array_2[k];
-            }
+            // for (let k = 0; k < matrix2_misc.length; k++) {
+            //     matrix2_misc[k].innerHTML = misc_array_2[k];
+            // }
             // transpose2x2();
         }
         else if (misc_selection.options[misc_selection.selectedIndex].value == "inverse") {
-            const misc_array_1 = [];
+            // const misc_array_1 = [];
             for (let k = 0; k < matrix1_misc.length; k++) {
                 misc_array_1.push(Number(matrix1_misc[k].value));
             }
@@ -346,23 +361,26 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             }
             else {
-                const minor_array = [];
-                minor_array.push(Number(misc_array_1[3]));
-                minor_array.push(Number(misc_array_1[2]));
-                minor_array.push(Number(misc_array_1[1]));
-                minor_array.push(Number(misc_array_1[0]));
+                // const minor_array = [];
+                // minor_array.push(Number(misc_array_1[3]));
+                // minor_array.push(Number(misc_array_1[2]));
+                // minor_array.push(Number(misc_array_1[1]));
+                // minor_array.push(Number(misc_array_1[0]));
+                minor2x2();
 
-                const cofactor = [];
-                cofactor.push(Number(minor_array[0]));
-                cofactor.push(Number(((-1) * minor_array[1])));
-                cofactor.push(Number(((-1) * minor_array[2])));
-                cofactor.push(Number(minor_array[3]));
+                // const cofactor = [];
+                // cofactor.push(Number(minor_array[0]));
+                // cofactor.push(Number(((-1) * minor_array[1])));
+                // cofactor.push(Number(((-1) * minor_array[2])));
+                // cofactor.push(Number(minor_array[3]));
+                cofactor2x2();
 
-                const adj = [];
-                adj.push(Number(cofactor[0]));
-                adj.push(Number(cofactor[2]));
-                adj.push(Number(cofactor[1]));
-                adj.push(Number(cofactor[3]));
+                // const adj = [];
+                // adj.push(Number(cofactor[0]));
+                // adj.push(Number(cofactor[2]));
+                // adj.push(Number(cofactor[1]));
+                // adj.push(Number(cofactor[3]));
+                adjoint2x2();
 
                 const numerator1 = [];
                 const denominator1 = [];
@@ -447,9 +465,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         else if (misc_selection.options[misc_selection.selectedIndex].value == "minor") {
             // const misc_array_1 = [];
-            for (let k = 0; k < matrix1_misc.length; k++) {
-                misc_array_1.push(Number(matrix1_misc[k].value));
-            }
+            // for (let k = 0; k < matrix1_misc.length; k++) {
+            //     misc_array_1.push(Number(matrix1_misc[k].value));
+            // }
             // const minor_array = [];
             // minor_array.push(Number(misc_array_1[3]));
             // minor_array.push(Number(misc_array_1[2]));
@@ -458,20 +476,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
             minor2x2();
 
-            for (let k = 0; k < matrix2_misc.length; k++) {
-                matrix2_misc[k].innerHTML = minor_array[k];
-            }
+            // for (let k = 0; k < matrix2_misc.length; k++) {
+            //     matrix2_misc[k].innerHTML = minor_array[k];
+            // }
             // minor2x2();
 
         }
         else if (misc_selection.options[misc_selection.selectedIndex].value == "determinant") {
-            const misc_array_1 = [];
+            // const misc_array_1 = [];
             for (let k = 0; k < matrix1_misc.length; k++) {
                 misc_array_1.push(Number(matrix1_misc[k].value));
             }
 
             var det = (misc_array_1[0] * misc_array_1[3]) - (misc_array_1[2] * misc_array_1[1]);
             console.log(det);
+            // determinant2x2();
 
             for (let k = 0; k < matrix2_misc.length; k++) {
                 if (k == 0) {
@@ -484,9 +503,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         else if (misc_selection.options[misc_selection.selectedIndex].value == "adjoint") {
             // const misc_array_1 = [];
-            for (let k = 0; k < matrix1_misc.length; k++) {
-                misc_array_1.push(Number(matrix1_misc[k].value));
-            }
+            // for (let k = 0; k < matrix1_misc.length; k++) {
+            //     misc_array_1.push(Number(matrix1_misc[k].value));
+            // }
             // const minor_array = [];
             // minor_array.push(Number(misc_array_1[3]));
             // minor_array.push(Number(misc_array_1[2]));
@@ -508,15 +527,15 @@ document.addEventListener("DOMContentLoaded", function () {
             // adj.push(Number(cofactor[3]));
             adjoint2x2();
 
-            for (let k = 0; k < matrix2_misc.length; k++) {
-                matrix2_misc[k].innerHTML = adj[k];
-            }
+            // for (let k = 0; k < matrix2_misc.length; k++) {
+            //     matrix2_misc[k].innerHTML = adj[k];
+            // }
         }
         else if (misc_selection.options[misc_selection.selectedIndex].value == "cofactor") {
             // const misc_array_1 = [];
-            for (let k = 0; k < matrix1_misc.length; k++) {
-                misc_array_1.push(Number(matrix1_misc[k].value));
-            }
+            // for (let k = 0; k < matrix1_misc.length; k++) {
+            //     misc_array_1.push(Number(matrix1_misc[k].value));
+            // }
             // const minor_array = [];
             // minor_array.push(Number(misc_array_1[3]));
             // minor_array.push(Number(misc_array_1[2]));
@@ -531,9 +550,9 @@ document.addEventListener("DOMContentLoaded", function () {
             // cofactor.push(Number(minor_array[3]));
             cofactor2x2();
 
-            for (let k = 0; k < matrix2_misc.length; k++) {
-                matrix2_misc[k].innerHTML = cofactor[k];
-            }
+            // for (let k = 0; k < matrix2_misc.length; k++) {
+            //     matrix2_misc[k].innerHTML = cofactor[k];
+            // }
         }
         return null;
     }
