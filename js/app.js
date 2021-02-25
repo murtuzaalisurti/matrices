@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const misc_array_2 = [];
     const minor_array = [];
     const cofactor = [];
+    const adj = [];
 
     // functions for operations
     function minor2x2() {
@@ -62,6 +63,13 @@ document.addEventListener("DOMContentLoaded", function () {
         cofactor.push(Number(((-1) * minor_array[1])));
         cofactor.push(Number(((-1) * minor_array[2])));
         cofactor.push(Number(minor_array[3]));
+    }
+
+    function adjoint2x2() {
+        adj.push(Number(cofactor[0]));
+        adj.push(Number(cofactor[2]));
+        adj.push(Number(cofactor[1]));
+        adj.push(Number(cofactor[3]));
     }
 
     // basic operation functions -------------------------------------------
@@ -475,27 +483,30 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
         else if (misc_selection.options[misc_selection.selectedIndex].value == "adjoint") {
-            const misc_array_1 = [];
+            // const misc_array_1 = [];
             for (let k = 0; k < matrix1_misc.length; k++) {
                 misc_array_1.push(Number(matrix1_misc[k].value));
             }
-            const minor_array = [];
-            minor_array.push(Number(misc_array_1[3]));
-            minor_array.push(Number(misc_array_1[2]));
-            minor_array.push(Number(misc_array_1[1]));
-            minor_array.push(Number(misc_array_1[0]));
+            // const minor_array = [];
+            // minor_array.push(Number(misc_array_1[3]));
+            // minor_array.push(Number(misc_array_1[2]));
+            // minor_array.push(Number(misc_array_1[1]));
+            // minor_array.push(Number(misc_array_1[0]));
+            minor2x2();
 
-            const cofactor = [];
-            cofactor.push(Number(minor_array[0]));
-            cofactor.push(Number(((-1) * minor_array[1])));
-            cofactor.push(Number(((-1) * minor_array[2])));
-            cofactor.push(Number(minor_array[3]));
+            // const cofactor = [];
+            // cofactor.push(Number(minor_array[0]));
+            // cofactor.push(Number(((-1) * minor_array[1])));
+            // cofactor.push(Number(((-1) * minor_array[2])));
+            // cofactor.push(Number(minor_array[3]));
+            cofactor2x2();
 
-            const adj = [];
-            adj.push(Number(cofactor[0]));
-            adj.push(Number(cofactor[2]));
-            adj.push(Number(cofactor[1]));
-            adj.push(Number(cofactor[3]));
+            // const adj = [];
+            // adj.push(Number(cofactor[0]));
+            // adj.push(Number(cofactor[2]));
+            // adj.push(Number(cofactor[1]));
+            // adj.push(Number(cofactor[3]));
+            adjoint2x2();
 
             for (let k = 0; k < matrix2_misc.length; k++) {
                 matrix2_misc[k].innerHTML = adj[k];
