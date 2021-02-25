@@ -23,11 +23,11 @@ document.addEventListener("DOMContentLoaded", function () {
     var misc_selection_2 = document.querySelector("#misc-operations-2");
     var selectmatrixmisc = document.querySelector("#matrix-selection-misc");
 
-    const misc_array_1 = [];
-    const misc_array_2 = [];
-    const minor_array = [];
-    const cofactor = [];
-    const adj = [];
+    var misc_array_1 = [];
+    var misc_array_2 = [];
+    var minor_array = [];
+    var cofactor = [];
+    var adj = [];
     // const det;
 
     // functions for operations
