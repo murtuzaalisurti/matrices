@@ -23,6 +23,39 @@ document.addEventListener("DOMContentLoaded", function () {
     var misc_selection_2 = document.querySelector("#misc-operations-2");
     var selectmatrixmisc = document.querySelector("#matrix-selection-misc");
 
+    const misc_array_1 = [];
+    const misc_array_2 = [];
+    const minor_array = [];
+
+    // functions for operations
+    function minor2x2() {
+        for (let k = 0; k < matrix1_misc.length; k++) {
+            misc_array_1.push(Number(matrix1_misc[k].value));
+        }
+        minor_array.push(Number(misc_array_1[3]));
+        minor_array.push(Number(misc_array_1[2]));
+        minor_array.push(Number(misc_array_1[1]));
+        minor_array.push(Number(misc_array_1[0]));
+
+        for (let k = 0; k < matrix2_misc.length; k++) {
+            matrix2_misc[k].innerHTML = minor_array[k];
+        }
+    }
+
+    function transpose2x2() {
+        for (let k = 0; k < matrix1_misc.length; k++) {
+            misc_array_1.push(Number(matrix1_misc[k].value));
+        }
+        misc_array_2.push(Number(misc_array_1[0]));
+        misc_array_2.push(Number(misc_array_1[2]));
+        misc_array_2.push(Number(misc_array_1[1]));
+        misc_array_2.push(Number(misc_array_1[3]));
+
+        for (let k = 0; k < matrix2_misc.length; k++) {
+            matrix2_misc[k].innerHTML = misc_array_2[k];
+        }
+    }
+
     // basic operation functions -------------------------------------------
     function matrixoperation3x3() {
         if (selection.options[selection.selectedIndex].value == "+") {
@@ -259,20 +292,21 @@ document.addEventListener("DOMContentLoaded", function () {
     // misc operations functions --------------------------------------
     function miscoperation2x2() {
         if (misc_selection.options[misc_selection.selectedIndex].value == "transpose") {
-            const misc_array_1 = [];
-            for (let k = 0; k < matrix1_misc.length; k++) {
-                misc_array_1.push(Number(matrix1_misc[k].value));
-            }
+            // const misc_array_1 = [];
+            // for (let k = 0; k < matrix1_misc.length; k++) {
+            //     misc_array_1.push(Number(matrix1_misc[k].value));
+            // }
 
-            const misc_array_2 = [];
-            misc_array_2.push(Number(misc_array_1[0]));
-            misc_array_2.push(Number(misc_array_1[2]));
-            misc_array_2.push(Number(misc_array_1[1]));
-            misc_array_2.push(Number(misc_array_1[3]));
+            // const misc_array_2 = [];
+            // misc_array_2.push(Number(misc_array_1[0]));
+            // misc_array_2.push(Number(misc_array_1[2]));
+            // misc_array_2.push(Number(misc_array_1[1]));
+            // misc_array_2.push(Number(misc_array_1[3]));
 
-            for (let k = 0; k < matrix2_misc.length; k++) {
-                matrix2_misc[k].innerHTML = misc_array_2[k];
-            }
+            // for (let k = 0; k < matrix2_misc.length; k++) {
+            //     matrix2_misc[k].innerHTML = misc_array_2[k];
+            // }
+            transpose2x2();
         }
         else if (misc_selection.options[misc_selection.selectedIndex].value == "inverse") {
             const misc_array_1 = [];
@@ -286,10 +320,10 @@ document.addEventListener("DOMContentLoaded", function () {
             if (det == 0) {
                 console.log("Inverse doesn't exist.");
                 for (let k = 0; k < matrix2_misc.length; k++) {
-                    if(k == 0){
+                    if (k == 0) {
                         matrix2_misc[k].innerHTML = "Doesn't exist";
                     }
-                    else{
+                    else {
                         matrix2_misc[k].innerHTML = "--";
                     }
                 }
@@ -395,19 +429,20 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
         else if (misc_selection.options[misc_selection.selectedIndex].value == "minor") {
-            const misc_array_1 = [];
-            for (let k = 0; k < matrix1_misc.length; k++) {
-                misc_array_1.push(Number(matrix1_misc[k].value));
-            }
-            const minor_array = [];
-            minor_array.push(Number(misc_array_1[3]));
-            minor_array.push(Number(misc_array_1[2]));
-            minor_array.push(Number(misc_array_1[1]));
-            minor_array.push(Number(misc_array_1[0]));
+            // const misc_array_1 = [];
+            // for (let k = 0; k < matrix1_misc.length; k++) {
+            //     misc_array_1.push(Number(matrix1_misc[k].value));
+            // }
+            // const minor_array = [];
+            // minor_array.push(Number(misc_array_1[3]));
+            // minor_array.push(Number(misc_array_1[2]));
+            // minor_array.push(Number(misc_array_1[1]));
+            // minor_array.push(Number(misc_array_1[0]));
 
-            for (let k = 0; k < matrix2_misc.length; k++) {
-                matrix2_misc[k].innerHTML = minor_array[k];
-            }
+            // for (let k = 0; k < matrix2_misc.length; k++) {
+            //     matrix2_misc[k].innerHTML = minor_array[k];
+            // }
+            minor2x2();
 
         }
         else if (misc_selection.options[misc_selection.selectedIndex].value == "determinant") {
@@ -512,10 +547,10 @@ document.addEventListener("DOMContentLoaded", function () {
             if (det == 0) {
                 console.log("Inverse doesn't exist.");
                 for (let k = 0; k < matrix4_misc.length; k++) {
-                    if(k == 4){
+                    if (k == 4) {
                         matrix4_misc[k].innerHTML = "Doesn't exist";
                     }
-                    else{
+                    else {
                         matrix4_misc[k].innerHTML = "--";
                     }
                 }
