@@ -638,6 +638,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     matrix2_misc[k].innerHTML = '--';
                 }
             }
+            while (misc_array_1.length > 0) {
+                misc_array_1.pop();
+                console.log(misc_array_1);
+            }
         }
         else if (misc_selection.options[misc_selection.selectedIndex].value == "adjoint") {
             // const misc_array_1 = [];
