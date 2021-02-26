@@ -32,30 +32,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // functions for operations
     function minor2x2() {
-        // for (let k = 0; k < matrix1_misc.length; k++) {
-        //     misc_array_1.push(Number(matrix1_misc[k].value));
-        // }
-        // minor_array.push(Number(misc_array_1[3]));
-        // minor_array.push(Number(misc_array_1[2]));
-        // minor_array.push(Number(misc_array_1[1]));
-        // minor_array.push(Number(misc_array_1[0]));
 
         if (misc_selection.options[misc_selection.selectedIndex].value == "inverse" || misc_selection.options[misc_selection.selectedIndex].value == "cofactor" || misc_selection.options[misc_selection.selectedIndex].value == "adjoint") {
-            // for (let k = 0; k < matrix1_misc.length; k++) {
-            //     misc_array_1.push(Number(matrix1_misc[k].value));
-            // }
             minor_array.push(Number(misc_array_1[3]));
             minor_array.push(Number(misc_array_1[2]));
             minor_array.push(Number(misc_array_1[1]));
             minor_array.push(Number(misc_array_1[0]));
-            // for (let k = 0; k < matrix2_misc.length; k++) {
-            //     matrix2_misc[k].innerHTML = minor_array[k];
-            // }
         }
         else {
-            // for (let k = 0; k < matrix1_misc.length; k++) {
-            //     misc_array_1.push(Number(matrix1_misc[k].value));
-            // }
             minor_array.push(Number(misc_array_1[3]));
             minor_array.push(Number(misc_array_1[2]));
             minor_array.push(Number(misc_array_1[1]));
@@ -76,9 +60,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function transpose2x2() {
-        // for (let k = 0; k < matrix1_misc.length; k++) {
-        //     misc_array_1.push(Number(matrix1_misc[k].value));
-        // }
         misc_array_2.push(Number(misc_array_1[0]));
         misc_array_2.push(Number(misc_array_1[2]));
         misc_array_2.push(Number(misc_array_1[1]));
@@ -98,27 +79,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function cofactor2x2() {
-        // for (let k = 0; k < matrix1_misc.length; k++) {
-        //     misc_array_1.push(Number(matrix1_misc[k].value));
-        // }
-        // cofactor.push(Number(minor_array[0]));
-        // cofactor.push(Number(((-1) * minor_array[1])));
-        // cofactor.push(Number(((-1) * minor_array[2])));
-        // cofactor.push(Number(minor_array[3]));
 
         if (misc_selection.options[misc_selection.selectedIndex].value == "inverse" || misc_selection.options[misc_selection.selectedIndex].value == "adjoint") {
-            // for (let k = 0; k < matrix1_misc.length; k++) {
-            //     misc_array_1.push(Number(matrix1_misc[k].value));
-            // }
             cofactor.push(Number(minor_array[0]));
             cofactor.push(Number(((-1) * minor_array[1])));
             cofactor.push(Number(((-1) * minor_array[2])));
             cofactor.push(Number(minor_array[3]));
         }
         else {
-            // for (let k = 0; k < matrix1_misc.length; k++) {
-            //     misc_array_1.push(Number(matrix1_misc[k].value));
-            // }
             cofactor.push(Number(minor_array[0]));
             cofactor.push(Number(((-1) * minor_array[1])));
             cofactor.push(Number(((-1) * minor_array[2])));
@@ -143,37 +111,16 @@ document.addEventListener("DOMContentLoaded", function () {
                 console.log(cofactor);
             }
         }
-
-        // for (let k = 0; k < matrix2_misc.length; k++) {
-        //     matrix2_misc[k].innerHTML = cofactor[k];
-        // }
     }
 
     function adjoint2x2() {
-        // for (let k = 0; k < matrix1_misc.length; k++) {
-        //     misc_array_1.push(Number(matrix1_misc[k].value));
-        // }
-        // adj.push(Number(cofactor[0]));
-        // adj.push(Number(cofactor[2]));
-        // adj.push(Number(cofactor[1]));
-        // adj.push(Number(cofactor[3]));
-        // for (let k = 0; k < matrix2_misc.length; k++) {
-        //     matrix2_misc[k].innerHTML = adj[k];
-        // }
-
         if (misc_selection.options[misc_selection.selectedIndex].value == "inverse"){
-            // for (let k = 0; k < matrix1_misc.length; k++) {
-            //     misc_array_1.push(Number(matrix1_misc[k].value));
-            // }
             adj.push(Number(cofactor[0]));
             adj.push(Number(cofactor[2]));
             adj.push(Number(cofactor[1]));
             adj.push(Number(cofactor[3]));
         }
         else {
-            // for (let k = 0; k < matrix1_misc.length; k++) {
-            //     misc_array_1.push(Number(matrix1_misc[k].value));
-            // }
             adj.push(Number(cofactor[0]));
             adj.push(Number(cofactor[2]));
             adj.push(Number(cofactor[1]));
@@ -440,25 +387,12 @@ document.addEventListener("DOMContentLoaded", function () {
     // misc operations functions --------------------------------------
     function miscoperation2x2() {
         if (misc_selection.options[misc_selection.selectedIndex].value == "transpose") {
-            // const misc_array_1 = [];
             for (let k = 0; k < matrix1_misc.length; k++) {
                 misc_array_1.push(Number(matrix1_misc[k].value));
             }
-
-            // const misc_array_2 = [];
-            // misc_array_2.push(Number(misc_array_1[0]));
-            // misc_array_2.push(Number(misc_array_1[2]));
-            // misc_array_2.push(Number(misc_array_1[1]));
-            // misc_array_2.push(Number(misc_array_1[3]));
             transpose2x2();
-
-            // for (let k = 0; k < matrix2_misc.length; k++) {
-            //     matrix2_misc[k].innerHTML = misc_array_2[k];
-            // }
-            // transpose2x2();
         }
         else if (misc_selection.options[misc_selection.selectedIndex].value == "inverse") {
-            // const misc_array_1 = [];
             for (let k = 0; k < matrix1_misc.length; k++) {
                 misc_array_1.push(Number(matrix1_misc[k].value));
             }
@@ -482,25 +416,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             }
             else {
-                // const minor_array = [];
-                // minor_array.push(Number(misc_array_1[3]));
-                // minor_array.push(Number(misc_array_1[2]));
-                // minor_array.push(Number(misc_array_1[1]));
-                // minor_array.push(Number(misc_array_1[0]));
                 minor2x2();
-
-                // const cofactor = [];
-                // cofactor.push(Number(minor_array[0]));
-                // cofactor.push(Number(((-1) * minor_array[1])));
-                // cofactor.push(Number(((-1) * minor_array[2])));
-                // cofactor.push(Number(minor_array[3]));
                 cofactor2x2();
-
-                // const adj = [];
-                // adj.push(Number(cofactor[0]));
-                // adj.push(Number(cofactor[2]));
-                // adj.push(Number(cofactor[1]));
-                // adj.push(Number(cofactor[3]));
                 adjoint2x2();
 
                 const numerator1 = [];
@@ -602,33 +519,18 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
         else if (misc_selection.options[misc_selection.selectedIndex].value == "minor") {
-            // const misc_array_1 = [];
             for (let k = 0; k < matrix1_misc.length; k++) {
                 misc_array_1.push(Number(matrix1_misc[k].value));
             }
-            // const minor_array = [];
-            // minor_array.push(Number(misc_array_1[3]));
-            // minor_array.push(Number(misc_array_1[2]));
-            // minor_array.push(Number(misc_array_1[1]));
-            // minor_array.push(Number(misc_array_1[0]));
-
             minor2x2();
-
-            // for (let k = 0; k < matrix2_misc.length; k++) {
-            //     matrix2_misc[k].innerHTML = minor_array[k];
-            // }
-            // minor2x2();
-
         }
         else if (misc_selection.options[misc_selection.selectedIndex].value == "determinant") {
-            // const misc_array_1 = [];
             for (let k = 0; k < matrix1_misc.length; k++) {
                 misc_array_1.push(Number(matrix1_misc[k].value));
             }
 
             var det = (misc_array_1[0] * misc_array_1[3]) - (misc_array_1[2] * misc_array_1[1]);
             console.log(det);
-            // determinant2x2();
 
             for (let k = 0; k < matrix2_misc.length; k++) {
                 if (k == 0) {
@@ -644,57 +546,19 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
         else if (misc_selection.options[misc_selection.selectedIndex].value == "adjoint") {
-            // const misc_array_1 = [];
             for (let k = 0; k < matrix1_misc.length; k++) {
                 misc_array_1.push(Number(matrix1_misc[k].value));
             }
-            // const minor_array = [];
-            // minor_array.push(Number(misc_array_1[3]));
-            // minor_array.push(Number(misc_array_1[2]));
-            // minor_array.push(Number(misc_array_1[1]));
-            // minor_array.push(Number(misc_array_1[0]));
             minor2x2();
-
-            // const cofactor = [];
-            // cofactor.push(Number(minor_array[0]));
-            // cofactor.push(Number(((-1) * minor_array[1])));
-            // cofactor.push(Number(((-1) * minor_array[2])));
-            // cofactor.push(Number(minor_array[3]));
             cofactor2x2();
-
-            // const adj = [];
-            // adj.push(Number(cofactor[0]));
-            // adj.push(Number(cofactor[2]));
-            // adj.push(Number(cofactor[1]));
-            // adj.push(Number(cofactor[3]));
             adjoint2x2();
-
-            // for (let k = 0; k < matrix2_misc.length; k++) {
-            //     matrix2_misc[k].innerHTML = adj[k];
-            // }
         }
         else if (misc_selection.options[misc_selection.selectedIndex].value == "cofactor") {
-            // const misc_array_1 = [];
             for (let k = 0; k < matrix1_misc.length; k++) {
                 misc_array_1.push(Number(matrix1_misc[k].value));
             }
-            // const minor_array = [];
-            // minor_array.push(Number(misc_array_1[3]));
-            // minor_array.push(Number(misc_array_1[2]));
-            // minor_array.push(Number(misc_array_1[1]));
-            // minor_array.push(Number(misc_array_1[0]));
             minor2x2();
-
-            // const cofactor = [];
-            // cofactor.push(Number(minor_array[0]));
-            // cofactor.push(Number(((-1) * minor_array[1])));
-            // cofactor.push(Number(((-1) * minor_array[2])));
-            // cofactor.push(Number(minor_array[3]));
             cofactor2x2();
-
-            // for (let k = 0; k < matrix2_misc.length; k++) {
-            //     matrix2_misc[k].innerHTML = cofactor[k];
-            // }
         }
         return null;
     }
