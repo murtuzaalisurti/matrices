@@ -23,11 +23,11 @@ document.addEventListener("DOMContentLoaded", function () {
     var misc_selection_2 = document.querySelector("#misc-operations-2");
     var selectmatrixmisc = document.querySelector("#matrix-selection-misc");
 
-    var misc_array_1 = [];
-    var misc_array_2 = [];
-    var minor_array = [];
-    var cofactor = [];
-    var adj = [];
+    const misc_array_1 = [];
+    const misc_array_2 = [];
+    const minor_array = [];
+    const cofactor = [];
+    const adj = [];
     // const det;
 
     // functions for operations
@@ -43,6 +43,14 @@ document.addEventListener("DOMContentLoaded", function () {
         for (let k = 0; k < matrix2_misc.length; k++) {
             matrix2_misc[k].innerHTML = minor_array[k];
         }
+        while (misc_array_1.length > 0) {
+            misc_array_1.pop();
+            console.log(misc_array_1);
+        }
+        while (minor_array.length > 0) {
+            minor_array.pop();
+            console.log(minor_array);
+        }
     }
 
     function transpose2x2() {
@@ -56,6 +64,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
         for (let k = 0; k < matrix2_misc.length; k++) {
             matrix2_misc[k].innerHTML = misc_array_2[k];
+        }
+        while (misc_array_1.length > 0) {
+            misc_array_1.pop();
+            console.log(misc_array_1);
+        }
+        while (misc_array_2.length > 0) {
+            misc_array_2.pop();
+            console.log(misc_array_2);
         }
     }
 
