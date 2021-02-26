@@ -53,9 +53,9 @@ document.addEventListener("DOMContentLoaded", function () {
             // }
         }
         else {
-            for (let k = 0; k < matrix1_misc.length; k++) {
-                misc_array_1.push(Number(matrix1_misc[k].value));
-            }
+            // for (let k = 0; k < matrix1_misc.length; k++) {
+            //     misc_array_1.push(Number(matrix1_misc[k].value));
+            // }
             minor_array.push(Number(misc_array_1[3]));
             minor_array.push(Number(misc_array_1[2]));
             minor_array.push(Number(misc_array_1[1]));
@@ -116,20 +116,27 @@ document.addEventListener("DOMContentLoaded", function () {
             cofactor.push(Number(minor_array[3]));
         }
         else {
-            for (let k = 0; k < matrix1_misc.length; k++) {
-                misc_array_1.push(Number(matrix1_misc[k].value));
-            }
+            // for (let k = 0; k < matrix1_misc.length; k++) {
+            //     misc_array_1.push(Number(matrix1_misc[k].value));
+            // }
             cofactor.push(Number(minor_array[0]));
             cofactor.push(Number(((-1) * minor_array[1])));
             cofactor.push(Number(((-1) * minor_array[2])));
             cofactor.push(Number(minor_array[3]));
 
+            console.log(cofactor);
+
             for (let k = 0; k < matrix2_misc.length; k++) {
                 matrix2_misc[k].innerHTML = cofactor[k];
+                console.log(cofactor);
             }
             while (misc_array_1.length > 0) {
                 misc_array_1.pop();
                 console.log(misc_array_1);
+            }
+            while (minor_array.length > 0) {
+                minor_array.pop();
+                console.log(minor_array);
             }
             while (cofactor.length > 0) {
                 cofactor.pop();
@@ -164,9 +171,9 @@ document.addEventListener("DOMContentLoaded", function () {
             adj.push(Number(cofactor[3]));
         }
         else {
-            for (let k = 0; k < matrix1_misc.length; k++) {
-                misc_array_1.push(Number(matrix1_misc[k].value));
-            }
+            // for (let k = 0; k < matrix1_misc.length; k++) {
+            //     misc_array_1.push(Number(matrix1_misc[k].value));
+            // }
             adj.push(Number(cofactor[0]));
             adj.push(Number(cofactor[2]));
             adj.push(Number(cofactor[1]));
@@ -179,6 +186,14 @@ document.addEventListener("DOMContentLoaded", function () {
             while (misc_array_1.length > 0) {
                 misc_array_1.pop();
                 console.log(misc_array_1);
+            }
+            while (minor_array.length > 0) {
+                minor_array.pop();
+                console.log(minor_array);
+            }
+            while (cofactor.length > 0) {
+                cofactor.pop();
+                console.log(cofactor);
             }
             while (adj.length > 0) {
                 adj.pop();
@@ -626,9 +641,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         else if (misc_selection.options[misc_selection.selectedIndex].value == "adjoint") {
             // const misc_array_1 = [];
-            // for (let k = 0; k < matrix1_misc.length; k++) {
-            //     misc_array_1.push(Number(matrix1_misc[k].value));
-            // }
+            for (let k = 0; k < matrix1_misc.length; k++) {
+                misc_array_1.push(Number(matrix1_misc[k].value));
+            }
             // const minor_array = [];
             // minor_array.push(Number(misc_array_1[3]));
             // minor_array.push(Number(misc_array_1[2]));
@@ -656,9 +671,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         else if (misc_selection.options[misc_selection.selectedIndex].value == "cofactor") {
             // const misc_array_1 = [];
-            // for (let k = 0; k < matrix1_misc.length; k++) {
-            //     misc_array_1.push(Number(matrix1_misc[k].value));
-            // }
+            for (let k = 0; k < matrix1_misc.length; k++) {
+                misc_array_1.push(Number(matrix1_misc[k].value));
+            }
             // const minor_array = [];
             // minor_array.push(Number(misc_array_1[3]));
             // minor_array.push(Number(misc_array_1[2]));
