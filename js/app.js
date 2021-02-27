@@ -23,6 +23,41 @@ document.addEventListener("DOMContentLoaded", function () {
     var misc_selection_2 = document.querySelector("#misc-operations-2");
     var selectmatrixmisc = document.querySelector("#matrix-selection-misc");
 
+    // basic operations variables of 3x3 matrix
+    const array1 = [];
+    const array2 = [];
+    const array3 = [];
+
+    // basic operations variables of 2x2 matrix
+    const array4 = [];
+    const array5 = [];
+    const array6 = [];
+
+    // function for basic operation
+    function arraypopping() {
+        while (array1.length > 0) {
+            array1.pop();
+        }
+        while (array2.length > 0) {
+            array2.pop();
+        }
+        while (array3.length > 0) {
+            array3.pop();
+        }
+    }
+
+    function arraypopping2x2() {
+        while (array4.length > 0) {
+            array4.pop();
+        }
+        while (array5.length > 0) {
+            array5.pop();
+        }
+        while (array6.length > 0) {
+            array6.pop();
+        }
+    }
+
     // miscellaneous operations variables of 2x2 matrix----------------------
     const misc_array_1 = [];
     const misc_array_2 = [];
@@ -37,7 +72,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // functions for miscellaneous operations on 2x2 matrix
     function minor2x2() {
-
         if (misc_selection.options[misc_selection.selectedIndex].value == "inverse" || misc_selection.options[misc_selection.selectedIndex].value == "cofactor" || misc_selection.options[misc_selection.selectedIndex].value == "adjoint") {
             minor_array.push(Number(misc_array_1[3]));
             minor_array.push(Number(misc_array_1[2]));
@@ -55,11 +89,9 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             while (misc_array_1.length > 0) {
                 misc_array_1.pop();
-                console.log(misc_array_1);
             }
             while (minor_array.length > 0) {
                 minor_array.pop();
-                console.log(minor_array);
             }
         }
     }
@@ -75,16 +107,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         while (misc_array_1.length > 0) {
             misc_array_1.pop();
-            console.log(misc_array_1);
         }
         while (misc_array_2.length > 0) {
             misc_array_2.pop();
-            console.log(misc_array_2);
         }
     }
 
     function cofactor2x2() {
-
         if (misc_selection.options[misc_selection.selectedIndex].value == "inverse" || misc_selection.options[misc_selection.selectedIndex].value == "adjoint") {
             cofactor.push(Number(minor_array[0]));
             cofactor.push(Number(((-1) * minor_array[1])));
@@ -97,23 +126,17 @@ document.addEventListener("DOMContentLoaded", function () {
             cofactor.push(Number(((-1) * minor_array[2])));
             cofactor.push(Number(minor_array[3]));
 
-            console.log(cofactor);
-
             for (let k = 0; k < matrix2_misc.length; k++) {
                 matrix2_misc[k].innerHTML = cofactor[k];
-                console.log(cofactor);
             }
             while (misc_array_1.length > 0) {
                 misc_array_1.pop();
-                console.log(misc_array_1);
             }
             while (minor_array.length > 0) {
                 minor_array.pop();
-                console.log(minor_array);
             }
             while (cofactor.length > 0) {
                 cofactor.pop();
-                console.log(cofactor);
             }
         }
     }
@@ -137,19 +160,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
             while (misc_array_1.length > 0) {
                 misc_array_1.pop();
-                console.log(misc_array_1);
             }
             while (minor_array.length > 0) {
                 minor_array.pop();
-                console.log(minor_array);
             }
             while (cofactor.length > 0) {
                 cofactor.pop();
-                console.log(cofactor);
             }
             while (adj.length > 0) {
                 adj.pop();
-                console.log(adj);
             }
         }
     }
@@ -185,11 +204,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
             while (misc_array_3.length > 0) {
                 misc_array_3.pop();
-                console.log(misc_array_3);
             }
             while (minor_array.length > 0) {
                 minor_array.pop();
-                console.log(minor_array);
             }
         }
     }
@@ -210,11 +227,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         while (misc_array_3.length > 0) {
             misc_array_3.pop();
-            console.log(misc_array_3);
         }
         while (misc_array_4.length > 0) {
             misc_array_4.pop();
-            console.log(misc_array_4);
         }
     }
 
@@ -246,15 +261,12 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             while (misc_array_3.length > 0) {
                 misc_array_3.pop();
-                console.log(misc_array_3);
             }
             while (minor_array.length > 0) {
                 minor_array.pop();
-                console.log(minor_array);
             }
             while (cofactor.length > 0) {
                 cofactor.pop();
-                console.log(cofactor);
             }
         }
     }
@@ -287,19 +299,15 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             while (misc_array_3.length > 0) {
                 misc_array_3.pop();
-                console.log(misc_array_3);
             }
             while (minor_array.length > 0) {
                 minor_array.pop();
-                console.log(minor_array);
             }
             while (cofactor.length > 0) {
                 cofactor.pop();
-                console.log(cofactor);
             }
             while (adj.length > 0) {
                 adj.pop();
-                console.log(adj);
             }
         }
     }
@@ -309,59 +317,42 @@ document.addEventListener("DOMContentLoaded", function () {
     // basic operation functions -------------------------------------------
     function matrixoperation3x3() {
         if (selection.options[selection.selectedIndex].value == "+") {
-            const array1 = [];
             for (let i = 0; i < matrix1.length; i++) {
                 array1.push(Number(matrix1[i].value));
             }
-            console.log(array1);
-            const array2 = [];
             for (let i = 0; i < matrix2.length; i++) {
                 array2.push(Number(matrix2[i].value));
             }
-            console.log(array2);
-            const array3 = [];
             for (let i = 0; i < array1.length; i++) {
                 array3.push(Number(array1[i] + array2[i]));
             }
-            console.log(array3);
-
             for (let i = 0; i < matrix3.length; i++) {
                 matrix3[i].innerHTML = array3[i];
             }
+            arraypopping();
         }
         else if (selection.options[selection.selectedIndex].value == "-") {
-            const array1 = [];
             for (let i = 0; i < matrix1.length; i++) {
                 array1.push(Number(matrix1[i].value));
             }
-            console.log(array1);
-            const array2 = [];
             for (let i = 0; i < matrix2.length; i++) {
                 array2.push(Number(matrix2[i].value));
             }
-            console.log(array2);
-            const array3 = [];
             for (let i = 0; i < array1.length; i++) {
                 array3.push(Number(array1[i] - array2[i]));
             }
-            console.log(array3);
-
             for (let i = 0; i < matrix3.length; i++) {
                 matrix3[i].innerHTML = array3[i];
             }
+            arraypopping();
         }
         else if (selection.options[selection.selectedIndex].value == "*") {
-            const array1 = [];
             for (let i = 0; i < matrix1.length; i++) {
                 array1.push(Number(matrix1[i].value));
             }
-            console.log(array1);
-            const array2 = [];
             for (let i = 0; i < matrix2.length; i++) {
                 array2.push(Number(matrix2[i].value));
             }
-            console.log(array2);
-            const array3 = [];
             array3.push(Number((array1[0] * array2[0]) + (array1[1] * array2[3]) + (array1[2] * array2[6])));
             array3.push(Number((array1[0] * array2[1]) + (array1[1] * array2[4]) + (array1[2] * array2[7])));
             array3.push(Number((array1[0] * array2[2]) + (array1[1] * array2[5]) + (array1[2] * array2[8])));
@@ -379,75 +370,56 @@ document.addEventListener("DOMContentLoaded", function () {
             for (let i = 0; i < matrix3.length; i++) {
                 matrix3[i].innerHTML = array3[i];
             }
+            arraypopping();
         }
         return null;
     }
     function matrixoperation2x2() {
         if (selection_2.options[selection_2.selectedIndex].value == "+") {
-            const array4 = [];
             for (let i = 0; i < matrix4.length; i++) {
                 array4.push(Number(matrix4[i].value));
             }
-            console.log(array4);
-            const array5 = [];
             for (let i = 0; i < matrix5.length; i++) {
                 array5.push(Number(matrix5[i].value));
             }
-            console.log(array5);
-            const array6 = [];
             for (let i = 0; i < array5.length; i++) {
                 array6.push(Number(array4[i] + array5[i]));
             }
-            console.log(array6);
-
             for (let i = 0; i < matrix6.length; i++) {
                 matrix6[i].innerHTML = array6[i];
             }
+            arraypopping2x2();
         }
         else if (selection_2.options[selection_2.selectedIndex].value == "-") {
-            const array4 = [];
             for (let i = 0; i < matrix4.length; i++) {
                 array4.push(Number(matrix4[i].value));
             }
-            console.log(array4);
-            const array5 = [];
             for (let i = 0; i < matrix5.length; i++) {
                 array5.push(Number(matrix5[i].value));
             }
-            console.log(array5);
-            const array6 = [];
             for (let i = 0; i < array5.length; i++) {
                 array6.push(Number(array4[i] - array5[i]));
             }
-            console.log(array6);
-
             for (let i = 0; i < matrix6.length; i++) {
                 matrix6[i].innerHTML = array6[i];
             }
+            arraypopping2x2();
         }
         else if (selection_2.options[selection_2.selectedIndex].value == "*") {
-            const array4 = [];
             for (let i = 0; i < matrix4.length; i++) {
                 array4.push(Number(matrix4[i].value));
             }
-            console.log(array4);
-            const array5 = [];
             for (let i = 0; i < matrix5.length; i++) {
                 array5.push(Number(matrix5[i].value));
             }
-            console.log(array5);
-            const array6 = [];
             array6.push(Number((array4[0] * array5[0]) + (array4[1] * array5[2])));
             array6.push(Number((array4[0] * array5[1]) + (array4[1] * array5[3])));
             array6.push(Number((array4[2] * array5[0]) + (array4[3] * array5[2])));
-
             array6.push(Number((array4[2] * array5[1]) + (array4[3] * array5[3])));
-
-            console.log(array6);
-
             for (let i = 0; i < matrix6.length; i++) {
                 matrix6[i].innerHTML = array6[i];
             }
+            arraypopping2x2();
         }
         return null;
     }
@@ -471,70 +443,48 @@ document.addEventListener("DOMContentLoaded", function () {
         matrixoperation2x2();
         matrix6_outer.classList.add("change-2x2");
     }
-    matrix1.forEach(function (field, index) {
+    matrix1.forEach(function (field) {
         field.onkeyup = () => {
-            setTimeout(function () {
-                console.log(index);
-                if (index === 8) {
-                    return false
-                }
-                else if (field.value !== '') {
-                    console.log(field.nextElementSibling);
-                    field.nextElementSibling.focus();
-                }
-            }, 1500);
+            // setTimeout(function () {
+            //     console.log(index);
+            //     if (index === 8) {
+            //         return false
+            //     }
+            //     else if (field.value !== '') {
+            //         console.log(field.nextElementSibling);
+            //         field.nextElementSibling.focus();
+            //     }
+            // }, 1500);
 
             matrixoperation3x3();
         }
     });
 
-    matrix2.forEach(function (field, index) {
+    matrix2.forEach(function (field) {
         field.onkeyup = () => {
-            setTimeout(function () {
-                console.log(index);
-                if (index === 8) {
-                    return false
-                }
-                else if (field.value !== '') {
-                    console.log(field.nextElementSibling);
-                    field.nextElementSibling.focus();
-                }
-            }, 1500);
-
             matrixoperation3x3();
         }
     });
 
-    matrix4.forEach(function (field, index) {
+    matrix4.forEach(function (field) {
         field.onkeyup = () => {
-            setTimeout(function () {
-                console.log(index);
-                if (index === 3) {
-                    return false
-                }
-                else if (field.value !== '') {
-                    console.log(field.nextElementSibling);
-                    field.nextElementSibling.focus();
-                }
-            }, 1500);
+            // setTimeout(function () {
+            //     console.log(index);
+            //     if (index === 3) {
+            //         return false
+            //     }
+            //     else if (field.value !== '') {
+            //         console.log(field.nextElementSibling);
+            //         field.nextElementSibling.focus();
+            //     }
+            // }, 1500);
 
             matrixoperation2x2();
         }
     });
 
-    matrix5.forEach(function (field, index) {
+    matrix5.forEach(function (field) {
         field.onkeyup = () => {
-            setTimeout(function () {
-                console.log(index);
-                if (index === 3) {
-                    return false
-                }
-                else if (field.value !== '') {
-                    console.log(field.nextElementSibling);
-                    field.nextElementSibling.focus();
-                }
-            }, 1500);
-
             matrixoperation2x2();
         }
     });
@@ -553,7 +503,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             var det = (misc_array_1[0] * misc_array_1[3]) - (misc_array_1[2] * misc_array_1[1]);
-            console.log(det);
 
             if (det == 0) {
                 console.log("Inverse doesn't exist.");
@@ -567,7 +516,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
                 while (misc_array_1.length > 0) {
                     misc_array_1.pop();
-                    console.log(misc_array_1);
                 }
             }
             else {
@@ -657,19 +605,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 while (misc_array_1.length > 0) {
                     misc_array_1.pop();
-                    console.log(misc_array_1);
                 }
                 while (minor_array.length > 0) {
                     minor_array.pop();
-                    console.log(minor_array);
                 }
                 while (cofactor.length > 0) {
                     cofactor.pop();
-                    console.log(cofactor);
                 }
                 while (adj.length > 0) {
                     adj.pop();
-                    console.log(adj);
                 }
             }
         }
@@ -685,7 +629,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             var det = (misc_array_1[0] * misc_array_1[3]) - (misc_array_1[2] * misc_array_1[1]);
-            console.log(det);
 
             for (let k = 0; k < matrix2_misc.length; k++) {
                 if (k == 0) {
@@ -697,7 +640,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             while (misc_array_1.length > 0) {
                 misc_array_1.pop();
-                console.log(misc_array_1);
             }
         }
         else if (misc_selection.options[misc_selection.selectedIndex].value == "adjoint") {
@@ -730,7 +672,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             var det = (misc_array_3[0] * ((misc_array_3[4] * misc_array_3[8]) - (misc_array_3[5] * misc_array_3[7]))) - (misc_array_3[1] * ((misc_array_3[3] * misc_array_3[8]) - (misc_array_3[6] * misc_array_3[5]))) + (misc_array_3[2] * ((misc_array_3[3] * misc_array_3[7]) - (misc_array_3[6] * misc_array_3[4])));
-            console.log(det);
 
             if (det == 0) {
                 console.log("Inverse doesn't exist.");
@@ -744,7 +685,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
                 while (misc_array_3.length > 0) {
                     misc_array_3.pop();
-                    console.log(misc_array_3);
                 }
             }
             else {
@@ -831,19 +771,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
                 while (misc_array_3.length > 0) {
                     misc_array_3.pop();
-                    console.log(misc_array_3);
                 }
                 while (minor_array.length > 0) {
                     minor_array.pop();
-                    console.log(minor_array);
                 }
                 while (cofactor.length > 0) {
                     cofactor.pop();
-                    console.log(cofactor);
                 }
                 while (adj.length > 0) {
                     adj.pop();
-                    console.log(adj);
                 }
             }
         }
@@ -859,8 +795,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             var det = (misc_array_3[0] * ((misc_array_3[4] * misc_array_3[8]) - (misc_array_3[5] * misc_array_3[7]))) - (misc_array_3[1] * ((misc_array_3[3] * misc_array_3[8]) - (misc_array_3[6] * misc_array_3[5]))) + (misc_array_3[2] * ((misc_array_3[3] * misc_array_3[7]) - (misc_array_3[6] * misc_array_3[4])));
-            console.log(det);
-            matrix4_misc[4].innerHTML = det;
+            // matrix4_misc[4].innerHTML = det;
 
             for (let k = 0; k < matrix4_misc.length; k++) {
                 if (k == 4) {
@@ -872,7 +807,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             while (misc_array_3.length > 0) {
                 misc_array_3.pop();
-                console.log(misc_array_3);
             }
         }
         else if (misc_selection_2.options[misc_selection_2.selectedIndex].value == "adjoint") {
@@ -912,31 +846,13 @@ document.addEventListener("DOMContentLoaded", function () {
         miscoperation3x3();
         matrix4_misc_outer.classList.add("change-3x3");
     }
-    matrix1_misc.forEach(function (field, index) {
+    matrix1_misc.forEach(function (field) {
         field.onkeyup = () => {
-            setTimeout(function () {
-                if (index === 3) {
-                    return false
-                }
-                else if (field.value !== '') {
-                    field.nextElementSibling.focus();
-                }
-            }, 1500);
-
             miscoperation2x2();
         }
     });
-    matrix3_misc.forEach(function (field, index) {
+    matrix3_misc.forEach(function (field) {
         field.onkeyup = () => {
-            setTimeout(function () {
-                if (index === 8) {
-                    return false
-                }
-                else if (field.value !== '') {
-                    field.nextElementSibling.focus();
-                }
-            }, 1500);
-
             miscoperation3x3();
         }
     });
