@@ -23,14 +23,19 @@ document.addEventListener("DOMContentLoaded", function () {
     var misc_selection_2 = document.querySelector("#misc-operations-2");
     var selectmatrixmisc = document.querySelector("#matrix-selection-misc");
 
+    // miscellaneous operations variables of 2x2 matrix----------------------
     const misc_array_1 = [];
     const misc_array_2 = [];
-    const minor_array = [];
-    const cofactor = [];
-    const adj = [];
-    // const det;
+    const minor_array = []; // ]
+    const cofactor = [];    // | --> also for 3x3 matrix
+    const adj = [];         // ]
 
-    // functions for operations
+    // miscellaneous operations variables of 3x3 matrix----------------------
+    const misc_array_3 = [];
+    const misc_array_4 = [];
+
+
+    // functions for miscellaneous operations on 2x2 matrix
     function minor2x2() {
 
         if (misc_selection.options[misc_selection.selectedIndex].value == "inverse" || misc_selection.options[misc_selection.selectedIndex].value == "cofactor" || misc_selection.options[misc_selection.selectedIndex].value == "adjoint") {
@@ -114,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function adjoint2x2() {
-        if (misc_selection.options[misc_selection.selectedIndex].value == "inverse"){
+        if (misc_selection.options[misc_selection.selectedIndex].value == "inverse") {
             adj.push(Number(cofactor[0]));
             adj.push(Number(cofactor[2]));
             adj.push(Number(cofactor[1]));
@@ -148,6 +153,38 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
     }
+
+
+    // functions for miscellaneous operations on 3x3 matrix
+    function minor3x3() { }
+
+    function transpose3x3() {
+        misc_array_4.push(Number(misc_array_3[0]));
+        misc_array_4.push(Number(misc_array_3[3]));
+        misc_array_4.push(Number(misc_array_3[6]));
+        misc_array_4.push(Number(misc_array_3[1]));
+        misc_array_4.push(Number(misc_array_3[4]));
+        misc_array_4.push(Number(misc_array_3[7]));
+        misc_array_4.push(Number(misc_array_3[2]));
+        misc_array_4.push(Number(misc_array_3[5]));
+        misc_array_4.push(Number(misc_array_3[8]));
+
+        for (let k = 0; k < matrix4_misc.length; k++) {
+            matrix4_misc[k].innerHTML = misc_array_4[k];
+        }
+        while (misc_array_3.length > 0) {
+            misc_array_3.pop();
+            console.log(misc_array_3);
+        }
+        while (misc_array_4.length > 0) {
+            misc_array_4.pop();
+            console.log(misc_array_4);
+        }
+    }
+
+    function cofactor3x3() { }
+
+    function adjoint3x3() { }
 
 
 
@@ -564,25 +601,27 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     function miscoperation3x3() {
         if (misc_selection_2.options[misc_selection_2.selectedIndex].value == "transpose") {
-            const misc_array_3 = [];
+            // const misc_array_3 = [];
             for (let k = 0; k < matrix3_misc.length; k++) {
                 misc_array_3.push(Number(matrix3_misc[k].value));
             }
 
-            const misc_array_4 = [];
-            misc_array_4.push(Number(misc_array_3[0]));
-            misc_array_4.push(Number(misc_array_3[3]));
-            misc_array_4.push(Number(misc_array_3[6]));
-            misc_array_4.push(Number(misc_array_3[1]));
-            misc_array_4.push(Number(misc_array_3[4]));
-            misc_array_4.push(Number(misc_array_3[7]));
-            misc_array_4.push(Number(misc_array_3[2]));
-            misc_array_4.push(Number(misc_array_3[5]));
-            misc_array_4.push(Number(misc_array_3[8]));
+            transpose3x3();
 
-            for (let k = 0; k < matrix4_misc.length; k++) {
-                matrix4_misc[k].innerHTML = misc_array_4[k];
-            }
+            // const misc_array_4 = [];
+            // misc_array_4.push(Number(misc_array_3[0]));
+            // misc_array_4.push(Number(misc_array_3[3]));
+            // misc_array_4.push(Number(misc_array_3[6]));
+            // misc_array_4.push(Number(misc_array_3[1]));
+            // misc_array_4.push(Number(misc_array_3[4]));
+            // misc_array_4.push(Number(misc_array_3[7]));
+            // misc_array_4.push(Number(misc_array_3[2]));
+            // misc_array_4.push(Number(misc_array_3[5]));
+            // misc_array_4.push(Number(misc_array_3[8]));
+
+            // for (let k = 0; k < matrix4_misc.length; k++) {
+            //     matrix4_misc[k].innerHTML = misc_array_4[k];
+            // }
         }
         else if (misc_selection_2.options[misc_selection_2.selectedIndex].value == "inverse") {
             const misc_array_3 = [];
