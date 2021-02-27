@@ -719,30 +719,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     function miscoperation3x3() {
         if (misc_selection_2.options[misc_selection_2.selectedIndex].value == "transpose") {
-            // const misc_array_3 = [];
             for (let k = 0; k < matrix3_misc.length; k++) {
                 misc_array_3.push(Number(matrix3_misc[k].value));
             }
-
             transpose3x3();
-
-            // const misc_array_4 = [];
-            // misc_array_4.push(Number(misc_array_3[0]));
-            // misc_array_4.push(Number(misc_array_3[3]));
-            // misc_array_4.push(Number(misc_array_3[6]));
-            // misc_array_4.push(Number(misc_array_3[1]));
-            // misc_array_4.push(Number(misc_array_3[4]));
-            // misc_array_4.push(Number(misc_array_3[7]));
-            // misc_array_4.push(Number(misc_array_3[2]));
-            // misc_array_4.push(Number(misc_array_3[5]));
-            // misc_array_4.push(Number(misc_array_3[8]));
-
-            // for (let k = 0; k < matrix4_misc.length; k++) {
-            //     matrix4_misc[k].innerHTML = misc_array_4[k];
-            // }
         }
         else if (misc_selection_2.options[misc_selection_2.selectedIndex].value == "inverse") {
-            const misc_array_3 = [];
             for (let k = 0; k < matrix3_misc.length; k++) {
                 misc_array_3.push(Number(matrix3_misc[k].value));
             }
@@ -760,41 +742,15 @@ document.addEventListener("DOMContentLoaded", function () {
                         matrix4_misc[k].innerHTML = "--";
                     }
                 }
+                while (misc_array_3.length > 0) {
+                    misc_array_3.pop();
+                    console.log(misc_array_3);
+                }
             }
             else {
-                const minor_array = [];
-                minor_array.push(Number((misc_array_3[4] * misc_array_3[8]) - (misc_array_3[5] * misc_array_3[7])));
-                minor_array.push(Number((misc_array_3[3] * misc_array_3[8]) - (misc_array_3[6] * misc_array_3[5])));
-                minor_array.push(Number((misc_array_3[3] * misc_array_3[7]) - (misc_array_3[6] * misc_array_3[4])));
-                minor_array.push(Number((misc_array_3[1] * misc_array_3[8]) - (misc_array_3[7] * misc_array_3[2])));
-                minor_array.push(Number((misc_array_3[0] * misc_array_3[8]) - (misc_array_3[6] * misc_array_3[2])));
-                minor_array.push(Number((misc_array_3[0] * misc_array_3[7]) - (misc_array_3[6] * misc_array_3[1])));
-                minor_array.push(Number((misc_array_3[1] * misc_array_3[5]) - (misc_array_3[4] * misc_array_3[2])));
-                minor_array.push(Number((misc_array_3[0] * misc_array_3[5]) - (misc_array_3[3] * misc_array_3[2])));
-                minor_array.push(Number((misc_array_3[0] * misc_array_3[4]) - (misc_array_3[3] * misc_array_3[1])));
-
-
-                const cofactor = [];
-                cofactor.push(Number(minor_array[0]));
-                cofactor.push(Number(((-1) * minor_array[1])));
-                cofactor.push(Number((minor_array[2])));
-                cofactor.push(Number(((-1) * minor_array[3])));
-                cofactor.push(Number((minor_array[4])));
-                cofactor.push(Number(((-1) * minor_array[5])));
-                cofactor.push(Number((minor_array[6])));
-                cofactor.push(Number(((-1) * minor_array[7])));
-                cofactor.push(Number((minor_array[8])));
-
-                const adj = [];
-                adj.push(Number(cofactor[0]));
-                adj.push(Number(cofactor[3]));
-                adj.push(Number(cofactor[6]));
-                adj.push(Number(cofactor[1]));
-                adj.push(Number(cofactor[4]));
-                adj.push(Number(cofactor[7]));
-                adj.push(Number(cofactor[2]));
-                adj.push(Number(cofactor[5]));
-                adj.push(Number(cofactor[8]));
+                minor3x3();
+                cofactor3x3();
+                adjoint3x3();
 
                 const numerator = [];
                 const denominator = [];
@@ -873,31 +829,31 @@ document.addEventListener("DOMContentLoaded", function () {
                         }
                     }
                 }
+                while (misc_array_3.length > 0) {
+                    misc_array_3.pop();
+                    console.log(misc_array_3);
+                }
+                while (minor_array.length > 0) {
+                    minor_array.pop();
+                    console.log(minor_array);
+                }
+                while (cofactor.length > 0) {
+                    cofactor.pop();
+                    console.log(cofactor);
+                }
+                while (adj.length > 0) {
+                    adj.pop();
+                    console.log(adj);
+                }
             }
         }
         else if (misc_selection_2.options[misc_selection_2.selectedIndex].value == "minor") {
-            // const misc_array_3 = [];
             for (let k = 0; k < matrix3_misc.length; k++) {
                 misc_array_3.push(Number(matrix3_misc[k].value));
             }
             minor3x3();
-            // const minor_array = [];
-            // minor_array.push(Number((misc_array_3[4] * misc_array_3[8]) - (misc_array_3[5] * misc_array_3[7])));
-            // minor_array.push(Number((misc_array_3[3] * misc_array_3[8]) - (misc_array_3[6] * misc_array_3[5])));
-            // minor_array.push(Number((misc_array_3[3] * misc_array_3[7]) - (misc_array_3[6] * misc_array_3[4])));
-            // minor_array.push(Number((misc_array_3[1] * misc_array_3[8]) - (misc_array_3[7] * misc_array_3[2])));
-            // minor_array.push(Number((misc_array_3[0] * misc_array_3[8]) - (misc_array_3[6] * misc_array_3[2])));
-            // minor_array.push(Number((misc_array_3[0] * misc_array_3[7]) - (misc_array_3[6] * misc_array_3[1])));
-            // minor_array.push(Number((misc_array_3[1] * misc_array_3[5]) - (misc_array_3[4] * misc_array_3[2])));
-            // minor_array.push(Number((misc_array_3[0] * misc_array_3[5]) - (misc_array_3[3] * misc_array_3[2])));
-            // minor_array.push(Number((misc_array_3[0] * misc_array_3[4]) - (misc_array_3[3] * misc_array_3[1])));
-
-            // for (let k = 0; k < matrix4_misc.length; k++) {
-            //     matrix4_misc[k].innerHTML = minor_array[k];
-            // }
         }
         else if (misc_selection_2.options[misc_selection_2.selectedIndex].value == "determinant") {
-            const misc_array_3 = [];
             for (let k = 0; k < matrix3_misc.length; k++) {
                 misc_array_3.push(Number(matrix3_misc[k].value));
             }
@@ -914,86 +870,23 @@ document.addEventListener("DOMContentLoaded", function () {
                     matrix4_misc[k].innerHTML = '--';
                 }
             }
+            while (misc_array_3.length > 0) {
+                misc_array_3.pop();
+                console.log(misc_array_3);
+            }
         }
         else if (misc_selection_2.options[misc_selection_2.selectedIndex].value == "adjoint") {
-            // const misc_array_3 = [];
             for (let k = 0; k < matrix3_misc.length; k++) {
                 misc_array_3.push(Number(matrix3_misc[k].value));
             }
-
-            // const minor_array = [];
-            // minor_array.push(Number((misc_array_3[4] * misc_array_3[8]) - (misc_array_3[5] * misc_array_3[7])));
-            // minor_array.push(Number((misc_array_3[3] * misc_array_3[8]) - (misc_array_3[6] * misc_array_3[5])));
-            // minor_array.push(Number((misc_array_3[3] * misc_array_3[7]) - (misc_array_3[6] * misc_array_3[4])));
-            // minor_array.push(Number((misc_array_3[1] * misc_array_3[8]) - (misc_array_3[7] * misc_array_3[2])));
-            // minor_array.push(Number((misc_array_3[0] * misc_array_3[8]) - (misc_array_3[6] * misc_array_3[2])));
-            // minor_array.push(Number((misc_array_3[0] * misc_array_3[7]) - (misc_array_3[6] * misc_array_3[1])));
-            // minor_array.push(Number((misc_array_3[1] * misc_array_3[5]) - (misc_array_3[4] * misc_array_3[2])));
-            // minor_array.push(Number((misc_array_3[0] * misc_array_3[5]) - (misc_array_3[3] * misc_array_3[2])));
-            // minor_array.push(Number((misc_array_3[0] * misc_array_3[4]) - (misc_array_3[3] * misc_array_3[1])));
-
-
-            // const cofactor = [];
-            // cofactor.push(Number(minor_array[0]));
-            // cofactor.push(Number(((-1) * minor_array[1])));
-            // cofactor.push(Number((minor_array[2])));
-            // cofactor.push(Number(((-1) * minor_array[3])));
-            // cofactor.push(Number((minor_array[4])));
-            // cofactor.push(Number(((-1) * minor_array[5])));
-            // cofactor.push(Number((minor_array[6])));
-            // cofactor.push(Number(((-1) * minor_array[7])));
-            // cofactor.push(Number((minor_array[8])));
-
-            // const adj = [];
-            // adj.push(Number(cofactor[0]));
-            // adj.push(Number(cofactor[3]));
-            // adj.push(Number(cofactor[6]));
-            // adj.push(Number(cofactor[1]));
-            // adj.push(Number(cofactor[4]));
-            // adj.push(Number(cofactor[7]));
-            // adj.push(Number(cofactor[2]));
-            // adj.push(Number(cofactor[5]));
-            // adj.push(Number(cofactor[8]));
-
-            // for (let k = 0; k < matrix4_misc.length; k++) {
-            //     matrix4_misc[k].innerHTML = adj[k];
-            // }
             minor3x3();
             cofactor3x3();
             adjoint3x3();
         }
         else if (misc_selection_2.options[misc_selection_2.selectedIndex].value == "cofactor") {
-            // const misc_array_3 = [];
             for (let k = 0; k < matrix3_misc.length; k++) {
                 misc_array_3.push(Number(matrix3_misc[k].value));
             }
-
-            // const minor_array = [];
-            // minor_array.push(Number((misc_array_3[4] * misc_array_3[8]) - (misc_array_3[5] * misc_array_3[7])));
-            // minor_array.push(Number((misc_array_3[3] * misc_array_3[8]) - (misc_array_3[6] * misc_array_3[5])));
-            // minor_array.push(Number((misc_array_3[3] * misc_array_3[7]) - (misc_array_3[6] * misc_array_3[4])));
-            // minor_array.push(Number((misc_array_3[1] * misc_array_3[8]) - (misc_array_3[7] * misc_array_3[2])));
-            // minor_array.push(Number((misc_array_3[0] * misc_array_3[8]) - (misc_array_3[6] * misc_array_3[2])));
-            // minor_array.push(Number((misc_array_3[0] * misc_array_3[7]) - (misc_array_3[6] * misc_array_3[1])));
-            // minor_array.push(Number((misc_array_3[1] * misc_array_3[5]) - (misc_array_3[4] * misc_array_3[2])));
-            // minor_array.push(Number((misc_array_3[0] * misc_array_3[5]) - (misc_array_3[3] * misc_array_3[2])));
-            // minor_array.push(Number((misc_array_3[0] * misc_array_3[4]) - (misc_array_3[3] * misc_array_3[1])));
-
-
-            // const cofactor = [];
-            // cofactor.push(Number(minor_array[0]));
-            // cofactor.push(Number(((-1) * minor_array[1])));
-            // cofactor.push(Number((minor_array[2])));
-            // cofactor.push(Number(((-1) * minor_array[3])));
-            // cofactor.push(Number((minor_array[4])));
-            // cofactor.push(Number(((-1) * minor_array[5])));
-            // cofactor.push(Number((minor_array[6])));
-            // cofactor.push(Number(((-1) * minor_array[7])));
-            // cofactor.push(Number((minor_array[8])));
-
-            // for (let k = 0; k < matrix4_misc.length; k++) {
-            //     matrix4_misc[k].innerHTML = cofactor[k];
-            // }
             minor3x3();
             cofactor3x3();
         }
