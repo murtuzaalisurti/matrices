@@ -10,7 +10,9 @@ body{
     display: flex;
     flex-flow: row;
     justify-content: center;
-    margin-top: 0.8rem;
+    /* margin-top: 0.8rem; */
+    padding: 2rem;
+    background-color: #e4d9ff;
     /* height: 70%; */
     /* z-index: 0; */
 }
@@ -81,11 +83,14 @@ body{
     align-items: center;
     margin-top: 50px;
     margin-bottom: 20px;
+    padding: 2rem;
+    background-color: #e4d9ff;
 }
 .heading-misc{
     color: #33427e;
     font-family: 'Montserrat', sans-serif;
     font-size: 2rem;
+    /* background-color: #e4d9ff; */
     font-weight: bold;
 }
 
