@@ -1,11 +1,12 @@
 # Matrix Operations
 
-## This is a webpage which performs matrix (n x n) operations like:
+## This is a webpage which performs matrix (n x n) operations such as:
 * Addition
 * Subtraction
 * Multiplication
-
-## It also performs operations such as:
-* Adjugate of n x n matrix
-* Inverse of n x n matrix
-* Determinant of n x n matrix
+* Adjugate
+* Inverse
+* Determinant
+* Minor
+* Cofactor
+* Transpose
