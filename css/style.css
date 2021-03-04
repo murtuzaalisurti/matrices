@@ -8,9 +8,11 @@
     --textcolor: #ececec;
     --boxshadowcolor1: #797979be;
     --boxshadowcolor2: rgba(0, 0, 0, 0.794);
+    --morphism-bg: linear-gradient(rgb(255, 122, 188), rgb(90, 204, 233));
 }
 body{
     background-color: var(--primarycolor);
+    background: var(--morphism-bg);
     /* background-image: url('D://matrix.jpg'); */
 }
 .heading-container{
@@ -18,8 +20,8 @@ body{
     flex-flow: row;
     justify-content: center;
     /* margin-top: 0.8rem; */
-    background-color: #e4d9ff;
-    background-color: var(--primarycolor);
+    /* background-color: #e4d9ff; */
+    /* background-color: var(--primarycolor); */
     padding: 2rem;
     /* height: 70%; */
     /* z-index: 0; */
@@ -94,8 +96,8 @@ body{
     align-items: center;
     margin-top: 50px;
     margin-bottom: 20px;
-    background-color: #e4d9ff;
-    background-color: var(--matrixcolor);
+    /* background-color: #e4d9ff; */
+    /* background-color: var(--matrixcolor); */
 }
 .heading-misc{
     color: #33427e;
@@ -142,7 +144,8 @@ body{
 
 input{
     /* background-color: #e4d9ff; */
-    background-color: var(--matrixcolor);
+    background-color: rgb(131, 131, 131);
+    backdrop-filter: blur(100px);
     border: 1px transparent;
     border-radius: 5px;
 }
@@ -169,13 +172,22 @@ input:focus, input:hover{
     justify-items: center;
     /* border: 1px solid black; */
     /* background-color: #e4d9ff; */
-    background-color: var(--matrixcolor);
+    /* background-color: var(--matrixcolor);
+    backdrop-filter: blur(10px); */
+    background-color: rgb(0, 0, 0, 0.8);
     border: 1px transparent;
     border-radius: 5px;
-    box-shadow: 1rem 0rem 1rem 0rem var(--textcolor), -0.4rem 0rem 0.5rem 0rem var(--textcolor);
-    box-shadow: 0.29rem 0.29rem 1rem 0rem var(--boxshadowcolor2), -0.1rem -0.1rem 0.8rem 0rem var(--boxshadowcolor1);
+    /* box-shadow: 1rem 0rem 1rem 0rem var(--textcolor), -0.4rem 0rem 0.5rem 0rem var(--textcolor); */
+    /* box-shadow: 0.29rem 0.29rem 1rem 0rem var(--boxshadowcolor2), -0.1rem -0.1rem 0.8rem 0rem var(--boxshadowcolor1); */
     transition: box-shadow ease-out 300ms;
 }
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+    .container-main-3 {
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      background-color: rgba(0, 0, 0, 0.294);
+    }
+  }
 .grid-container:hover{
     /* box-shadow: 1rem 0rem 1rem 0rem var(--textcolor), -0.4rem 0rem 0.5rem 0rem var(--textcolor); */
     box-shadow: 0.4rem 0.4rem 1.4rem 0rem var(--boxshadowcolor2), -0.4rem -0.4rem 1.05rem 0rem var(--boxshadowcolor1);
