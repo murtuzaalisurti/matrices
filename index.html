@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matrices</title>
+    <script src="https://kit.fontawesome.com/9fa61c79aa.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
@@ -95,14 +96,29 @@
             <input class="grid-items" placeholder="a3" type="number">
             <input class="grid-items" placeholder="a4" type="number">
         </div>
-        <div id="container-2">
+        <!-- <div id="container-2">
             <select name="operate" id="operations-2">
                 <option value="first" disabled="disabled" selected>Select an operator</option>
                 <option value="+">Add(+)</option>
                 <option value="-">Subtract(-)</option>
                 <option value="*">Multiply(x)</option>
             </select>
+        </div> -->
+        <div class="container-select">
+            <div class="drop-down">
+                <p class="select">Select an Operator</p>
+                <i class="fas fa-caret-down pos"></i>
+                <nav>
+                    <ul>
+                        <li>Inverse</li>
+                        <li>Multiplication</li>
+                        <li>Addition</li>
+                        <li>Determinant</li>
+                    </ul>
+                </nav>
+            </div>
         </div>
+        
         <div class="grid-container grid-container-2x2" id="matrix-2x2-2">
             <input class="grid-items" placeholder="b1" type="number">
             <input class="grid-items" placeholder="b2" type="number">
@@ -144,7 +160,7 @@
             <input class="grid-items" placeholder="a3" type="number">
             <input class="grid-items" placeholder="a4" type="number">
         </div>
-        <div id="container-2">
+        <!-- <div id="container-2">
             <select name="operate" id="misc-operations">
                 <option value="one" disabled="disabled" selected>Select an operator</option>
                 <option value="transpose">Transpose</option>
@@ -154,6 +170,22 @@
                 <option value="adjoint">Adjoint</option>
                 <option value="cofactor">Co-factor</option>
             </select>
+        </div> -->
+        <div class="container-select">
+            <div class="drop-down">
+                <p class="select">Select an Operator</p>
+                <i class="fas fa-caret-down pos"></i>
+                <nav>
+                    <ul>
+                        <li>Transpose</li>
+                        <li>Inverse</li>
+                        <li>Minor</li>
+                        <li>Determinant</li>
+                        <li>Adjoint</li>
+                        <li>Co-factor</li>
+                    </ul>
+                </nav>
+            </div>
         </div>
         <div class="grid-container grid-container-2x2" id="matrix-2x2-misc-2">
             <div class="grid-items center">c1</div>
@@ -205,6 +237,6 @@
             </div>
         </div>
     </div>
-    <script src="./js/app.js"></script>
+    <!-- <script src="./js/app.js"></script> -->
 </body>
 </html>

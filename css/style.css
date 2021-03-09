@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 :root{
     --primarycolor: #363636;
@@ -261,4 +262,110 @@ input[type=number]::-webkit-inner-spin-button {
         align-items: center;
         margin: 50px 50px;
     }
+}
+.container-select{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    /* margin-top: 50px; */
+}
+.drop-down {
+    height: 2.5em;
+    width: 14em;
+    border: 1px transparent;
+    border-radius: 10px;
+    background-color: aquamarine;
+    position: relative;
+}
+.pos{
+    position: absolute;
+    right: 10%;
+    top: 50%;
+    transform: translate(0 ,-52%);
+}
+.select{
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translate(0, -50%);
+    font-family: 'Montserrat', sans-serif;
+}
+.drop-down:hover{
+    cursor: pointer;
+}
+.drop-down:hover nav{
+    visibility: visible;
+    transition: visibility 1s linear 200ms;
+}
+.drop-down:hover ul{
+    font-family: 'Montserrat', sans-serif;
+    border: 1px transparent;
+    border-radius: 10px;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 500ms linear, visibility 0s linear;
+}
+.drop-down:hover ul li:hover{
+    background-color: blueviolet;
+    color: aqua;
+}
+.drop-down:hover li:first-child{
+    border: 1px transparent;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    opacity: 1;
+    transition: opacity ease-out 0.2s;
+    transition-delay: 0.1s;
+}
+.drop-down:hover li:nth-child(2){
+    opacity: 1;
+    transition: opacity ease-out 0.2s;
+    transition-delay: 0.2s;
+}
+.drop-down:hover li:nth-child(3){
+    opacity: 1;
+    transition: opacity ease-out .2s;
+    transition-delay: 0.4s;
+}
+.drop-down:hover li:nth-child(4){
+    opacity: 1;
+    transition: opacity ease-out .2s;
+    transition-delay: 0.6s;
+}
+.drop-down:hover li:nth-child(5){
+    opacity: 1;
+    transition: opacity ease-out .2s;
+    transition-delay: 0.8s;
+}
+.drop-down:hover li:last-child{
+    border: 1px transparent;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    opacity: 1;
+    transition: opacity ease-out .2s;
+    transition-delay: 1s;
+}
+ul{
+    list-style-type: none;
+    border: 1px transparent;
+    border-radius: 10px;
+    width: 14em;
+    background-color: aquamarine;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 500ms linear, visibility 0s linear 500ms;
+}
+li{
+    text-decoration: none;
+    text-align: center;
+    padding: 10px 0px;
+    opacity: 0;
+}
+nav{
+    position: absolute;
+    top: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    visibility: collapse;
 }
