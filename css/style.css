@@ -348,9 +348,12 @@ input[type=number]::-webkit-inner-spin-button {
 }
 ul{
     list-style-type: none;
+    font-family: 'Montserrat', sans-serif;
     border: 1px transparent;
     border-radius: 10px;
     width: 14em;
+    /* height: 14em; */
+    margin-bottom: 1rem;
     background-color: aquamarine;
     visibility: hidden;
     opacity: 0;
@@ -360,12 +363,15 @@ li{
     text-decoration: none;
     text-align: center;
     padding: 10px 0px;
+    /* height: fit-content; */
     opacity: 0;
+    transition: opacity 500ms linear;
 }
 nav{
     position: absolute;
     top: 110%;
     left: 50%;
+    height: 14em;
     transform: translateX(-50%);
-    visibility: collapse;
+    visibility: hidden;
 }
