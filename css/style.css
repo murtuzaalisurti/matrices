@@ -144,8 +144,8 @@ body{
 
 input{
     /* background-color: #e4d9ff; */
-    background-color: rgb(131, 131, 131);
-    backdrop-filter: blur(100px);
+    background-color: transparent;
+    /* backdrop-filter: blur(100px); */
     border: 1px transparent;
     border-radius: 5px;
 }
@@ -182,10 +182,11 @@ input:focus, input:hover{
     transition: box-shadow ease-out 300ms;
 }
 @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-    .container-main-3 {
-      -webkit-backdrop-filter: blur(10px);
-      backdrop-filter: blur(10px);
-      background-color: rgba(0, 0, 0, 0.294);
+    .grid-container-2x2 {
+        /* background: white; */
+        background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.2));
+        -webkit-backdrop-filter: blur(10rem);
+        backdrop-filter: blur(10rem);
     }
   }
 .grid-container:hover{
@@ -199,7 +200,7 @@ input:focus, input:hover{
 }
 .grid-items{
     /* border: 1px solid #e4d9ff; */
-    border: 1px solid var(--matrixcolor);
+    /* border: 1px solid var(--matrixcolor); */
     overflow: hidden;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
