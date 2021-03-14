@@ -14,10 +14,6 @@
             Matrices
         </h1>
     </div>
-
-    <!-- <div class="below-heading-container">
-        <div class="below-heading"></div>
-    </div> -->
     <h3 class="heading-for-selection">
         Select a matrix:
     </h3>
@@ -47,13 +43,26 @@
                 <input class="grid-items" placeholder="a9" type="number">
             </div>
         </div>
-        <div id="container-2">
+        <!-- <div id="container-2">
             <select name="operate" id="operations">
                 <option value="first" disabled="disabled" selected>Select an operator</option>
                 <option value="+">Add(+)</option>
                 <option value="-">Subtract(-)</option>
                 <option value="*">Multiply(x)</option>
             </select>
+        </div> -->
+        <div class="container-select">
+            <div class="drop-down" id="drop-down-basic-3x3">
+                <p class="select">Select an Operator</p>
+                <i class="fas fa-caret-down pos"></i>
+                <nav>
+                    <ul>
+                        <li>Addition</li>
+                        <li>Multiplication</li>
+                        <li>Subtraction</li>
+                    </ul>
+                </nav>
+            </div>
         </div>
         <div id="container-3">
             <div class="grid-container" id="matrix-2">
@@ -96,24 +105,15 @@
             <input class="grid-items" placeholder="a3" type="number">
             <input class="grid-items" placeholder="a4" type="number">
         </div>
-        <!-- <div id="container-2">
-            <select name="operate" id="operations-2">
-                <option value="first" disabled="disabled" selected>Select an operator</option>
-                <option value="+">Add(+)</option>
-                <option value="-">Subtract(-)</option>
-                <option value="*">Multiply(x)</option>
-            </select>
-        </div> -->
         <div class="container-select">
-            <div class="drop-down">
-                <p class="select">Select an Operator</p>
+            <div class="drop-down" id="drop-down-basic-2x2">
+                <p class="select" id="select_basic">Select an Operator</p>
                 <i class="fas fa-caret-down pos"></i>
                 <nav>
                     <ul>
-                        <li>Inverse</li>
-                        <li>Multiplication</li>
                         <li>Addition</li>
-                        <li>Determinant</li>
+                        <li>Multiplication</li>
+                        <li>Subtraction</li>
                     </ul>
                 </nav>
             </div>
@@ -172,7 +172,7 @@
             </select>
         </div> -->
         <div class="container-select">
-            <div class="drop-down">
+            <div class="drop-down" id="drop-down-misc">
                 <p class="select">Select an Operator</p>
                 <i class="fas fa-caret-down pos"></i>
                 <nav>
@@ -210,7 +210,7 @@
                 <input class="grid-items" placeholder="a9" type="number">
             </div>
         </div>
-        <div id="container-2">
+        <!-- <div id="container-2">
             <select name="operate" id="misc-operations-2">
                 <option value="one" disabled="disabled" selected>Select an operator</option>
                 <option value="transpose">Transpose</option>
@@ -220,6 +220,22 @@
                 <option value="adjoint">Adjoint</option>
                 <option value="cofactor">Co-factor</option>
             </select>
+        </div> -->
+        <div class="container-select">
+            <div class="drop-down" id="drop-down-misc">
+                <p class="select">Select an Operator</p>
+                <i class="fas fa-caret-down pos"></i>
+                <nav>
+                    <ul>
+                        <li>Transpose</li>
+                        <li>Inverse</li>
+                        <li>Minor</li>
+                        <li>Determinant</li>
+                        <li>Adjoint</li>
+                        <li>Co-factor</li>
+                    </ul>
+                </nav>
+            </div>
         </div>
         <div id="container-5">
             <div class="grid-container" id="matrix-3x3-misc-2">
