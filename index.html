@@ -17,12 +17,24 @@
     <h3 class="heading-for-selection">
         Select a matrix:
     </h3>
-    <div class="container-main-select">
+    <!-- <div class="container-main-select">
         <select name="matrix-select" id="matrix-selection">
             <option value="none" disabled="disabled" selected>Select a format</option>
             <option value="2x2">2 x 2</option>
             <option value="3x3">3 x 3</option>
         </select>
+    </div> -->
+    <div class="container-select">
+        <div class="drop-down" id="drop-down-basic-matrix-select">
+            <p class="select" id="select_basic">Select a matrix</p>
+            <i class="fas fa-caret-down pos"></i>
+            <nav>
+                <ul>
+                    <li>2 x 2</li>
+                    <li>3 x 3</li>
+                </ul>
+            </nav>
+        </div>
     </div>
     <h3 class="heading-2" id="matrix-label">
         2 x 2 Matrix
@@ -53,7 +65,7 @@
         </div> -->
         <div class="container-select">
             <div class="drop-down" id="drop-down-basic-3x3">
-                <p class="select">Select an Operator</p>
+                <p class="select" id="select_basic_3x3">Select an Operator</p>
                 <i class="fas fa-caret-down pos"></i>
                 <nav>
                     <ul>
@@ -107,7 +119,7 @@
         </div>
         <div class="container-select">
             <div class="drop-down" id="drop-down-basic-2x2">
-                <p class="select" id="select_basic">Select an Operator</p>
+                <p class="select" id="select_basic_2x2">Select an Operator</p>
                 <i class="fas fa-caret-down pos"></i>
                 <nav>
                     <ul>
@@ -143,12 +155,24 @@
     <h3 class="heading-for-selection">
         Select a matrix:
     </h3>
-    <div class="container-main-select">
+    <!-- <div class="container-main-select">
         <select name="matrix-select" id="matrix-selection-misc">
             <option value="none" disabled="disabled" selected>Select a format</option>
             <option value="2x2">2 x 2</option>
             <option value="3x3">3 x 3</option>
         </select>
+    </div> -->
+    <div class="container-select">
+        <div class="drop-down" id="drop-down-misc-matrix-select">
+            <p class="select" id="select_basic">Select a matrix</p>
+            <i class="fas fa-caret-down pos"></i>
+            <nav>
+                <ul>
+                    <li>2 x 2</li>
+                    <li>3 x 3</li>
+                </ul>
+            </nav>
+        </div>
     </div>
     <h3 class="heading-2" id="matrix-label-misc">
         2 x 2 Matrix
@@ -172,8 +196,8 @@
             </select>
         </div> -->
         <div class="container-select">
-            <div class="drop-down" id="drop-down-misc">
-                <p class="select">Select an Operator</p>
+            <div class="drop-down" id="drop-down-misc-2x2">
+                <p class="select" id="select_misc_2x2">Select an Operator</p>
                 <i class="fas fa-caret-down pos"></i>
                 <nav>
                     <ul>
@@ -222,8 +246,8 @@
             </select>
         </div> -->
         <div class="container-select">
-            <div class="drop-down" id="drop-down-misc">
-                <p class="select">Select an Operator</p>
+            <div class="drop-down" id="drop-down-misc-3x3">
+                <p class="select" id="select_misc_3x3">Select an Operator</p>
                 <i class="fas fa-caret-down pos"></i>
                 <nav>
                     <ul>

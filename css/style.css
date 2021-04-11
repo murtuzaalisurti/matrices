@@ -53,13 +53,6 @@ body{
     overflow: visible;
     width: 45%;
     text-align: center;
-    /* display: flex; */
-    /* justify-content: center; */
-    /* align-items: center; */
-    /* padding: -30px; */
-    /* border-bottom: 2px solid #dacbff;
-    border-width: 20px; */
-    /* z-index: 1; */
 }
 .heading-2, .heading-for-selection{
     color: #33427e;
@@ -312,7 +305,7 @@ input[type=number]::-webkit-inner-spin-button {
 }
 
 
-#drop-down-misc:hover li:first-child{
+#drop-down-misc-2x2:hover li:first-child, #drop-down-misc-3x3:hover li:first-child{
     border: 1px transparent;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -320,27 +313,27 @@ input[type=number]::-webkit-inner-spin-button {
     transition: opacity ease-out 0.2s;
     transition-delay: 0.1s;
 }
-#drop-down-misc:hover li:nth-child(2){
+#drop-down-misc-2x2:hover li:nth-child(2), #drop-down-misc-3x3:hover li:nth-child(2){
     opacity: 1;
     transition: opacity ease-out 0.2s;
     transition-delay: 0.2s;
 }
-#drop-down-misc:hover li:nth-child(3){
+#drop-down-misc-2x2:hover li:nth-child(3), #drop-down-misc-3x3:hover li:nth-child(3){
     opacity: 1;
     transition: opacity ease-out .2s;
     transition-delay: 0.4s;
 }
-#drop-down-misc:hover li:nth-child(4){
+#drop-down-misc-2x2:hover li:nth-child(4), #drop-down-misc-3x3:hover li:nth-child(4){
     opacity: 1;
     transition: opacity ease-out .2s;
     transition-delay: 0.6s;
 }
-#drop-down-misc:hover li:nth-child(5){
+#drop-down-misc-2x2:hover li:nth-child(5), #drop-down-misc-3x3:hover li:nth-child(5){
     opacity: 1;
     transition: opacity ease-out .2s;
     transition-delay: 0.8s;
 }
-#drop-down-misc:hover li:last-child{
+#drop-down-misc-2x2:hover li:last-child, #drop-down-misc-3x3:hover li:last-child{
     border: 1px transparent;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -350,7 +343,7 @@ input[type=number]::-webkit-inner-spin-button {
 }
 
 
-#drop-down-basic-2x2:hover li:first-child{
+#drop-down-basic-2x2:hover li:first-child, #drop-down-basic-3x3:hover li:first-child{
     border: 1px transparent;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -358,7 +351,7 @@ input[type=number]::-webkit-inner-spin-button {
     transition: opacity ease-out 0.2s;
     transition-delay: 0.1s;
 }
-#drop-down-basic-2x2:hover li:nth-child(2){
+#drop-down-basic-2x2:hover li:nth-child(2), #drop-down-basic-3x3:hover li:nth-child(2){
     opacity: 1;
     transition: opacity ease-out 0.2s;
     transition-delay: 0.2s;
@@ -378,13 +371,30 @@ input[type=number]::-webkit-inner-spin-button {
     transition: opacity ease-out .2s;
     transition-delay: 0.8s;
 } */
-#drop-down-basic-2x2:hover li:last-child{
+#drop-down-basic-2x2:hover li:last-child, #drop-down-basic-3x3:hover li:last-child{
     border: 1px transparent;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     opacity: 1;
     transition: opacity ease-out .2s;
     transition-delay: .4s;
+}
+
+#drop-down-basic-matrix-select:hover li:first-child, #drop-down-misc-matrix-select:hover li:first-child{
+    border: 1px transparent;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    opacity: 1;
+    transition: opacity ease-out 0.2s;
+    transition-delay: 0.1s;
+}
+#drop-down-basic-matrix-select:hover li:last-child, #drop-down-misc-matrix-select:hover li:last-child{
+    border: 1px transparent;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    opacity: 1;
+    transition: opacity ease-out 0.2s;
+    transition-delay: 0.2s;
 }
 
 
