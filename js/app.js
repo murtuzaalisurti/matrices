@@ -1,19 +1,16 @@
 document.addEventListener("DOMContentLoaded", function () {
     // basic operation variables ---------------------------------
-    var matrix1 = document.querySelectorAll("div#matrix-1 input");
-    var matrix2 = document.querySelectorAll("div#matrix-2 input");
-    var matrix3 = document.querySelectorAll("div#matrix-3 div");
-    var matrix3_outer = document.querySelector("#matrix-3");
-    var selection = document.querySelector("#operations");
-    var selection_2 = document.querySelector("#operations-2");
-    var matrix4 = document.querySelectorAll("div#matrix-2x2-1 input");
-    var matrix5 = document.querySelectorAll("div#matrix-2x2-2 input");
-    var matrix6 = document.querySelectorAll("div#matrix-2x2-3 div");
-    var matrix6_outer = document.querySelector("#matrix-2x2-3");
-    var selectmatrix = document.querySelector("#matrix-selection");
-    var drop_down_basic_2x2 = document.querySelectorAll("div#drop-down-basic-2x2 li");
+    let matrix1 = document.querySelectorAll("div#matrix-1 input");
+    let matrix2 = document.querySelectorAll("div#matrix-2 input");
+    let matrix3 = document.querySelectorAll("div#matrix-3 div");
+    let matrix3_outer = document.querySelector("#matrix-3");
+    let matrix4 = document.querySelectorAll("div#matrix-2x2-1 input");
+    let matrix5 = document.querySelectorAll("div#matrix-2x2-2 input");
+    let matrix6 = document.querySelectorAll("div#matrix-2x2-3 div");
+    let matrix6_outer = document.querySelector("#matrix-2x2-3");
+    let drop_down_basic_2x2 = document.querySelectorAll("div#drop-down-basic-2x2 li");
     let drop_down_misc_2x2 = document.querySelectorAll("div#drop-down-misc-2x2 li");
-    var drop_down_basic_3x3 = document.querySelectorAll("div#drop-down-basic-3x3 li");
+    let drop_down_basic_3x3 = document.querySelectorAll("div#drop-down-basic-3x3 li");
     let drop_down_misc_3x3 = document.querySelectorAll("div#drop-down-misc-3x3 li");
     let drop_down_basic_matrix_select = document.querySelectorAll("#drop-down-basic-matrix-select li");
     let drop_down_misc_matrix_select = document.querySelectorAll("#drop-down-misc-matrix-select li");
@@ -21,19 +18,15 @@ document.addEventListener("DOMContentLoaded", function () {
     let selection_text_misc_2x2 = document.querySelector("#select_misc_2x2");
     let selection_text_misc_3x3 = document.querySelector("#select_misc_3x3");
     let selection_text_basic_3x3 = document.querySelector("#select_basic_3x3");
-    var select_label = document.querySelector(".select");
 
 
     // misc operation variables -----------------------------------------
-    var matrix1_misc = document.querySelectorAll("div#matrix-2x2-misc input");
-    var matrix2_misc = document.querySelectorAll("div#matrix-2x2-misc-2 div");
-    var matrix3_misc = document.querySelectorAll("div#matrix-3x3-misc input");
-    var matrix4_misc = document.querySelectorAll("div#matrix-3x3-misc-2 div");
-    var matrix2_misc_outer = document.querySelector("#matrix-2x2-misc-2");
-    var matrix4_misc_outer = document.querySelector("#matrix-3x3-misc-2");
-    var misc_selection = document.querySelector("#misc-operations");
-    var misc_selection_2 = document.querySelector("#misc-operations-2");
-    var selectmatrixmisc = document.querySelector("#matrix-selection-misc");
+    let matrix1_misc = document.querySelectorAll("div#matrix-2x2-misc input");
+    let matrix2_misc = document.querySelectorAll("div#matrix-2x2-misc-2 div");
+    let matrix3_misc = document.querySelectorAll("div#matrix-3x3-misc input");
+    let matrix4_misc = document.querySelectorAll("div#matrix-3x3-misc-2 div");
+    let matrix2_misc_outer = document.querySelector("#matrix-2x2-misc-2");
+    let matrix4_misc_outer = document.querySelector("#matrix-3x3-misc-2");
 
     // basic operations variables of 3x3 matrix
     const array1 = [];
@@ -84,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // functions for miscellaneous operations on 2x2 matrix
     function minor2x2() {
-        if (misc_selection.options[misc_selection.selectedIndex].value == "inverse" || misc_selection.options[misc_selection.selectedIndex].value == "cofactor" || misc_selection.options[misc_selection.selectedIndex].value == "adjoint") {
+        if (selection_text_misc_2x2.textContent == "Inverse" || selection_text_misc_2x2.textContent == "Co-factor" || selection_text_misc_2x2.textContent == "Adjoint") {
             minor_array.push(Number(misc_array_1[3]));
             minor_array.push(Number(misc_array_1[2]));
             minor_array.push(Number(misc_array_1[1]));
@@ -126,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function cofactor2x2() {
-        if (misc_selection.options[misc_selection.selectedIndex].value == "inverse" || misc_selection.options[misc_selection.selectedIndex].value == "adjoint") {
+        if (selection_text_misc_2x2.textContent == "Inverse" || selection_text_misc_2x2.textContent == "Adjoint") {
             cofactor.push(Number(minor_array[0]));
             cofactor.push(Number(((-1) * minor_array[1])));
             cofactor.push(Number(((-1) * minor_array[2])));
@@ -154,7 +147,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function adjoint2x2() {
-        if (misc_selection.options[misc_selection.selectedIndex].value == "inverse") {
+        if (selection_text_misc_2x2.textContent == "Inverse") {
             adj.push(Number(cofactor[0]));
             adj.push(Number(cofactor[2]));
             adj.push(Number(cofactor[1]));
@@ -188,7 +181,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // functions for miscellaneous operations on 3x3 matrix
     function minor3x3() {
-        if (misc_selection_2.options[misc_selection_2.selectedIndex].value == "inverse" || misc_selection_2.options[misc_selection_2.selectedIndex].value == "cofactor" || misc_selection_2.options[misc_selection_2.selectedIndex].value == "adjoint") {
+        if (selection_text_misc_3x3.textContent == "Inverse" || selection_text_misc_3x3.textContent == "Co-factor" || selection_text_misc_3x3.textContent == "Adjoint") {
             minor_array.push(Number((misc_array_3[4] * misc_array_3[8]) - (misc_array_3[5] * misc_array_3[7])));
             minor_array.push(Number((misc_array_3[3] * misc_array_3[8]) - (misc_array_3[6] * misc_array_3[5])));
             minor_array.push(Number((misc_array_3[3] * misc_array_3[7]) - (misc_array_3[6] * misc_array_3[4])));
@@ -246,7 +239,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function cofactor3x3() {
-        if (misc_selection_2.options[misc_selection_2.selectedIndex].value == "inverse" || misc_selection_2.options[misc_selection_2.selectedIndex].value == "adjoint") {
+        if (selection_text_misc_3x3.textContent == "Inverse" || selection_text_misc_3x3.textContent == "Adjoint") {
             cofactor.push(Number(minor_array[0]));
             cofactor.push(Number(((-1) * minor_array[1])));
             cofactor.push(Number((minor_array[2])));
@@ -284,7 +277,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function adjoint3x3() {
-        if (misc_selection_2.options[misc_selection_2.selectedIndex].value == "inverse") {
+        if (selection_text_misc_3x3.textContent == "Inverse") {
             adj.push(Number(cofactor[0]));
             adj.push(Number(cofactor[3]));
             adj.push(Number(cofactor[6]));
@@ -435,7 +428,7 @@ document.addEventListener("DOMContentLoaded", function () {
             arraypopping2x2();
         }
         return null;
-    };
+    }
 
     drop_down_basic_matrix_select.forEach(field => {
         field.addEventListener("click", (e) => {
@@ -481,363 +474,363 @@ document.addEventListener("DOMContentLoaded", function () {
             // }, 1500);
             matrixoperation3x3();
         }
-    });
+    })
 
     matrix2.forEach(field => {
         field.onkeyup = () => {
             matrixoperation3x3();
         }
-    });
+    })
 
     matrix4.forEach(field => {
         field.onkeyup = () => {
             matrixoperation2x2();
         }
-    });
+    })
 
     matrix5.forEach(field => {
         field.onkeyup = () => {
             matrixoperation2x2();
         }
-    });
+    })
 
     // misc operations functions --------------------------------------
-    // function miscoperation2x2() {
-    //     if (misc_selection.options[misc_selection.selectedIndex].value == "transpose") {
-    //         for (let k = 0; k < matrix1_misc.length; k++) {
-    //             misc_array_1.push(Number(matrix1_misc[k].value));
-    //         }
-    //         transpose2x2();
-    //     }
-    //     else if (misc_selection.options[misc_selection.selectedIndex].value == "inverse") {
-    //         for (let k = 0; k < matrix1_misc.length; k++) {
-    //             misc_array_1.push(Number(matrix1_misc[k].value));
-    //         }
+    function miscoperation2x2() {
+        if (selection_text_misc_2x2.textContent == "Transpose") {
+            for (let k = 0; k < matrix1_misc.length; k++) {
+                misc_array_1.push(Number(matrix1_misc[k].value));
+            }
+            transpose2x2();
+        }
+        else if (selection_text_misc_2x2.textContent == "Inverse") {
+            for (let k = 0; k < matrix1_misc.length; k++) {
+                misc_array_1.push(Number(matrix1_misc[k].value));
+            }
 
-    //         var det = (misc_array_1[0] * misc_array_1[3]) - (misc_array_1[2] * misc_array_1[1]);
+            var det = (misc_array_1[0] * misc_array_1[3]) - (misc_array_1[2] * misc_array_1[1]);
 
-    //         if (det == 0) {
-    //             console.log("Inverse doesn't exist.");
-    //             for (let k = 0; k < matrix2_misc.length; k++) {
-    //                 if (k == 0) {
-    //                     matrix2_misc[k].innerHTML = "Doesn't exist";
-    //                 }
-    //                 else {
-    //                     matrix2_misc[k].innerHTML = "--";
-    //                 }
-    //             }
-    //             while (misc_array_1.length > 0) {
-    //                 misc_array_1.pop();
-    //             }
-    //         }
-    //         else {
-    //             minor2x2();
-    //             cofactor2x2();
-    //             adjoint2x2();
+            if (det == 0) {
+                console.log("Inverse doesn't exist.");
+                for (let k = 0; k < matrix2_misc.length; k++) {
+                    if (k == 0) {
+                        matrix2_misc[k].innerHTML = "Doesn't exist";
+                    }
+                    else {
+                        matrix2_misc[k].innerHTML = "--";
+                    }
+                }
+                while (misc_array_1.length > 0) {
+                    misc_array_1.pop();
+                }
+            }
+            else {
+                minor2x2();
+                cofactor2x2();
+                adjoint2x2();
 
-    //             const numerator1 = [];
-    //             const denominator1 = [];
+                const numerator1 = [];
+                const denominator1 = [];
 
-    //             for (let k = 0; k < matrix2_misc.length; k++) {
-    //                 if ((adj[k] % det) !== 0 && (det % adj[k]) !== 0) {
-    //                     if (adj[k] < 0 && det < 0) {
-    //                         for (let y = 0; y <= ((-1) * adj[k]) && y <= ((-1) * det); y++) {
-    //                             if ((((-1) * adj[k]) % y) == 0 && (((-1) * det) % y) == 0) {
-    //                                 var hcf1 = y;
-    //                             }
-    //                         }
-    //                         numerator1[k] = (adj[k] / hcf1);
-    //                         denominator1[k] = det / hcf1;
+                for (let k = 0; k < matrix2_misc.length; k++) {
+                    if ((adj[k] % det) !== 0 && (det % adj[k]) !== 0) {
+                        if (adj[k] < 0 && det < 0) {
+                            for (let y = 0; y <= ((-1) * adj[k]) && y <= ((-1) * det); y++) {
+                                if ((((-1) * adj[k]) % y) == 0 && (((-1) * det) % y) == 0) {
+                                    var hcf1 = y;
+                                }
+                            }
+                            numerator1[k] = (adj[k] / hcf1);
+                            denominator1[k] = det / hcf1;
 
-    //                         if (numerator1[k] < 0 && denominator1[k] < 0) {
-    //                             matrix2_misc[k].innerHTML = `${(-1) * numerator1[k]}/${(-1) * denominator1[k]}`;
-    //                         }
-    //                         else {
-    //                             matrix2_misc[k].innerHTML = `${numerator1[k]}/${denominator1[k]}`;
-    //                         }
-    //                     }
-    //                     else if (adj[k] < 0 && det > 0) {
-    //                         for (let y = 0; y <= ((-1) * adj[k]) && y <= det; y++) {
-    //                             if ((((-1) * adj[k]) % y) == 0 && (det % y) == 0) {
-    //                                 var hcf1 = y;
-    //                             }
-    //                         }
-    //                         numerator1[k] = (adj[k] / hcf1);
-    //                         denominator1[k] = det / hcf1;
+                            if (numerator1[k] < 0 && denominator1[k] < 0) {
+                                matrix2_misc[k].innerHTML = `${(-1) * numerator1[k]}/${(-1) * denominator1[k]}`;
+                            }
+                            else {
+                                matrix2_misc[k].innerHTML = `${numerator1[k]}/${denominator1[k]}`;
+                            }
+                        }
+                        else if (adj[k] < 0 && det > 0) {
+                            for (let y = 0; y <= ((-1) * adj[k]) && y <= det; y++) {
+                                if ((((-1) * adj[k]) % y) == 0 && (det % y) == 0) {
+                                    var hcf1 = y;
+                                }
+                            }
+                            numerator1[k] = (adj[k] / hcf1);
+                            denominator1[k] = det / hcf1;
 
-    //                         matrix2_misc[k].innerHTML = `${numerator1[k]}/${denominator1[k]}`;
-    //                     }
-    //                     else if (adj[k] > 0 && det < 0) {
-    //                         for (let y = 0; y <= adj[k] && y <= ((-1) * det); y++) {
-    //                             if ((adj[k] % y) == 0 && (((-1) * det) % y) == 0) {
-    //                                 var hcf1 = y;
-    //                             }
-    //                         }
-    //                         numerator1[k] = (adj[k] / hcf1);
-    //                         denominator1[k] = ((-1) * det) / hcf1;
-    //                         matrix2_misc[k].innerHTML = `-${numerator1[k]}/${denominator1[k]}`;
-    //                     }
-    //                     else if (adj[k] > 0 && det > 0) {
-    //                         for (let y = 0; y <= adj[k] && y <= det; y++) {
-    //                             if ((adj[k] % y) == 0 && (det % y) == 0) {
-    //                                 var hcf1 = y;
-    //                             }
-    //                         }
-    //                         numerator1[k] = (adj[k] / hcf1);
-    //                         denominator1[k] = det / hcf1;
+                            matrix2_misc[k].innerHTML = `${numerator1[k]}/${denominator1[k]}`;
+                        }
+                        else if (adj[k] > 0 && det < 0) {
+                            for (let y = 0; y <= adj[k] && y <= ((-1) * det); y++) {
+                                if ((adj[k] % y) == 0 && (((-1) * det) % y) == 0) {
+                                    var hcf1 = y;
+                                }
+                            }
+                            numerator1[k] = (adj[k] / hcf1);
+                            denominator1[k] = ((-1) * det) / hcf1;
+                            matrix2_misc[k].innerHTML = `-${numerator1[k]}/${denominator1[k]}`;
+                        }
+                        else if (adj[k] > 0 && det > 0) {
+                            for (let y = 0; y <= adj[k] && y <= det; y++) {
+                                if ((adj[k] % y) == 0 && (det % y) == 0) {
+                                    var hcf1 = y;
+                                }
+                            }
+                            numerator1[k] = (adj[k] / hcf1);
+                            denominator1[k] = det / hcf1;
 
-    //                         matrix2_misc[k].innerHTML = `${numerator1[k]}/${denominator1[k]}`;
-    //                     }
+                            matrix2_misc[k].innerHTML = `${numerator1[k]}/${denominator1[k]}`;
+                        }
 
-    //                 }
-    //                 else if ((adj[k] % det) == 0) {
-    //                     matrix2_misc[k].innerHTML = adj[k] / det;
-    //                 }
-    //                 else if (det % adj[k] == 0) {
-    //                     if (adj[k] < 0 && det > 0) {
-    //                         matrix2_misc[k].innerHTML = `-1/${(-1) * (det / adj[k])}`;
-    //                     }
-    //                     else if (adj[k] > 0 && det < 0) {
-    //                         matrix2_misc[k].innerHTML = `-1/${(-1) * (det / adj[k])}`;
-    //                     }
-    //                     else {
-    //                         matrix2_misc[k].innerHTML = `1/${det / adj[k]}`;
-    //                     }
-    //                 }
-    //                 else {
-    //                     if (adj[k] < 0 && det < 0) {
-    //                         matrix2_misc[k].innerHTML = `${(-1) * adj[k]}/${(-1) * det}`;
-    //                     }
+                    }
+                    else if ((adj[k] % det) == 0) {
+                        matrix2_misc[k].innerHTML = adj[k] / det;
+                    }
+                    else if (det % adj[k] == 0) {
+                        if (adj[k] < 0 && det > 0) {
+                            matrix2_misc[k].innerHTML = `-1/${(-1) * (det / adj[k])}`;
+                        }
+                        else if (adj[k] > 0 && det < 0) {
+                            matrix2_misc[k].innerHTML = `-1/${(-1) * (det / adj[k])}`;
+                        }
+                        else {
+                            matrix2_misc[k].innerHTML = `1/${det / adj[k]}`;
+                        }
+                    }
+                    else {
+                        if (adj[k] < 0 && det < 0) {
+                            matrix2_misc[k].innerHTML = `${(-1) * adj[k]}/${(-1) * det}`;
+                        }
 
-    //                     else {
-    //                         matrix2_misc[k].innerHTML = `${adj[k]}/${det}`;
-    //                     }
-    //                 }
-    //             }
+                        else {
+                            matrix2_misc[k].innerHTML = `${adj[k]}/${det}`;
+                        }
+                    }
+                }
 
-    //             while (misc_array_1.length > 0) {
-    //                 misc_array_1.pop();
-    //             }
-    //             while (minor_array.length > 0) {
-    //                 minor_array.pop();
-    //             }
-    //             while (cofactor.length > 0) {
-    //                 cofactor.pop();
-    //             }
-    //             while (adj.length > 0) {
-    //                 adj.pop();
-    //             }
-    //         }
-    //     }
-    //     else if (misc_selection.options[misc_selection.selectedIndex].value == "minor") {
-    //         for (let k = 0; k < matrix1_misc.length; k++) {
-    //             misc_array_1.push(Number(matrix1_misc[k].value));
-    //         }
-    //         minor2x2();
-    //     }
-    //     else if (misc_selection.options[misc_selection.selectedIndex].value == "determinant") {
-    //         for (let k = 0; k < matrix1_misc.length; k++) {
-    //             misc_array_1.push(Number(matrix1_misc[k].value));
-    //         }
+                while (misc_array_1.length > 0) {
+                    misc_array_1.pop();
+                }
+                while (minor_array.length > 0) {
+                    minor_array.pop();
+                }
+                while (cofactor.length > 0) {
+                    cofactor.pop();
+                }
+                while (adj.length > 0) {
+                    adj.pop();
+                }
+            }
+        }
+        else if (selection_text_misc_2x2.textContent == "Minor") {
+            for (let k = 0; k < matrix1_misc.length; k++) {
+                misc_array_1.push(Number(matrix1_misc[k].value));
+            }
+            minor2x2();
+        }
+        else if (selection_text_misc_2x2.textContent == "Determinant") {
+            for (let k = 0; k < matrix1_misc.length; k++) {
+                misc_array_1.push(Number(matrix1_misc[k].value));
+            }
 
-    //         var det = (misc_array_1[0] * misc_array_1[3]) - (misc_array_1[2] * misc_array_1[1]);
+            var det = (misc_array_1[0] * misc_array_1[3]) - (misc_array_1[2] * misc_array_1[1]);
 
-    //         for (let k = 0; k < matrix2_misc.length; k++) {
-    //             if (k == 0) {
-    //                 matrix2_misc[k].innerHTML = det;
-    //             }
-    //             else {
-    //                 matrix2_misc[k].innerHTML = '--';
-    //             }
-    //         }
-    //         while (misc_array_1.length > 0) {
-    //             misc_array_1.pop();
-    //         }
-    //     }
-    //     else if (misc_selection.options[misc_selection.selectedIndex].value == "adjoint") {
-    //         for (let k = 0; k < matrix1_misc.length; k++) {
-    //             misc_array_1.push(Number(matrix1_misc[k].value));
-    //         }
-    //         minor2x2();
-    //         cofactor2x2();
-    //         adjoint2x2();
-    //     }
-    //     else if (misc_selection.options[misc_selection.selectedIndex].value == "cofactor") {
-    //         for (let k = 0; k < matrix1_misc.length; k++) {
-    //             misc_array_1.push(Number(matrix1_misc[k].value));
-    //         }
-    //         minor2x2();
-    //         cofactor2x2();
-    //     }
-    //     return null;
-    // }
-    // function miscoperation3x3() {
-    //     if (misc_selection_2.options[misc_selection_2.selectedIndex].value == "transpose") {
-    //         for (let k = 0; k < matrix3_misc.length; k++) {
-    //             misc_array_3.push(Number(matrix3_misc[k].value));
-    //         }
-    //         transpose3x3();
-    //     }
-    //     else if (misc_selection_2.options[misc_selection_2.selectedIndex].value == "inverse") {
-    //         for (let k = 0; k < matrix3_misc.length; k++) {
-    //             misc_array_3.push(Number(matrix3_misc[k].value));
-    //         }
+            for (let k = 0; k < matrix2_misc.length; k++) {
+                if (k == 0) {
+                    matrix2_misc[k].innerHTML = det;
+                }
+                else {
+                    matrix2_misc[k].innerHTML = '--';
+                }
+            }
+            while (misc_array_1.length > 0) {
+                misc_array_1.pop();
+            }
+        }
+        else if (selection_text_misc_2x2.textContent == "Adjoint") {
+            for (let k = 0; k < matrix1_misc.length; k++) {
+                misc_array_1.push(Number(matrix1_misc[k].value));
+            }
+            minor2x2();
+            cofactor2x2();
+            adjoint2x2();
+        }
+        else if (selection_text_misc_2x2.textContent == "Co-factor") {
+            for (let k = 0; k < matrix1_misc.length; k++) {
+                misc_array_1.push(Number(matrix1_misc[k].value));
+            }
+            minor2x2();
+            cofactor2x2();
+        }
+        return null;
+    }
+    function miscoperation3x3() {
+        if (selection_text_misc_3x3.textContent == "Transpose") {
+            for (let k = 0; k < matrix3_misc.length; k++) {
+                misc_array_3.push(Number(matrix3_misc[k].value));
+            }
+            transpose3x3();
+        }
+        else if (selection_text_misc_3x3.textContent == "Inverse") {
+            for (let k = 0; k < matrix3_misc.length; k++) {
+                misc_array_3.push(Number(matrix3_misc[k].value));
+            }
 
-    //         var det = (misc_array_3[0] * ((misc_array_3[4] * misc_array_3[8]) - (misc_array_3[5] * misc_array_3[7]))) - (misc_array_3[1] * ((misc_array_3[3] * misc_array_3[8]) - (misc_array_3[6] * misc_array_3[5]))) + (misc_array_3[2] * ((misc_array_3[3] * misc_array_3[7]) - (misc_array_3[6] * misc_array_3[4])));
+            var det = (misc_array_3[0] * ((misc_array_3[4] * misc_array_3[8]) - (misc_array_3[5] * misc_array_3[7]))) - (misc_array_3[1] * ((misc_array_3[3] * misc_array_3[8]) - (misc_array_3[6] * misc_array_3[5]))) + (misc_array_3[2] * ((misc_array_3[3] * misc_array_3[7]) - (misc_array_3[6] * misc_array_3[4])));
 
-    //         if (det == 0) {
-    //             console.log("Inverse doesn't exist.");
-    //             for (let k = 0; k < matrix4_misc.length; k++) {
-    //                 if (k == 4) {
-    //                     matrix4_misc[k].innerHTML = "Doesn't exist";
-    //                 }
-    //                 else {
-    //                     matrix4_misc[k].innerHTML = "--";
-    //                 }
-    //             }
-    //             while (misc_array_3.length > 0) {
-    //                 misc_array_3.pop();
-    //             }
-    //         }
-    //         else {
-    //             minor3x3();
-    //             cofactor3x3();
-    //             adjoint3x3();
+            if (det == 0) {
+                console.log("Inverse doesn't exist.");
+                for (let k = 0; k < matrix4_misc.length; k++) {
+                    if (k == 4) {
+                        matrix4_misc[k].innerHTML = "Doesn't exist";
+                    }
+                    else {
+                        matrix4_misc[k].innerHTML = "--";
+                    }
+                }
+                while (misc_array_3.length > 0) {
+                    misc_array_3.pop();
+                }
+            }
+            else {
+                minor3x3();
+                cofactor3x3();
+                adjoint3x3();
 
-    //             const numerator = [];
-    //             const denominator = [];
-    //             for (let k = 0; k < matrix4_misc.length; k++) {
-    //                 if ((adj[k] % det) !== 0 && (det % adj[k]) !== 0) {
-    //                     if (adj[k] < 0 && det < 0) {
-    //                         for (let y = 0; y <= ((-1) * adj[k]) && y <= ((-1) * det); y++) {
-    //                             if ((((-1) * adj[k]) % y) == 0 && (((-1) * det) % y) == 0) {
-    //                                 var hcf = y;
-    //                             }
-    //                         }
-    //                         numerator[k] = (adj[k] / hcf);
-    //                         denominator[k] = det / hcf;
+                const numerator = [];
+                const denominator = [];
+                for (let k = 0; k < matrix4_misc.length; k++) {
+                    if ((adj[k] % det) !== 0 && (det % adj[k]) !== 0) {
+                        if (adj[k] < 0 && det < 0) {
+                            for (let y = 0; y <= ((-1) * adj[k]) && y <= ((-1) * det); y++) {
+                                if ((((-1) * adj[k]) % y) == 0 && (((-1) * det) % y) == 0) {
+                                    var hcf = y;
+                                }
+                            }
+                            numerator[k] = (adj[k] / hcf);
+                            denominator[k] = det / hcf;
 
-    //                         if (numerator[k] < 0 && denominator[k] < 0) {
-    //                             matrix4_misc[k].innerHTML = `${(-1) * numerator[k]}/${(-1) * denominator[k]}`;
-    //                         }
-    //                         else {
-    //                             matrix4_misc[k].innerHTML = `${numerator[k]}/${denominator[k]}`;
-    //                         }
-    //                     }
-    //                     else if (adj[k] < 0 && det > 0) {
-    //                         for (let y = 0; y <= ((-1) * adj[k]) && y <= det; y++) {
-    //                             if ((((-1) * adj[k]) % y) == 0 && (det % y) == 0) {
-    //                                 var hcf = y;
-    //                             }
-    //                         }
-    //                         numerator[k] = (adj[k] / hcf);
-    //                         denominator[k] = det / hcf;
+                            if (numerator[k] < 0 && denominator[k] < 0) {
+                                matrix4_misc[k].innerHTML = `${(-1) * numerator[k]}/${(-1) * denominator[k]}`;
+                            }
+                            else {
+                                matrix4_misc[k].innerHTML = `${numerator[k]}/${denominator[k]}`;
+                            }
+                        }
+                        else if (adj[k] < 0 && det > 0) {
+                            for (let y = 0; y <= ((-1) * adj[k]) && y <= det; y++) {
+                                if ((((-1) * adj[k]) % y) == 0 && (det % y) == 0) {
+                                    var hcf = y;
+                                }
+                            }
+                            numerator[k] = (adj[k] / hcf);
+                            denominator[k] = det / hcf;
 
-    //                         matrix4_misc[k].innerHTML = `${numerator[k]}/${denominator[k]}`;
-    //                     }
-    //                     else if (adj[k] > 0 && det < 0) {
-    //                         for (let y = 0; y <= adj[k] && y <= ((-1) * det); y++) {
-    //                             if ((adj[k] % y) == 0 && (((-1) * det) % y) == 0) {
-    //                                 var hcf = y;
-    //                             }
-    //                         }
-    //                         numerator[k] = (adj[k] / hcf);
-    //                         denominator[k] = ((-1) * det) / hcf;
-    //                         matrix4_misc[k].innerHTML = `-${numerator[k]}/${denominator[k]}`;
-    //                     }
-    //                     else if (adj[k] > 0 && det > 0) {
-    //                         for (let y = 0; y <= adj[k] && y <= det; y++) {
-    //                             if ((adj[k] % y) == 0 && (det % y) == 0) {
-    //                                 var hcf = y;
-    //                             }
-    //                         }
-    //                         numerator[k] = (adj[k] / hcf);
-    //                         denominator[k] = det / hcf;
+                            matrix4_misc[k].innerHTML = `${numerator[k]}/${denominator[k]}`;
+                        }
+                        else if (adj[k] > 0 && det < 0) {
+                            for (let y = 0; y <= adj[k] && y <= ((-1) * det); y++) {
+                                if ((adj[k] % y) == 0 && (((-1) * det) % y) == 0) {
+                                    var hcf = y;
+                                }
+                            }
+                            numerator[k] = (adj[k] / hcf);
+                            denominator[k] = ((-1) * det) / hcf;
+                            matrix4_misc[k].innerHTML = `-${numerator[k]}/${denominator[k]}`;
+                        }
+                        else if (adj[k] > 0 && det > 0) {
+                            for (let y = 0; y <= adj[k] && y <= det; y++) {
+                                if ((adj[k] % y) == 0 && (det % y) == 0) {
+                                    var hcf = y;
+                                }
+                            }
+                            numerator[k] = (adj[k] / hcf);
+                            denominator[k] = det / hcf;
 
-    //                         matrix4_misc[k].innerHTML = `${numerator[k]}/${denominator[k]}`;
-    //                     }
-    //                 }
-    //                 else if ((adj[k] % det) == 0) {
-    //                     matrix4_misc[k].innerHTML = adj[k] / det;
-    //                 }
-    //                 else if (det % adj[k] == 0) {
-    //                     if (adj[k] < 0 && det > 0) {
-    //                         matrix4_misc[k].innerHTML = `-1/${(-1) * (det / adj[k])}`;
-    //                     }
-    //                     else if (adj[k] > 0 && det < 0) {
-    //                         matrix4_misc[k].innerHTML = `-1/${(-1) * (det / adj[k])}`;
-    //                     }
-    //                     else {
-    //                         matrix4_misc[k].innerHTML = `1/${det / adj[k]}`;
-    //                     }
-    //                 }
-    //                 else {
-    //                     if (adj[k] < 0 && det < 0) {
-    //                         matrix4_misc[k].innerHTML = `${(-1) * adj[k]}/${(-1) * det}`;
-    //                     }
+                            matrix4_misc[k].innerHTML = `${numerator[k]}/${denominator[k]}`;
+                        }
+                    }
+                    else if ((adj[k] % det) == 0) {
+                        matrix4_misc[k].innerHTML = adj[k] / det;
+                    }
+                    else if (det % adj[k] == 0) {
+                        if (adj[k] < 0 && det > 0) {
+                            matrix4_misc[k].innerHTML = `-1/${(-1) * (det / adj[k])}`;
+                        }
+                        else if (adj[k] > 0 && det < 0) {
+                            matrix4_misc[k].innerHTML = `-1/${(-1) * (det / adj[k])}`;
+                        }
+                        else {
+                            matrix4_misc[k].innerHTML = `1/${det / adj[k]}`;
+                        }
+                    }
+                    else {
+                        if (adj[k] < 0 && det < 0) {
+                            matrix4_misc[k].innerHTML = `${(-1) * adj[k]}/${(-1) * det}`;
+                        }
 
-    //                     else {
-    //                         matrix4_misc[k].innerHTML = `${adj[k]}/${det}`;
-    //                     }
-    //                 }
-    //             }
-    //             while (misc_array_3.length > 0) {
-    //                 misc_array_3.pop();
-    //             }
-    //             while (minor_array.length > 0) {
-    //                 minor_array.pop();
-    //             }
-    //             while (cofactor.length > 0) {
-    //                 cofactor.pop();
-    //             }
-    //             while (adj.length > 0) {
-    //                 adj.pop();
-    //             }
-    //         }
-    //     }
-    //     else if (misc_selection_2.options[misc_selection_2.selectedIndex].value == "minor") {
-    //         for (let k = 0; k < matrix3_misc.length; k++) {
-    //             misc_array_3.push(Number(matrix3_misc[k].value));
-    //         }
-    //         minor3x3();
-    //     }
-    //     else if (misc_selection_2.options[misc_selection_2.selectedIndex].value == "determinant") {
-    //         for (let k = 0; k < matrix3_misc.length; k++) {
-    //             misc_array_3.push(Number(matrix3_misc[k].value));
-    //         }
+                        else {
+                            matrix4_misc[k].innerHTML = `${adj[k]}/${det}`;
+                        }
+                    }
+                }
+                while (misc_array_3.length > 0) {
+                    misc_array_3.pop();
+                }
+                while (minor_array.length > 0) {
+                    minor_array.pop();
+                }
+                while (cofactor.length > 0) {
+                    cofactor.pop();
+                }
+                while (adj.length > 0) {
+                    adj.pop();
+                }
+            }
+        }
+        else if (selection_text_misc_3x3.textContent == "Minor") {
+            for (let k = 0; k < matrix3_misc.length; k++) {
+                misc_array_3.push(Number(matrix3_misc[k].value));
+            }
+            minor3x3();
+        }
+        else if (selection_text_misc_3x3.textContent == "Determinant") {
+            for (let k = 0; k < matrix3_misc.length; k++) {
+                misc_array_3.push(Number(matrix3_misc[k].value));
+            }
 
-    //         var det = (misc_array_3[0] * ((misc_array_3[4] * misc_array_3[8]) - (misc_array_3[5] * misc_array_3[7]))) - (misc_array_3[1] * ((misc_array_3[3] * misc_array_3[8]) - (misc_array_3[6] * misc_array_3[5]))) + (misc_array_3[2] * ((misc_array_3[3] * misc_array_3[7]) - (misc_array_3[6] * misc_array_3[4])));
-    //         // matrix4_misc[4].innerHTML = det;
+            var det = (misc_array_3[0] * ((misc_array_3[4] * misc_array_3[8]) - (misc_array_3[5] * misc_array_3[7]))) - (misc_array_3[1] * ((misc_array_3[3] * misc_array_3[8]) - (misc_array_3[6] * misc_array_3[5]))) + (misc_array_3[2] * ((misc_array_3[3] * misc_array_3[7]) - (misc_array_3[6] * misc_array_3[4])));
+            
 
-    //         for (let k = 0; k < matrix4_misc.length; k++) {
-    //             if (k == 4) {
-    //                 matrix4_misc[k].innerHTML = det;
-    //             }
-    //             else {
-    //                 matrix4_misc[k].innerHTML = '--';
-    //             }
-    //         }
-    //         while (misc_array_3.length > 0) {
-    //             misc_array_3.pop();
-    //         }
-    //     }
-    //     else if (misc_selection_2.options[misc_selection_2.selectedIndex].value == "adjoint") {
-    //         for (let k = 0; k < matrix3_misc.length; k++) {
-    //             misc_array_3.push(Number(matrix3_misc[k].value));
-    //         }
-    //         minor3x3();
-    //         cofactor3x3();
-    //         adjoint3x3();
-    //     }
-    //     else if (misc_selection_2.options[misc_selection_2.selectedIndex].value == "cofactor") {
-    //         for (let k = 0; k < matrix3_misc.length; k++) {
-    //             misc_array_3.push(Number(matrix3_misc[k].value));
-    //         }
-    //         minor3x3();
-    //         cofactor3x3();
-    //     }
-    //     return null;
-    // }
+            for (let k = 0; k < matrix4_misc.length; k++) {
+                if (k == 4) {
+                    matrix4_misc[k].innerHTML = det;
+                }
+                else {
+                    matrix4_misc[k].innerHTML = '--';
+                }
+            }
+            while (misc_array_3.length > 0) {
+                misc_array_3.pop();
+            }
+        }
+        else if (selection_text_misc_3x3.textContent == "Adjoint") {
+            for (let k = 0; k < matrix3_misc.length; k++) {
+                misc_array_3.push(Number(matrix3_misc[k].value));
+            }
+            minor3x3();
+            cofactor3x3();
+            adjoint3x3();
+        }
+        else if (selection_text_misc_3x3.textContent == "Co-factor") {
+            for (let k = 0; k < matrix3_misc.length; k++) {
+                misc_array_3.push(Number(matrix3_misc[k].value));
+            }
+            minor3x3();
+            cofactor3x3();
+        }
+        return null;
+    }
 
     drop_down_basic_2x2.forEach(function (field) {
         field.addEventListener("click", function (e) {
@@ -853,7 +846,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             matrixoperation2x2();
         });
-    });
+    })
 
     drop_down_basic_3x3.forEach(field => {
         field.addEventListener("click", (e) => {
@@ -873,6 +866,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     drop_down_misc_2x2.forEach(field => {
         field.addEventListener("click", (e) => {
+            matrix2_misc_outer.classList.add("change-2x2");
             if(e.target.innerHTML == "Transpose") {
                 selection_text_misc_2x2.textContent = e.target.innerHTML;
             }
@@ -897,6 +891,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     drop_down_misc_3x3.forEach(field => {
         field.addEventListener("click", (e) => {
+            matrix4_misc_outer.classList.add("change-3x3");
             if(e.target.innerHTML == "Transpose") {
                 selection_text_misc_3x3.textContent = e.target.innerHTML;
             }
@@ -919,27 +914,16 @@ document.addEventListener("DOMContentLoaded", function () {
         })
     })
 
-    // selected.onchange = () => {
-    //     matrixoperation2x2();
-    // }
-    // misc_selection.onchange = () => {
-    //     miscoperation2x2();
-    //     matrix2_misc_outer.classList.add("change-2x2");
-    // }
-    // misc_selection_2.onchange = () => {
-    //     miscoperation3x3();
-    //     matrix4_misc_outer.classList.add("change-3x3");
-    // }
 
+    matrix1_misc.forEach(field => {
+        field.onkeyup = () => {
+            miscoperation2x2();
+        }
+    })
 
-    // matrix1_misc.forEach(function (field) {
-    //     field.onkeyup = () => {
-    //         miscoperation2x2();
-    //     }
-    // });
-    // matrix3_misc.forEach(function (field) {
-    //     field.onkeyup = () => {
-    //         miscoperation3x3();
-    //     }
-    // });
+    matrix3_misc.forEach(field => {
+        field.onkeyup = () => {
+            miscoperation3x3();
+        }
+    })
 });
