@@ -365,7 +365,6 @@ document.addEventListener("DOMContentLoaded", function () {
             array3.push(Number((array1[6] * array2[1]) + (array1[7] * array2[4]) + (array1[8] * array2[7])));
             array3.push(Number((array1[6] * array2[2]) + (array1[7] * array2[5]) + (array1[8] * array2[8])));
 
-            console.log(array3);
 
             for (let i = 0; i < matrix3.length; i++) {
                 matrix3[i].innerHTML = array3[i];
