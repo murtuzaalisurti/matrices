@@ -1,7 +1,6 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 :root{
     --primarycolor: #363636;
@@ -169,7 +168,6 @@ input:focus, input:hover{
 }
 .grid-items{
     border: 1px solid var(--matrixcolor);
-    overflow: hidden;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     color: var(--textcolor);
@@ -189,14 +187,14 @@ input::placeholder{
 }
 
 .change-3x3{
-    width: 210px;
-    grid-template-columns: 70px 70px 70px;
-    grid-template-rows: 70px 70px 70px;
+    transform: scale(1.2);
+    font-size: 0.8rem;
+    transition: all 0.3s ease-out;
 }
 .change-2x2{
-    width: 120px;
-    grid-template-columns: 60px 60px;
-    grid-template-rows: 60px 60px;
+    transform: scale(1.2);
+    font-size: 0.8rem;
+    transition: all 0.3s ease-out;
 }
 .none{
     display: none;
