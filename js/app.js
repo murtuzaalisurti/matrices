@@ -794,7 +794,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             var det = (misc_array_3[0] * ((misc_array_3[4] * misc_array_3[8]) - (misc_array_3[5] * misc_array_3[7]))) - (misc_array_3[1] * ((misc_array_3[3] * misc_array_3[8]) - (misc_array_3[6] * misc_array_3[5]))) + (misc_array_3[2] * ((misc_array_3[3] * misc_array_3[7]) - (misc_array_3[6] * misc_array_3[4])));
-            // matrix4_misc[4].innerHTML = det;
 
             for (let k = 0; k < matrix4_misc.length; k++) {
                 if (k == 4) {
