@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // general variables
+    let matrix_focus = document.querySelector("#container-1");
     // basic operation variables ---------------------------------
     let matrix1 = document.querySelectorAll("div#matrix-1 input");
     let matrix2 = document.querySelectorAll("div#matrix-2 input");
@@ -27,6 +29,9 @@ document.addEventListener("DOMContentLoaded", function () {
     let matrix4_misc = document.querySelectorAll("div#matrix-3x3-misc-2 div");
     let matrix2_misc_outer = document.querySelector("#matrix-2x2-misc-2");
     let matrix4_misc_outer = document.querySelector("#matrix-3x3-misc-2");
+
+    // styling
+
 
     // basic operations variables of 3x3 matrix
     const array1 = [];
@@ -460,7 +465,7 @@ document.addEventListener("DOMContentLoaded", function () {
         })
     })
 
-    matrix1.forEach(field => {
+    matrix1.forEach((field, index) => {
         field.onkeyup = () => {
             // setTimeout(function () {
             //     console.log(index);
@@ -474,6 +479,14 @@ document.addEventListener("DOMContentLoaded", function () {
             // }, 1500);
             matrixoperation3x3();
         }
+        // field.addEventListener("click", () => {
+        //     matrix_focus.classList.add("focus-spotlight");
+        // })
+        
+        // matrix_focus.classList.remove("focus-spotlight");
+
+        // console.log(matrix_focus);
+        // console.log(field.focus());
     })
 
     matrix2.forEach(field => {

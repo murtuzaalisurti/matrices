@@ -1,24 +1,25 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 :root{
     --primarycolor: #363636;
     --matrixcolor: #222222;
-    --textcolor: #ececec;
+    --matrixcolor_2: #ff754be3;
+    --matrix_output: rgb(255, 114, 71);
+    --textcolor: #ffffff;
     --boxshadowcolor1: #797979be;
     --boxshadowcolor2: rgba(0, 0, 0, 0.794);
 }
 body{
     background-color: var(--primarycolor);
-    background: linear-gradient(to right var(--primarycolor) var(--matrixcolor));
+    background: linear-gradient(to right bottom, var(--primarycolor), var(--matrixcolor));
 }
 .heading-container{
     display: flex;
     flex-flow: row;
     justify-content: center;
-    background-color: #e4d9ff;
-    background-color: var(--primarycolor);
     padding: 2rem;
 }
 .below-heading-container{
@@ -66,12 +67,16 @@ body{
     color: #351c74;
     color: var(--textcolor);
 }
-.container-main, .container-main-select, .container-main-misc-3x3{
+
+.container-main, .container-main-2, .container-main-select, .container-main-misc-3x3, .container-main-misc-2x2{
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
     align-items: center;
     margin: 20px 50px; 
+}
+.container-main-misc-3x3, .container-main-misc-2x2{
+    margin-bottom: 240px;
 }
 .container-main-select{
     margin: 5px;
@@ -82,8 +87,6 @@ body{
     align-items: center;
     margin-top: 50px;
     margin-bottom: 20px;
-    background-color: #e4d9ff;
-    background-color: var(--matrixcolor);
 }
 .heading-misc{
     color: #33427e;
@@ -128,47 +131,50 @@ body{
 }
 
 input{
-    background-color: var(--matrixcolor);
+    background-color: var(--matrixcolor_2);
     border: 1px transparent;
     border-radius: 5px;
+    transition: border ease-out 250ms;
 }
-input:focus{
-    outline: 2px solid var(--textcolor);
-}
+
 input:focus, input:hover{
-    box-shadow: 0.08rem 0.08rem 0.35rem 0rem var(--boxshadowcolor2), -0.08rem -0.08rem 0.35rem 0rem var(--boxshadowcolor1);
-    transition: box-shadow ease-out 200ms;
+    outline: none;
+    border: 2px solid var(--textcolor);
+    border-radius: 5px;
+    transition: border ease-out 250ms;
 }
-.container-main-2, .container-main-misc-2x2{
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-    align-items: center;
+.container-main-2{
     margin: 50px 50px; 
 }
 .grid-container{
     display: grid;
-    width: 180px;
-    grid-template-columns: 60px 60px 60px;
-    grid-template-rows: 60px 60px 60px;
+    width: 195px;
+    grid-template-columns: 65px 65px 65px;
+    grid-template-rows: 65px 65px 65px;
     justify-items: center;
-    background-color: var(--matrixcolor);
+    background-color: var(--matrixcolor_2);
     border: 1px transparent;
     border-radius: 5px;
-    box-shadow: 1rem 0rem 1rem 0rem var(--textcolor), -0.4rem 0rem 0.5rem 0rem var(--textcolor);
-    box-shadow: 0.29rem 0.29rem 1rem 0rem var(--boxshadowcolor2), -0.1rem -0.1rem 0.8rem 0rem var(--boxshadowcolor1);
-    transition: box-shadow ease-out 300ms;
+    box-shadow: 0.45rem 0.45rem 1rem 0rem var(--boxshadowcolor2);
 }
-.grid-container:hover{
-    box-shadow: 0.4rem 0.4rem 1.4rem 0rem var(--boxshadowcolor2), -0.4rem -0.4rem 1.05rem 0rem var(--boxshadowcolor1);
+/* .grid-container:focus-within{
+    box-shadow: 1.2rem 1.2rem 2rem 0rem var(--boxshadowcolor2);
+    transform: translateY(-10%);
+    transition:  all ease-out 0.3s;
 }
+.grid-container:not(:focus-within){
+    box-shadow: 0.45rem 0.45rem 1rem 0rem var(--boxshadowcolor2);
+    transform: translateY(0);
+    transition: all ease-out 0.3s;
+} */
+
 .grid-container-2x2{
-    width: 100px;
-    grid-template-columns: 50px 50px;
-    grid-template-rows: 50px 50px;
+    width: 120px;
+    grid-template-columns: 60px 60px;
+    grid-template-rows: 60px 60px;
 }
 .grid-items{
-    border: 1px solid var(--matrixcolor);
+    border: 1px solid var(--matrixcolor_2);
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     color: var(--textcolor);
@@ -188,15 +194,31 @@ input::placeholder{
 }
 
 .change-3x3{
+    -moz-transform: scale(1.2);
     transform: scale(1.2);
-    font-size: 0.8rem;
+    font-size: 1rem;
     transition: all 0.3s ease-out;
 }
 .change-2x2{
+    -moz-transform: scale(1.2);
     transform: scale(1.2);
-    font-size: 0.8rem;
+    font-size: 1rem;
     transition: all 0.3s ease-out;
 }
+#matrix-3x3-misc-2, #matrix-2x2-misc-2, #matrix-2x2-3, #matrix-3{
+    background-color: var(--matrix_output);
+}
+.grid-container:focus-within{
+    box-shadow: 1.2rem 1.2rem 2rem 0rem var(--boxshadowcolor2);
+    transform: translateY(-10%);
+    transition:  all ease-out 0.3s;
+}
+.grid-container:not(:focus-within){
+    box-shadow: 0.45rem 0.45rem 1rem 0rem var(--boxshadowcolor2);
+    transform: translateY(0);
+    transition: all ease-out 0.3s;
+}
+
 .none{
     display: none;
 }
@@ -204,6 +226,9 @@ input[type=number]::-webkit-outer-spin-button,
 input[type=number]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+input[type=number]{
+    appearance: textfield;
 }
 
 @media (max-width: 33rem){
@@ -245,9 +270,9 @@ input[type=number]::-webkit-inner-spin-button {
 .drop-down {
     height: 2.5em;
     width: 14em;
-    border: 1px transparent;
+    border: 3px solid #ff8560;
     border-radius: 10px;
-    background-color: aquamarine;
+    background-color: #ffffff;
     position: relative;
 }
 .pos{
@@ -273,21 +298,22 @@ input[type=number]::-webkit-inner-spin-button {
 .drop-down:hover ul{
     font-family: 'Montserrat', sans-serif;
     border: 1px transparent;
+    border: 3px solid #ff8560;
     border-radius: 10px;
     opacity: 1;
     visibility: visible;
     transition: opacity 500ms linear, visibility 0s linear;
 }
 .drop-down:hover ul li:hover{
-    background-color: blueviolet;
-    color: aqua;
+    background-color: #ff916f;
+    color: #ffffff;
 }
 
 
 #drop-down-misc-2x2:hover li:first-child, #drop-down-misc-3x3:hover li:first-child{
     border: 1px transparent;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
     opacity: 1;
     transition: opacity ease-out 0.2s;
     transition-delay: 0.1s;
@@ -314,8 +340,8 @@ input[type=number]::-webkit-inner-spin-button {
 }
 #drop-down-misc-2x2:hover li:last-child, #drop-down-misc-3x3:hover li:last-child{
     border: 1px transparent;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
     opacity: 1;
     transition: opacity ease-out .2s;
     transition-delay: 1s;
@@ -324,8 +350,8 @@ input[type=number]::-webkit-inner-spin-button {
 
 #drop-down-basic-2x2:hover li:first-child, #drop-down-basic-3x3:hover li:first-child{
     border: 1px transparent;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
     opacity: 1;
     transition: opacity ease-out 0.2s;
     transition-delay: 0.1s;
@@ -337,8 +363,8 @@ input[type=number]::-webkit-inner-spin-button {
 }
 #drop-down-basic-2x2:hover li:last-child, #drop-down-basic-3x3:hover li:last-child{
     border: 1px transparent;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
     opacity: 1;
     transition: opacity ease-out .2s;
     transition-delay: .4s;
@@ -346,16 +372,16 @@ input[type=number]::-webkit-inner-spin-button {
 
 #drop-down-basic-matrix-select:hover li:first-child, #drop-down-misc-matrix-select:hover li:first-child{
     border: 1px transparent;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
     opacity: 1;
     transition: opacity ease-out 0.2s;
     transition-delay: 0.1s;
 }
 #drop-down-basic-matrix-select:hover li:last-child, #drop-down-misc-matrix-select:hover li:last-child{
     border: 1px transparent;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
     opacity: 1;
     transition: opacity ease-out 0.2s;
     transition-delay: 0.2s;
@@ -365,11 +391,12 @@ input[type=number]::-webkit-inner-spin-button {
 ul{
     list-style-type: none;
     font-family: 'Montserrat', sans-serif;
-    border: 1px transparent;
+    border: 3px solid #ff8560;
     border-radius: 10px;
     width: 14em;
+    margin-top: 5px;
     margin-bottom: 1rem;
-    background-color: aquamarine;
+    background-color: #ffffff;
     visibility: hidden;
     opacity: 0;
     transition: opacity 500ms linear, visibility 0s linear 500ms;
