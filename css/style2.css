@@ -108,8 +108,17 @@ body{
 #container-3, #container-4, #container-5{
     align-self: center;
 }
-#container-4{
+.container-4-2x2, .container-4-3x3{
     font-size: 25px;
+    color: #ffffff;
+    transform: translate(0) scale(1);
+    transition: transform 0.3s ease-in-out;
+}
+.equal-to{
+    font-size: 25px;
+    color: #ffffff;
+    transform: translateX(60%) scale(1.5);
+    transition: transform 0.3s ease-in-out;
 }
 #matrix-selection, #matrix-selection-misc{
     display: flex;
@@ -196,14 +205,10 @@ input::placeholder{
     transition: all ease-out 0.3s;
 }
 .change-3x3{
-    -moz-transform: scale(1.2);
-    transform: scale(1.2);
     font-size: 1rem;
     transition: all 0.3s ease-out;
 }
 .change-2x2{
-    -moz-transform: scale(1.2);
-    transform: scale(1.2);
     font-size: 1rem;
     transition: all 0.3s ease-out;
 }

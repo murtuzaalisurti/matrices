@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     // general variables
-    let matrix_focus = document.querySelector("#container-1");
+    let equal_to_2x2 = document.querySelector("div.container-4-2x2");
+    let equal_to_3x3 = document.querySelector("div.container-4-3x3");
+
     // basic operation variables ---------------------------------
     let matrix1 = document.querySelectorAll("div#matrix-1 input");
     let matrix2 = document.querySelectorAll("div#matrix-2 input");
@@ -848,6 +850,8 @@ document.addEventListener("DOMContentLoaded", function () {
     drop_down_basic_2x2.forEach(function (field) {
         field.addEventListener("click", function (e) {
             matrix6_outer.classList.add("change-2x2");
+            equal_to_2x2.classList.remove("container-4-2x2");
+            equal_to_2x2.classList.add("equal-to");
             if (e.target.innerHTML == "Addition") {
                 // selection_text_basic_2x2.textContent = "Addition";
                 // OR
@@ -858,12 +862,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 selection_text_basic_2x2.textContent = e.target.innerHTML;
             }
             matrixoperation2x2();
+            setTimeout(() => {
+                equal_to_2x2.classList.remove("equal-to");
+                equal_to_2x2.classList.add("container-4-2x2");
+            }, 500);
         });
     })
 
     drop_down_basic_3x3.forEach(field => {
         field.addEventListener("click", (e) => {
             matrix3_outer.classList.add("change-3x3");
+            equal_to_3x3.classList.remove("container-4-3x3");
+            equal_to_3x3.classList.add("equal-to");
             if(e.target.innerHTML == "Addition") {
                 selection_text_basic_3x3.textContent = e.target.innerHTML;
             }
@@ -874,6 +884,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 selection_text_basic_3x3.textContent = e.target.innerHTML;
             }
             matrixoperation3x3();
+            setTimeout(() => {
+                equal_to_3x3.classList.remove("equal-to");
+                equal_to_3x3.classList.add("container-4-3x3");
+            }, 500);
         })
     })
 
