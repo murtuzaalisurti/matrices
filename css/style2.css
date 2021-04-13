@@ -157,17 +157,6 @@ input:focus, input:hover{
     border-radius: 5px;
     box-shadow: 0.45rem 0.45rem 1rem 0rem var(--boxshadowcolor2);
 }
-/* .grid-container:focus-within{
-    box-shadow: 1.2rem 1.2rem 2rem 0rem var(--boxshadowcolor2);
-    transform: translateY(-10%);
-    transition:  all ease-out 0.3s;
-}
-.grid-container:not(:focus-within){
-    box-shadow: 0.45rem 0.45rem 1rem 0rem var(--boxshadowcolor2);
-    transform: translateY(0);
-    transition: all ease-out 0.3s;
-} */
-
 .grid-container-2x2{
     width: 120px;
     grid-template-columns: 60px 60px;
@@ -193,18 +182,6 @@ input::placeholder{
     justify-content: center;
 }
 
-.change-3x3{
-    -moz-transform: scale(1.2);
-    transform: scale(1.2);
-    font-size: 1rem;
-    transition: all 0.3s ease-out;
-}
-.change-2x2{
-    -moz-transform: scale(1.2);
-    transform: scale(1.2);
-    font-size: 1rem;
-    transition: all 0.3s ease-out;
-}
 #matrix-3x3-misc-2, #matrix-2x2-misc-2, #matrix-2x2-3, #matrix-3{
     background-color: var(--matrix_output);
 }
@@ -217,6 +194,18 @@ input::placeholder{
     box-shadow: 0.45rem 0.45rem 1rem 0rem var(--boxshadowcolor2);
     transform: translateY(0);
     transition: all ease-out 0.3s;
+}
+.change-3x3{
+    -moz-transform: scale(1.2);
+    transform: scale(1.2);
+    font-size: 1rem;
+    transition: all 0.3s ease-out;
+}
+.change-2x2{
+    -moz-transform: scale(1.2);
+    transform: scale(1.2);
+    font-size: 1rem;
+    transition: all 0.3s ease-out;
 }
 
 .none{
