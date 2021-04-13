@@ -442,12 +442,12 @@ document.addEventListener("DOMContentLoaded", function () {
             if (e.target.innerHTML == "2 x 2") {
                 document.querySelector(".container-main").classList.add("none");
                 document.querySelector(".container-main-2").classList.remove("none");
-                document.querySelector("#matrix-label").innerText = "2 x 2 Matrix";
+                // document.querySelector("#matrix-label").innerText = "2 x 2 Matrix";
             }
             if (e.target.innerHTML == "3 x 3") {
                 document.querySelector(".container-main-2").classList.add("none");
                 document.querySelector(".container-main").classList.remove("none");
-                document.querySelector("#matrix-label").innerText = "3 x 3 Matrix";
+                // document.querySelector("#matrix-label").innerText = "3 x 3 Matrix";
             }
         })
     })
@@ -457,12 +457,12 @@ document.addEventListener("DOMContentLoaded", function () {
             if (e.target.innerHTML == "2 x 2") {
                 document.querySelector(".container-main-misc-3x3").classList.add("none");
                 document.querySelector(".container-main-misc-2x2").classList.remove("none");
-                document.querySelector("#matrix-label-misc").innerText = "2 x 2 Matrix";
+                // document.querySelector("#matrix-label-misc").innerText = "2 x 2 Matrix";
             }
             if (e.target.innerHTML == "3 x 3") {
                 document.querySelector(".container-main-misc-2x2").classList.add("none");
                 document.querySelector(".container-main-misc-3x3").classList.remove("none");
-                document.querySelector("#matrix-label-misc").innerText = "3 x 3 Matrix";
+                // document.querySelector("#matrix-label-misc").innerText = "3 x 3 Matrix";
             }
         })
     })
