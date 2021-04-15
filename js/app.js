@@ -1,27 +1,39 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // general variables
+    let equal_to_2x2 = document.querySelector("div.container-4-2x2");
+    let equal_to_3x3 = document.querySelector("div.container-4-3x3");
+
     // basic operation variables ---------------------------------
-    var matrix1 = document.querySelectorAll("div#matrix-1 input");
-    var matrix2 = document.querySelectorAll("div#matrix-2 input");
-    var matrix3 = document.querySelectorAll("div#matrix-3 div");
-    var matrix3_outer = document.querySelector("#matrix-3");
-    var selection = document.querySelector("#operations");
-    var selection_2 = document.querySelector("#operations-2");
-    var matrix4 = document.querySelectorAll("div#matrix-2x2-1 input");
-    var matrix5 = document.querySelectorAll("div#matrix-2x2-2 input");
-    var matrix6 = document.querySelectorAll("div#matrix-2x2-3 div");
-    var matrix6_outer = document.querySelector("#matrix-2x2-3");
-    var selectmatrix = document.querySelector("#matrix-selection");
+    let matrix1 = document.querySelectorAll("div#matrix-1 input");
+    let matrix2 = document.querySelectorAll("div#matrix-2 input");
+    let matrix3 = document.querySelectorAll("div#matrix-3 div");
+    let matrix3_outer = document.querySelector("#matrix-3");
+    let matrix4 = document.querySelectorAll("div#matrix-2x2-1 input");
+    let matrix5 = document.querySelectorAll("div#matrix-2x2-2 input");
+    let matrix6 = document.querySelectorAll("div#matrix-2x2-3 div");
+    let matrix6_outer = document.querySelector("#matrix-2x2-3");
+    let drop_down_basic_2x2 = document.querySelectorAll("div#drop-down-basic-2x2 li");
+    let drop_down_misc_2x2 = document.querySelectorAll("div#drop-down-misc-2x2 li");
+    let drop_down_basic_3x3 = document.querySelectorAll("div#drop-down-basic-3x3 li");
+    let drop_down_misc_3x3 = document.querySelectorAll("div#drop-down-misc-3x3 li");
+    let drop_down_basic_matrix_select = document.querySelectorAll("#drop-down-basic-matrix-select li");
+    let drop_down_misc_matrix_select = document.querySelectorAll("#drop-down-misc-matrix-select li");
+    let selection_text_basic_2x2 = document.querySelector("#select_basic_2x2");
+    let selection_text_misc_2x2 = document.querySelector("#select_misc_2x2");
+    let selection_text_misc_3x3 = document.querySelector("#select_misc_3x3");
+    let selection_text_basic_3x3 = document.querySelector("#select_basic_3x3");
+
 
     // misc operation variables -----------------------------------------
-    var matrix1_misc = document.querySelectorAll("div#matrix-2x2-misc input");
-    var matrix2_misc = document.querySelectorAll("div#matrix-2x2-misc-2 div");
-    var matrix3_misc = document.querySelectorAll("div#matrix-3x3-misc input");
-    var matrix4_misc = document.querySelectorAll("div#matrix-3x3-misc-2 div");
-    var matrix2_misc_outer = document.querySelector("#matrix-2x2-misc-2");
-    var matrix4_misc_outer = document.querySelector("#matrix-3x3-misc-2");
-    var misc_selection = document.querySelector("#misc-operations");
-    var misc_selection_2 = document.querySelector("#misc-operations-2");
-    var selectmatrixmisc = document.querySelector("#matrix-selection-misc");
+    let matrix1_misc = document.querySelectorAll("div#matrix-2x2-misc input");
+    let matrix2_misc = document.querySelectorAll("div#matrix-2x2-misc-2 div");
+    let matrix3_misc = document.querySelectorAll("div#matrix-3x3-misc input");
+    let matrix4_misc = document.querySelectorAll("div#matrix-3x3-misc-2 div");
+    let matrix2_misc_outer = document.querySelector("#matrix-2x2-misc-2");
+    let matrix4_misc_outer = document.querySelector("#matrix-3x3-misc-2");
+
+    // styling
+
 
     // basic operations variables of 3x3 matrix
     const array1 = [];
@@ -72,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // functions for miscellaneous operations on 2x2 matrix
     function minor2x2() {
-        if (misc_selection.options[misc_selection.selectedIndex].value == "inverse" || misc_selection.options[misc_selection.selectedIndex].value == "cofactor" || misc_selection.options[misc_selection.selectedIndex].value == "adjoint") {
+        if (selection_text_misc_2x2.textContent == "Inverse" || selection_text_misc_2x2.textContent == "Co-factor" || selection_text_misc_2x2.textContent == "Adjoint") {
             minor_array.push(Number(misc_array_1[3]));
             minor_array.push(Number(misc_array_1[2]));
             minor_array.push(Number(misc_array_1[1]));
@@ -114,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function cofactor2x2() {
-        if (misc_selection.options[misc_selection.selectedIndex].value == "inverse" || misc_selection.options[misc_selection.selectedIndex].value == "adjoint") {
+        if (selection_text_misc_2x2.textContent == "Inverse" || selection_text_misc_2x2.textContent == "Adjoint") {
             cofactor.push(Number(minor_array[0]));
             cofactor.push(Number(((-1) * minor_array[1])));
             cofactor.push(Number(((-1) * minor_array[2])));
@@ -142,7 +154,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function adjoint2x2() {
-        if (misc_selection.options[misc_selection.selectedIndex].value == "inverse") {
+        if (selection_text_misc_2x2.textContent == "Inverse") {
             adj.push(Number(cofactor[0]));
             adj.push(Number(cofactor[2]));
             adj.push(Number(cofactor[1]));
@@ -176,7 +188,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // functions for miscellaneous operations on 3x3 matrix
     function minor3x3() {
-        if (misc_selection_2.options[misc_selection_2.selectedIndex].value == "inverse" || misc_selection_2.options[misc_selection_2.selectedIndex].value == "cofactor" || misc_selection_2.options[misc_selection_2.selectedIndex].value == "adjoint") {
+        if (selection_text_misc_3x3.textContent == "Inverse" || selection_text_misc_3x3.textContent == "Co-factor" || selection_text_misc_3x3.textContent == "Adjoint") {
             minor_array.push(Number((misc_array_3[4] * misc_array_3[8]) - (misc_array_3[5] * misc_array_3[7])));
             minor_array.push(Number((misc_array_3[3] * misc_array_3[8]) - (misc_array_3[6] * misc_array_3[5])));
             minor_array.push(Number((misc_array_3[3] * misc_array_3[7]) - (misc_array_3[6] * misc_array_3[4])));
@@ -234,7 +246,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function cofactor3x3() {
-        if (misc_selection_2.options[misc_selection_2.selectedIndex].value == "inverse" || misc_selection_2.options[misc_selection_2.selectedIndex].value == "adjoint") {
+        if (selection_text_misc_3x3.textContent == "Inverse" || selection_text_misc_3x3.textContent == "Adjoint") {
             cofactor.push(Number(minor_array[0]));
             cofactor.push(Number(((-1) * minor_array[1])));
             cofactor.push(Number((minor_array[2])));
@@ -272,7 +284,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function adjoint3x3() {
-        if(misc_selection_2.options[misc_selection_2.selectedIndex].value == "inverse"){
+        if (selection_text_misc_3x3.textContent == "Inverse") {
             adj.push(Number(cofactor[0]));
             adj.push(Number(cofactor[3]));
             adj.push(Number(cofactor[6]));
@@ -316,7 +328,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // basic operation functions -------------------------------------------
     function matrixoperation3x3() {
-        if (selection.options[selection.selectedIndex].value == "+") {
+        if (selection_text_basic_3x3.textContent == "Addition") {
             for (let i = 0; i < matrix1.length; i++) {
                 array1.push(Number(matrix1[i].value));
             }
@@ -331,7 +343,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             arraypopping();
         }
-        else if (selection.options[selection.selectedIndex].value == "-") {
+        else if (selection_text_basic_3x3.textContent == "Subtraction") {
             for (let i = 0; i < matrix1.length; i++) {
                 array1.push(Number(matrix1[i].value));
             }
@@ -346,7 +358,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             arraypopping();
         }
-        else if (selection.options[selection.selectedIndex].value == "*") {
+        else if (selection_text_basic_3x3.textContent == "Multiplication") {
             for (let i = 0; i < matrix1.length; i++) {
                 array1.push(Number(matrix1[i].value));
             }
@@ -365,6 +377,7 @@ document.addEventListener("DOMContentLoaded", function () {
             array3.push(Number((array1[6] * array2[1]) + (array1[7] * array2[4]) + (array1[8] * array2[7])));
             array3.push(Number((array1[6] * array2[2]) + (array1[7] * array2[5]) + (array1[8] * array2[8])));
 
+            console.log(array3);
 
             for (let i = 0; i < matrix3.length; i++) {
                 matrix3[i].innerHTML = array3[i];
@@ -373,8 +386,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         return null;
     }
+
     function matrixoperation2x2() {
-        if (selection_2.options[selection_2.selectedIndex].value == "+") {
+        if (selection_text_basic_2x2.textContent == "Addition") {
             for (let i = 0; i < matrix4.length; i++) {
                 array4.push(Number(matrix4[i].value));
             }
@@ -389,7 +403,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             arraypopping2x2();
         }
-        else if (selection_2.options[selection_2.selectedIndex].value == "-") {
+        else if (selection_text_basic_2x2.textContent == "Subtraction") {
             for (let i = 0; i < matrix4.length; i++) {
                 array4.push(Number(matrix4[i].value));
             }
@@ -404,7 +418,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             arraypopping2x2();
         }
-        else if (selection_2.options[selection_2.selectedIndex].value == "*") {
+        else if (selection_text_basic_2x2.textContent == "Multiplication") {
             for (let i = 0; i < matrix4.length; i++) {
                 array4.push(Number(matrix4[i].value));
             }
@@ -422,81 +436,70 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         return null;
     }
-    selectmatrix.onchange = () => {
-        if (selectmatrix.options[selectmatrix.selectedIndex].value == "2x2") {
-            document.querySelector(".container-main").classList.add("none");
-            document.querySelector(".container-main-2").classList.remove("none");
-            document.querySelector("#matrix-label").innerText = "2 x 2 Matrix";
-        }
-        else if (selectmatrix.options[selectmatrix.selectedIndex].value == "3x3") {
-            document.querySelector(".container-main-2").classList.add("none");
-            document.querySelector(".container-main").classList.remove("none");
-            document.querySelector("#matrix-label").innerText = "3 x 3 Matrix";
-        }
-    }
-    selection.onchange = () => {
-        matrixoperation3x3();
-        matrix3_outer.classList.add("change-3x3");
-    }
-    selection_2.onchange = () => {
-        matrixoperation2x2();
-        matrix6_outer.classList.add("change-2x2");
-    }
-    matrix1.forEach(function (field) {
-        field.onkeyup = () => {
-            // setTimeout(function () {
-            //     console.log(index);
-            //     if (index === 8) {
-            //         return false
-            //     }
-            //     else if (field.value !== '') {
-            //         console.log(field.nextElementSibling);
-            //         field.nextElementSibling.focus();
-            //     }
-            // }, 1500);
 
-            matrixoperation3x3();
-        }
-    });
+    drop_down_basic_matrix_select.forEach(field => {
+        field.addEventListener("click", (e) => {
+            if (e.target.innerHTML == "2 x 2") {
+                document.querySelector(".container-main").classList.add("none");
+                document.querySelector(".container-main-2").classList.remove("none");
+                document.querySelector("#drop-down-basic-matrix-select p").innerHTML = e.target.innerHTML;
+            }
+            if (e.target.innerHTML == "3 x 3") {
+                document.querySelector(".container-main-2").classList.add("none");
+                document.querySelector(".container-main").classList.remove("none");
+                document.querySelector("#drop-down-basic-matrix-select p").innerHTML = e.target.innerHTML;
+            }
+        })
+    })
 
-    matrix2.forEach(function (field) {
+    drop_down_misc_matrix_select.forEach(field => {
+        field.addEventListener("click", (e) => {
+            if (e.target.innerHTML == "2 x 2") {
+                document.querySelector(".container-main-misc-3x3").classList.add("none");
+                document.querySelector(".container-main-misc-2x2").classList.remove("none");
+                document.querySelector("#drop-down-misc-matrix-select p").innerHTML = e.target.innerHTML;
+            }
+            if (e.target.innerHTML == "3 x 3") {
+                document.querySelector(".container-main-misc-2x2").classList.add("none");
+                document.querySelector(".container-main-misc-3x3").classList.remove("none");
+                document.querySelector("#drop-down-misc-matrix-select p").innerHTML = e.target.innerHTML;
+            }
+        })
+    })
+
+    matrix1.forEach((field, index) => {
         field.onkeyup = () => {
             matrixoperation3x3();
         }
-    });
+    })
 
-    matrix4.forEach(function (field) {
+    matrix2.forEach(field => {
         field.onkeyup = () => {
-            // setTimeout(function () {
-            //     console.log(index);
-            //     if (index === 3) {
-            //         return false
-            //     }
-            //     else if (field.value !== '') {
-            //         console.log(field.nextElementSibling);
-            //         field.nextElementSibling.focus();
-            //     }
-            // }, 1500);
-
-            matrixoperation2x2();
+            matrixoperation3x3();
         }
-    });
+    })
 
-    matrix5.forEach(function (field) {
+    matrix4.forEach(field => {
         field.onkeyup = () => {
             matrixoperation2x2();
         }
-    });
+    })
+
+    matrix5.forEach(field => {
+        field.onkeyup = () => {
+            matrixoperation2x2();
+        }
+    })
 
     // misc operations functions --------------------------------------
     function miscoperation2x2() {
-        if (misc_selection.options[misc_selection.selectedIndex].value == "transpose") {
+        if (selection_text_misc_2x2.textContent == "Transpose") {
             for (let k = 0; k < matrix1_misc.length; k++) {
                 misc_array_1.push(Number(matrix1_misc[k].value));
             }
             transpose2x2();
         }
-        else if (misc_selection.options[misc_selection.selectedIndex].value == "inverse") {
+        else if (selection_text_misc_2x2.textContent == "Inverse") {
             for (let k = 0; k < matrix1_misc.length; k++) {
                 misc_array_1.push(Number(matrix1_misc[k].value));
             }
@@ -616,13 +619,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             }
         }
-        else if (misc_selection.options[misc_selection.selectedIndex].value == "minor") {
+        else if (selection_text_misc_2x2.textContent == "Minor") {
             for (let k = 0; k < matrix1_misc.length; k++) {
                 misc_array_1.push(Number(matrix1_misc[k].value));
             }
             minor2x2();
         }
-        else if (misc_selection.options[misc_selection.selectedIndex].value == "determinant") {
+        else if (selection_text_misc_2x2.textContent == "Determinant") {
             for (let k = 0; k < matrix1_misc.length; k++) {
                 misc_array_1.push(Number(matrix1_misc[k].value));
             }
@@ -641,7 +644,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 misc_array_1.pop();
             }
         }
-        else if (misc_selection.options[misc_selection.selectedIndex].value == "adjoint") {
+        else if (selection_text_misc_2x2.textContent == "Adjoint") {
             for (let k = 0; k < matrix1_misc.length; k++) {
                 misc_array_1.push(Number(matrix1_misc[k].value));
             }
@@ -649,7 +652,7 @@ document.addEventListener("DOMContentLoaded", function () {
             cofactor2x2();
             adjoint2x2();
         }
-        else if (misc_selection.options[misc_selection.selectedIndex].value == "cofactor") {
+        else if (selection_text_misc_2x2.textContent == "Co-factor") {
             for (let k = 0; k < matrix1_misc.length; k++) {
                 misc_array_1.push(Number(matrix1_misc[k].value));
             }
@@ -659,13 +662,13 @@ document.addEventListener("DOMContentLoaded", function () {
         return null;
     }
     function miscoperation3x3() {
-        if (misc_selection_2.options[misc_selection_2.selectedIndex].value == "transpose") {
+        if (selection_text_misc_3x3.textContent == "Transpose") {
             for (let k = 0; k < matrix3_misc.length; k++) {
                 misc_array_3.push(Number(matrix3_misc[k].value));
             }
             transpose3x3();
         }
-        else if (misc_selection_2.options[misc_selection_2.selectedIndex].value == "inverse") {
+        else if (selection_text_misc_3x3.textContent == "Inverse") {
             for (let k = 0; k < matrix3_misc.length; k++) {
                 misc_array_3.push(Number(matrix3_misc[k].value));
             }
@@ -782,18 +785,19 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             }
         }
-        else if (misc_selection_2.options[misc_selection_2.selectedIndex].value == "minor") {
+        else if (selection_text_misc_3x3.textContent == "Minor") {
             for (let k = 0; k < matrix3_misc.length; k++) {
                 misc_array_3.push(Number(matrix3_misc[k].value));
             }
             minor3x3();
         }
-        else if (misc_selection_2.options[misc_selection_2.selectedIndex].value == "determinant") {
+        else if (selection_text_misc_3x3.textContent == "Determinant") {
             for (let k = 0; k < matrix3_misc.length; k++) {
                 misc_array_3.push(Number(matrix3_misc[k].value));
             }
 
             var det = (misc_array_3[0] * ((misc_array_3[4] * misc_array_3[8]) - (misc_array_3[5] * misc_array_3[7]))) - (misc_array_3[1] * ((misc_array_3[3] * misc_array_3[8]) - (misc_array_3[6] * misc_array_3[5]))) + (misc_array_3[2] * ((misc_array_3[3] * misc_array_3[7]) - (misc_array_3[6] * misc_array_3[4])));
+            
 
             for (let k = 0; k < matrix4_misc.length; k++) {
                 if (k == 4) {
@@ -807,7 +811,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 misc_array_3.pop();
             }
         }
-        else if (misc_selection_2.options[misc_selection_2.selectedIndex].value == "adjoint") {
+        else if (selection_text_misc_3x3.textContent == "Adjoint") {
             for (let k = 0; k < matrix3_misc.length; k++) {
                 misc_array_3.push(Number(matrix3_misc[k].value));
             }
@@ -815,7 +819,7 @@ document.addEventListener("DOMContentLoaded", function () {
             cofactor3x3();
             adjoint3x3();
         }
-        else if (misc_selection_2.options[misc_selection_2.selectedIndex].value == "cofactor") {
+        else if (selection_text_misc_3x3.textContent == "Co-factor") {
             for (let k = 0; k < matrix3_misc.length; k++) {
                 misc_array_3.push(Number(matrix3_misc[k].value));
             }
@@ -824,34 +828,111 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         return null;
     }
-    selectmatrixmisc.onchange = () => {
-        if (selectmatrixmisc.options[selectmatrixmisc.selectedIndex].value == "2x2") {
-            document.querySelector(".container-main-misc-3x3").classList.add("none");
-            document.querySelector(".container-main-misc-2x2").classList.remove("none");
-            document.querySelector("#matrix-label-misc").innerText = "2 x 2 Matrix";
-        }
-        else if (selectmatrixmisc.options[selectmatrixmisc.selectedIndex].value == "3x3") {
-            document.querySelector(".container-main-misc-2x2").classList.add("none");
-            document.querySelector(".container-main-misc-3x3").classList.remove("none");
-            document.querySelector("#matrix-label-misc").innerText = "3 x 3 Matrix";
-        }
-    }
-    misc_selection.onchange = () => {
-        miscoperation2x2();
-        matrix2_misc_outer.classList.add("change-2x2");
-    }
-    misc_selection_2.onchange = () => {
-        miscoperation3x3();
-        matrix4_misc_outer.classList.add("change-3x3");
-    }
-    matrix1_misc.forEach(function (field) {
+
+    drop_down_basic_2x2.forEach(function (field) {
+        field.addEventListener("click", function (e) {
+            matrix6_outer.classList.add("change-2x2");
+            equal_to_2x2.classList.remove("container-4-2x2");
+            equal_to_2x2.classList.add("equal-to");
+            if (e.target.innerHTML == "Addition") {
+                // selection_text_basic_2x2.textContent = "Addition";
+                // OR
+                selection_text_basic_2x2.textContent = e.target.innerHTML;
+            } else if (e.target.innerHTML == "Subtraction") {
+                selection_text_basic_2x2.textContent = e.target.innerHTML;
+            } else if (e.target.innerHTML == "Multiplication") {
+                selection_text_basic_2x2.textContent = e.target.innerHTML;
+            }
+            matrixoperation2x2();
+            setTimeout(() => {
+                equal_to_2x2.classList.remove("equal-to");
+                equal_to_2x2.classList.add("container-4-2x2");
+            }, 500);
+        });
+    })
+
+    drop_down_basic_3x3.forEach(field => {
+        field.addEventListener("click", (e) => {
+            matrix3_outer.classList.add("change-3x3");
+            equal_to_3x3.classList.remove("container-4-3x3");
+            equal_to_3x3.classList.add("equal-to");
+            if(e.target.innerHTML == "Addition") {
+                selection_text_basic_3x3.textContent = e.target.innerHTML;
+            }
+            else if(e.target.innerHTML == "Subtraction") {
+                selection_text_basic_3x3.textContent = e.target.innerHTML;
+            }
+            else if(e.target.innerHTML == "Multiplication") {
+                selection_text_basic_3x3.textContent = e.target.innerHTML;
+            }
+            matrixoperation3x3();
+            setTimeout(() => {
+                equal_to_3x3.classList.remove("equal-to");
+                equal_to_3x3.classList.add("container-4-3x3");
+            }, 500);
+        })
+    })
+
+    drop_down_misc_2x2.forEach(field => {
+        field.addEventListener("click", (e) => {
+            matrix2_misc_outer.classList.add("change-2x2");
+            if(e.target.innerHTML == "Transpose") {
+                selection_text_misc_2x2.textContent = e.target.innerHTML;
+            }
+            else if(e.target.innerHTML == "Inverse") {
+                selection_text_misc_2x2.textContent = e.target.innerHTML;
+            }
+            else if(e.target.innerHTML == "Minor") {
+                selection_text_misc_2x2.textContent = e.target.innerHTML;
+            }
+            else if(e.target.innerHTML == "Determinant") {
+                selection_text_misc_2x2.textContent = e.target.innerHTML;
+            }
+            else if(e.target.innerHTML == "Adjoint") {
+                selection_text_misc_2x2.textContent = e.target.innerHTML;
+            }
+            else if(e.target.innerHTML == "Co-factor") {
+                selection_text_misc_2x2.textContent = e.target.innerHTML;
+            }
+            miscoperation2x2();
+        })
+    })
+
+    drop_down_misc_3x3.forEach(field => {
+        field.addEventListener("click", (e) => {
+            matrix4_misc_outer.classList.add("change-3x3");
+            if(e.target.innerHTML == "Transpose") {
+                selection_text_misc_3x3.textContent = e.target.innerHTML;
+            }
+            else if(e.target.innerHTML == "Inverse") {
+                selection_text_misc_3x3.textContent = e.target.innerHTML;
+            }
+            else if(e.target.innerHTML == "Minor") {
+                selection_text_misc_3x3.textContent = e.target.innerHTML;
+            }
+            else if(e.target.innerHTML == "Determinant") {
+                selection_text_misc_3x3.textContent = e.target.innerHTML;
+            }
+            else if(e.target.innerHTML == "Adjoint") {
+                selection_text_misc_3x3.textContent = e.target.innerHTML;
+            }
+            else if(e.target.innerHTML == "Co-factor") {
+                selection_text_misc_3x3.textContent = e.target.innerHTML;
+            }
+            miscoperation3x3();
+        })
+    })
+
+
+    matrix1_misc.forEach(field => {
         field.onkeyup = () => {
             miscoperation2x2();
         }
-    });
-    matrix3_misc.forEach(function (field) {
+    })
+
+    matrix3_misc.forEach(field => {
         field.onkeyup = () => {
             miscoperation3x3();
         }
-    });
+    })
 });
