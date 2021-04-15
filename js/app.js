@@ -442,12 +442,12 @@ document.addEventListener("DOMContentLoaded", function () {
             if (e.target.innerHTML == "2 x 2") {
                 document.querySelector(".container-main").classList.add("none");
                 document.querySelector(".container-main-2").classList.remove("none");
-                // document.querySelector("#matrix-label").innerText = "2 x 2 Matrix";
+                document.querySelector("#drop-down-basic-matrix-select p").innerHTML = e.target.innerHTML;
             }
             if (e.target.innerHTML == "3 x 3") {
                 document.querySelector(".container-main-2").classList.add("none");
                 document.querySelector(".container-main").classList.remove("none");
-                // document.querySelector("#matrix-label").innerText = "3 x 3 Matrix";
+                document.querySelector("#drop-down-basic-matrix-select p").innerHTML = e.target.innerHTML;
             }
         })
     })
@@ -457,38 +457,20 @@ document.addEventListener("DOMContentLoaded", function () {
             if (e.target.innerHTML == "2 x 2") {
                 document.querySelector(".container-main-misc-3x3").classList.add("none");
                 document.querySelector(".container-main-misc-2x2").classList.remove("none");
-                // document.querySelector("#matrix-label-misc").innerText = "2 x 2 Matrix";
+                document.querySelector("#drop-down-misc-matrix-select p").innerHTML = e.target.innerHTML;
             }
             if (e.target.innerHTML == "3 x 3") {
                 document.querySelector(".container-main-misc-2x2").classList.add("none");
                 document.querySelector(".container-main-misc-3x3").classList.remove("none");
-                // document.querySelector("#matrix-label-misc").innerText = "3 x 3 Matrix";
+                document.querySelector("#drop-down-misc-matrix-select p").innerHTML = e.target.innerHTML;
             }
         })
     })
 
     matrix1.forEach((field, index) => {
         field.onkeyup = () => {
-            // setTimeout(function () {
-            //     console.log(index);
-            //     if (index === 8) {
-            //         return false
-            //     }
-            //     else if (field.value !== '') {
-            //         console.log(field.nextElementSibling);
-            //         field.nextElementSibling.focus();
-            //     }
-            // }, 1500);
             matrixoperation3x3();
         }
-        // field.addEventListener("click", () => {
-        //     matrix_focus.classList.add("focus-spotlight");
-        // })
-        
-        // matrix_focus.classList.remove("focus-spotlight");
-
-        // console.log(matrix_focus);
-        // console.log(field.focus());
     })
 
     matrix2.forEach(field => {
