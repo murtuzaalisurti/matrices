@@ -13,16 +13,10 @@ document.addEventListener("DOMContentLoaded", function () {
     let matrix6 = document.querySelectorAll("div#matrix-2x2-3 div");
     let matrix6_outer = document.querySelector("#matrix-2x2-3");
     let drop_down_basic_2x2 = document.querySelectorAll("div#drop-down-basic-2x2 li");
-    let drop_down_misc_2x2 = document.querySelectorAll("div#drop-down-misc-2x2 li");
     let drop_down_basic_3x3 = document.querySelectorAll("div#drop-down-basic-3x3 li");
-    let drop_down_misc_3x3 = document.querySelectorAll("div#drop-down-misc-3x3 li");
     let drop_down_basic_matrix_select = document.querySelectorAll("#drop-down-basic-matrix-select li");
-    let drop_down_misc_matrix_select = document.querySelectorAll("#drop-down-misc-matrix-select li");
     let selection_text_basic_2x2 = document.querySelector("#select_basic_2x2");
-    let selection_text_misc_2x2 = document.querySelector("#select_misc_2x2");
-    let selection_text_misc_3x3 = document.querySelector("#select_misc_3x3");
     let selection_text_basic_3x3 = document.querySelector("#select_basic_3x3");
-
 
     // misc operation variables -----------------------------------------
     let matrix1_misc = document.querySelectorAll("div#matrix-2x2-misc input");
@@ -31,9 +25,11 @@ document.addEventListener("DOMContentLoaded", function () {
     let matrix4_misc = document.querySelectorAll("div#matrix-3x3-misc-2 div");
     let matrix2_misc_outer = document.querySelector("#matrix-2x2-misc-2");
     let matrix4_misc_outer = document.querySelector("#matrix-3x3-misc-2");
-
-    // styling
-
+    let drop_down_misc_2x2 = document.querySelectorAll("div#drop-down-misc-2x2 li");
+    let drop_down_misc_3x3 = document.querySelectorAll("div#drop-down-misc-3x3 li");
+    let selection_text_misc_2x2 = document.querySelector("#select_misc_2x2");
+    let selection_text_misc_3x3 = document.querySelector("#select_misc_3x3");
+    let drop_down_misc_matrix_select = document.querySelectorAll("#drop-down-misc-matrix-select li");
 
     // basic operations variables of 3x3 matrix
     const array1 = [];
