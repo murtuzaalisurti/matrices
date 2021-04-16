@@ -4,17 +4,14 @@
     box-sizing: border-box;
 }
 :root{
-    --primarycolor: #363636;
-    --matrixcolor: #222222;
+    --primarycolor: #222222;
     --matrixcolor_2: #ff754be3;
-    --matrix_output: rgb(255, 114, 71);
     --textcolor: #ffffff;
     --boxshadowcolor1: #797979be;
     --boxshadowcolor2: rgba(0, 0, 0, 0.794);
 }
 body{
     background-color: var(--primarycolor);
-    background: linear-gradient(to right bottom, var(--primarycolor), var(--matrixcolor));
     display: flex;
     flex-flow: column;
     align-items: center;
@@ -25,24 +22,7 @@ body{
     justify-content: center;
     padding: 2rem;
 }
-.below-heading-container{
-    display: flex;
-    flex-flow: row;
-    justify-content: center;
-    position: absolute;
-    top: 8%;
-    left: 25%;
-    width: 50%;
-    z-index: -1;
-}
-.below-heading{
-    display: flex;
-    flex-flow: row;
-    justify-content: center;
-    align-items: center;
-    width: 85%;
-    border-top: 22px solid #e1d5ff;
-}
+
 .heading{
     color: #273469;
     color: var(--textcolor);
@@ -82,17 +62,6 @@ body{
     align-items: center;
     padding-bottom: 4rem;
 }
-.heading-2{
-    color: #33427e;
-    color: var(--textcolor);
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 50px;
-    padding: 10px;
-}
 .heading-for-selection{
     font-family: 'Montserrat', sans-serif;
     font-size: 2.8rem;
@@ -131,13 +100,7 @@ body{
     align-items: center;
     margin-top: 50px;
 }
-.heading-misc{
-    color: #33427e;
-    color: var(--textcolor);
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2rem;
-    padding: 2rem;
-}
+
 #container-1{
     align-self: center;
 }
@@ -238,10 +201,6 @@ input::placeholder{
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-#matrix-3x3-misc-2, #matrix-2x2-misc-2, #matrix-2x2-3, #matrix-3{
-    background-color: var(--matrix_output);
 }
 .grid-container:focus-within{
     box-shadow: 1.2rem 1.2rem 2rem 0rem var(--boxshadowcolor2);
@@ -427,6 +386,15 @@ nav{
     left: 50%;
     transform: translateX(-50%);
     visibility: hidden;
+}
+
+#matrix-3, #matrix-2x2-3, #matrix-2x2-misc-2, #matrix-3x3-misc-2{
+    background-color: var(--matrixcolor_2);
+}
+#matrix-3 div, #matrix-2x2-3 div, #matrix-2x2-misc-2 div, #matrix-3x3-misc-2 div{
+    background-color: var(--matrixcolor_2);
+    border: 1px transparent;
+    border-radius: 5px;
 }
 
 @media (max-width: 63.25rem){
