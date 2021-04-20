@@ -34,6 +34,11 @@
  
  ---
  
+ ## Usage
+ >Visit this [link](https://murtuzaalisurti.github.io/matrices) and you are good to go!
+ 
+ ---
+ 
  ## Tools and Technologies
 
 <details open>
