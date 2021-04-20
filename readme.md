@@ -31,6 +31,7 @@
     -> Inverse</pre>
   </ul>
  </details>
+ 
  >Note: Currently, it only supports operations on 2x2 and 3x3 matrices. Support for a wide range of matrices will soon be available.
  
  ---
