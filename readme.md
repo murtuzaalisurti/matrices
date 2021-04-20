@@ -2,6 +2,8 @@
 
 <img src="assets/Screenshot (487).png" width="450"> <img src="assets/Screenshot (489).png" width="450">
 
+>Note: The above images are not of the 'main' branch. They are a result of changes made in branch 'design'.
+
 ---
 
 ## Which operations can it perform?
@@ -29,3 +31,23 @@
     -> Inverse</pre>
   </ul>
  </details>
+ 
+ ---
+ 
+ ## Tools and Technologies
+
+<details open>
+  <summary><strong>&nbsp;Languages</strong></summary>
+  <ul>
+    <br>
+    <pre>
+    > HTML
+    > CSS
+    > JavaScript</pre>
+  </ul>
+ </details>
+ 
+ ---
+ 
+ ## How can I contribute?
+>Anyone with enough knowledge about web-development can contribute to this project. A necessary description is recommended along with the pull request explaining the changes you would like to make to this project.
