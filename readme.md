@@ -1,6 +1,6 @@
 # Matrix Operations
 
-<img src="assets/Screenshot (487).png" style="display: inline-block" width="500"> <img src="assets/Screenshot (489).png" style="display: inline-block" width="500">
+<img src="assets/Screenshot (487).png" width="400"> <img src="assets/Screenshot (489).png" width="400">
 
 ## This is a webpage which performs matrix (n x n) operations such as:
 * Addition 
