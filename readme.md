@@ -2,7 +2,7 @@
 
 <img src="assets/Screenshot (487).png" width="450"> <img src="assets/Screenshot (489).png" width="450">
 
->Note: The above images are not of the 'main' branch. They are a result of changes made in branch 'design'. Currently, it only supports operations on 2x2 and 3x3 matrices. Support for a wide range of matrices will soon be available.
+>Note: The above images are not of the 'main' branch. They are a result of changes made in branch 'design'.
 
 ---
 
@@ -31,6 +31,7 @@
     -> Inverse</pre>
   </ul>
  </details>
+ >Note: Currently, it only supports operations on 2x2 and 3x3 matrices. Support for a wide range of matrices will soon be available.
  
  ---
  
