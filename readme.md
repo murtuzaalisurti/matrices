@@ -11,9 +11,9 @@
   <ul>
     <br>
     <pre>
-    * Addition
-    * Subtraction
-    * Multiplication</pre>
+    -> Addition
+    -> Subtraction
+    -> Multiplication</pre>
   </ul>
  </details>
  <details open>
@@ -21,15 +21,11 @@
   <ul>
     <br>
     <pre>
-    * Adjugate / Adjoint
-    * Transpose
-    * Minor
-    * Determinant
-    * Co-factor
-    * Inverse</pre>
+    -> Adjugate / Adjoint
+    -> Transpose
+    -> Minor
+    -> Determinant
+    -> Co-factor
+    -> Inverse</pre>
   </ul>
  </details>
-* Determinant
-* Minor
-* Cofactor
-* Transpose
