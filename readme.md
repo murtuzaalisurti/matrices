@@ -56,5 +56,13 @@
  
  ---
  
+ ## Contributors
+ 
+ <a href="https://github.com/murtuzaalisurti/matrices/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=murtuzaalisurti/matrices" />
+</a>
+
+---
+
  ## How can I contribute?
 >Anyone with enough knowledge about web-development can contribute to this project. A necessary description is recommended along with the pull request explaining the changes you would like to make to this project.
